@@ -1,0 +1,16 @@
+site_name: Human-GEM Guide
+nav:
+  - Overview: index.md
+  - Installation: installation.md
+  - Getting started: getting_started.md
+  - Running FBA: running_fba.md
+  - GEM extraction using tINIT: gem_extraction.md
+  - GEM comparison: gem_comparison.md
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - matlab
+markdown_extensions:
+  - admonition
+  - attr_list
