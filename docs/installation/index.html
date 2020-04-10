@@ -57,33 +57,27 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#human-gem">Human-GEM</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#clone-the-repository-recommended">Clone the repository (recommended)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#1-clone-the-repository-recommended">1. Clone the repository (recommended)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#alternative-download-as-a-zip">Alternative: Download as a .zip</a>
+    <li class="toctree-l3"><a class="reference internal" href="#1b-alternative-download-as-a-zip">1b. Alternative: Download as a .zip</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-add-the-repository-to-the-matlab-path">2. Add the repository to the MATLAB path</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#required-software">Required software</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#matlab-r2018-or-newer">MATLAB (R2018 or newer)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#matlab">MATLAB</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#the-raven-toolbox-v231-or-newer">The RAVEN Toolbox (v2.3.1 or newer)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#the-raven-toolbox">The RAVEN Toolbox</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#additional-dependencies">Additional dependencies</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#solver">Solver</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#gurobi-recommended">Gurobi (recommended)</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#mosek">Mosek</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#glpk">GLPK</a>
-    </li>
-        </ul>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#the-cobra-toolbox">The COBRA Toolbox</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#linear-optimization-solver">Linear optimization solver</a>
     </li>
         </ul>
     </li>
@@ -140,32 +134,46 @@
               
                 <h1 id="installation">Installation</h1>
 <h2 id="human-gem">Human-GEM</h2>
-<p>The Human-GEM model is maintained in a <a href="https://github.com/SysBioChalmers/Human-GEM">GitHub repository</a> to facilitate tracking of changes and collaboration. In addition to several different model formats (e.g., <code>.mat</code>, <code>.xml</code>, <code>.yml</code>), the repository contains a number of functions and data files to factilitate Human-GEM analysis, maintenance, editing, and other actions. We therefore recommend cloning the GitHub repository to gain full functionality and easy access to the most updated version of Human-GEM.</p>
-<h4 id="clone-the-repository-recommended">Clone the repository (recommended)</h4>
-<p>Clone the repository using git. Navigate to the directory where you would like to save the Human-GEM repository, and in the command line/terminal run:</p>
+<p>The Human-GEM model is maintained in a <a href="https://github.com/SysBioChalmers/Human-GEM">GitHub repository</a> to track changes and facilitate collaboration. In addition to several different model formats (e.g., <code>.mat</code>, <code>.xml</code>, <code>.yml</code>), the repository contains a number of functions and data files that support Human-GEM analysis, maintenance, editing, and other actions. We therefore recommend cloning the GitHub repository to gain full functionality and easy access to the most updated version of Human-GEM.</p>
+<h4 id="1-clone-the-repository-recommended">1. Clone the repository (recommended)</h4>
+<p>Clone the repository using <a href="https://git-scm.com/">git</a>. Navigate to the directory where you would like to save the Human-GEM repository, and in the command line/terminal run:</p>
 <pre><code class="bash">git clone https://github.com/SysBioChalmers/Human-GEM.git
 </code></pre>
 
-<h4 id="alternative-download-as-a-zip">Alternative: Download as a .zip</h4>
-<p>The latest release of the repository can be downloaded as a <a href="https://github.com/SysBioChalmers/Human-GEM/releases/latest">.zip file</a>.</p>
+<p>This will create a copy of the repository contents on your local machine.</p>
+<h4 id="1b-alternative-download-as-a-zip">1b. Alternative: Download as a .zip</h4>
+<p>The latest release of the repository can be downloaded as a <a href="https://github.com/SysBioChalmers/Human-GEM/releases/latest">.zip or .tar.gz file</a>. Download the file using the link, and unzip/expand the file.</p>
+<h4 id="2-add-the-repository-to-the-matlab-path">2. Add the repository to the MATLAB path</h4>
+<p>In order for MATLAB to find and use the functions and files in the repository directory (and subdirectories), they need to be added to the PATH. In MATLAB, select <code>HOME</code> from the top menu bar, and choose <code>Set Path</code> and then <code>Add with Subfolders...</code>. Choose the <code>code/</code>, <code>data/</code>, and <code>modelFiles/</code> subdirectories in the <code>Human-GEM</code> folder to be added to the path, and click <code>Save</code> when finished.</p>
+<p>Alternatively, you can run the following lines in MATLAB:</p>
+<pre><code class="matlab">cd /my/path/Human-GEM  % replace &quot;/my/path/&quot; with the actual path to the Human-GEM folder
+addpath(strjoin(cellfun(@genpath, split(ls), 'UniformOutput', false), ''));
+savepath
+</code></pre>
+
+<p>Ignore the <code>Warning: Name is nonexistent or not a directory</code> messages.</p>
 <h2 id="required-software">Required software</h2>
-<h3 id="matlab-r2018-or-newer">MATLAB (R2018 or newer)</h3>
-<p>(<a href="https://www.mathworks.com/campaigns/products/trials.highResolutionDisplay.html">30-day trial</a>)</p>
-<h3 id="the-raven-toolbox-v231-or-newer">The RAVEN Toolbox (v2.3.1 or newer)</h3>
-<p><a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#installation">Installation instructions</a></p>
+<h4 id="matlab">MATLAB</h4>
+<p><strong>[R2018 or newer]</strong><br />
+MATLAB is the primary software used for working with Human-GEM. Unfortunately, MATLAB is not free, though a (<a href="https://www.mathworks.com/campaigns/products/trials.highResolutionDisplay.html">30-day trial</a>) is available.</p>
+<h4 id="the-raven-toolbox">The RAVEN Toolbox</h4>
+<p><strong>[v2.3.1 or newer]</strong><br />
+The Human-GEM model files are provided in RAVEN-friendly format, and many of the functions in the Human-GEM repository depend on the RAVEN Toolbox. Ensure that the RAVEN Toolbox is installed and added to your MATLAB path. See the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#installation">RAVEN installation instructions</a> for more detail.</p>
 <h2 id="additional-dependencies">Additional dependencies</h2>
-<h3 id="solver">Solver</h3>
-<p>To run flux balance analysis (FBA) or GEM extraction (using tINIT), a solver is required. A few options are listed below.</p>
-<h4 id="gurobi-recommended">Gurobi (recommended)</h4>
-<h4 id="mosek">Mosek</h4>
-<h4 id="glpk">GLPK</h4>
-<h3 id="the-cobra-toolbox">The COBRA Toolbox</h3>
-<p>The COBRA Toolbox is not required for most of the functions associated with Human-GEM. However, it offers many analysis tools that can be used with Human-GEM.</p>
+<h4 id="the-cobra-toolbox">The COBRA Toolbox</h4>
+<p>The <a href="https://opencobra.github.io/cobratoolbox/stable/">COBRA Toolbox</a> is not required for most of the functions associated with Human-GEM. However, it offers many additional analysis tools that are not available in RAVEN.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The Human-GEM model files (<code>.mat</code>, <code>.xml</code>, <code>.yml</code>) are formatted for use with RAVEN. Before using the model with the COBRA toolbox, convert the model to a COBRA-friendly format in MATLAB using the <code>ravenCobraWrapper</code> function from the RAVEN Toolbox:<br />
+<p>The Human-GEM model files are formatted for use with the RAVEN Toolbox. Before using the model with the COBRA toolbox, convert the model to a COBRA-friendly format in MATLAB using the <code>ravenCobraWrapper</code> function from the RAVEN Toolbox:
 <code>cobraModel = ravenCobraWrapper(ravenModel);</code></p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is an <a href="https://github.com/SysBioChalmers/RAVEN/issues/184">ongoing effort</a> to align the model structures of RAVEN and COBRA to eliminate compatibility issues, so hopefully this will soon be a problem of the past.</p>
+</div>
+<h4 id="linear-optimization-solver">Linear optimization solver</h4>
+<p>A solver is required to run flux balance analysis (FBA), GEM extraction (using tINIT), or any other function involving an optimization. Compatible solvers are Gurobi Optimizer, MOSEK, or GLPK.</p>
+<p>For instructions on how to set up a solver and obtain a license (if required), see the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies">RAVEN instructions</a>.</p>
               
             </div>
           </div>
