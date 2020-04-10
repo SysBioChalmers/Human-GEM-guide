@@ -4,6 +4,10 @@ Make sure you have completed the [installation process](installation.md) before 
 
 ## Loading Human-GEM into MATLAB
 
+!!! important
+	The Human-GEM model files are provided in a **RAVEN-friendly format**. If you intend on using **COBRA**, see the [Using Human-GEM with COBRA](#using-human-gem-with-cobra) section below.
+
+
 !!! note
 	All the model file formats described below are on the `master` branch of the Human-GEM repository. Note that only the `.yml` version is available on branches other than `master` (e.g., `devel`), to facilitate tracking of model changes.
 
@@ -91,7 +95,7 @@ ihuman = importModel(which('HumanGEM.xml'));
 	The warning regarding the `grRules` can be ignored. Some packages are a bit more strict in their gene-reaction rule formulation, but Human-GEM functions have no such restrictions.
 
 !!! note
-	We include the `which()` command around the model filename to provide its full path because some functions cannot otherwise find the file.
+	We include the `which()` command around the model filename to provide its full path because some functions cannot otherwise find the file. This is not necessary if the model file is in MATLAB's current working directory (i.e., if you can see the model file in the `Current Folder` window).
 
 
 
@@ -112,10 +116,47 @@ ihuman = importExcelModel(which('HumanGEM.xlsx'));
 
 ```
 
+!!! important
+	By default, `importExcelModel` will remove the boundary metabolites (those in the `x` compartment) from the model. To prevent removal of the boundary metabolites, specify `false` in the second argument: `importExcelModel('HumanGEM.xlsx', false)`.
+
 
 #### From the `HumanGEM.txt` file
 
 There is no function to import the `.txt` version of the model. The `HumanGEM.txt` file is supplied for those who need or prefer a more human-readable plain-text format, but is not intended for loading into MATLAB.
+
+
+
+## Using Human-GEM with COBRA
+
+Using the provided Human-GEM models directly with COBRA is likely to cause errors or unexpected behavior. Therefore, the model should first be converted to a COBRA-friendly format before using the COBRA Toolbox.
+
+#### 1. Load the model into MATLAB
+Use one of the methods described [above](#loading-human-gem-into-matlab) to load Human-GEM into MATLAB.
+```matlab
+load('HumanGEM.mat');  % loads model as structure named "ihuman"
+```
+
+#### 2. Convert the model into COBRA format
+Use the RAVEN `ravenCobraWrapper` function to convert the model into a COBRA-friendly format.
+```matlab
+model = ravenCobraWrapper(ihuman);
+
+%  Converting RAVEN structure to COBRA..
+```
+
+The resulting `model` output should now be ready for use with the COBRA Toolbox.
+
+#### Alternative approach (not recommended)
+Another option is to load the SBML model `HumanGEM.xml` directly into COBRA format using the COBRA `readCbModel` function.
+```matlab
+model = readCbModel(which('HumanGEM.xml'));
+
+% The model contains 0 errors and 1 warnings.
+```
+!!! warning
+	Since the SBML file is not formatted for COBRA, the resulting model may be missing content or exhibit unexpected behavior. Proceed with caution.
+
+
 
 
 
