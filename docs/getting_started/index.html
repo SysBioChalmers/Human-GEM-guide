@@ -73,11 +73,21 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-human-gem-with-cobra">Using Human-GEM with COBRA</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-load-the-model-into-matlab">1. Load the model into MATLAB</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-convert-the-model-into-cobra-format">2. Convert the model into COBRA format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alternative-approach-not-recommended">Alternative approach (not recommended)</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../running_fba/">Running FBA</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../flux_balance_analysis/">Flux balance analysis</a>
                     </li>
                 </ul>
                 <ul>
@@ -123,6 +133,10 @@
                 <h1 id="getting-started">Getting Started</h1>
 <p>Make sure you have completed the <a href="../installation/">installation process</a> before continuing. The commands described on this page are all run from the MATLAB command prompt, unless otherwise noted.</p>
 <h2 id="loading-human-gem-into-matlab">Loading Human-GEM into MATLAB</h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The Human-GEM model files are provided in a <strong>RAVEN-friendly format</strong>. If you intend on using <strong>COBRA</strong>, see the <a href="#using-human-gem-with-cobra">Using Human-GEM with COBRA</a> section below.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>All the model file formats described below are on the <code>master</code> branch of the Human-GEM repository. Note that only the <code>.yml</code> version is available on branches other than <code>master</code> (e.g., <code>devel</code>), to facilitate tracking of model changes.</p>
@@ -204,7 +218,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We include the <code>which()</code> command around the model filename to provide its full path because some functions cannot otherwise find the file.</p>
+<p>We include the <code>which()</code> command around the model filename to provide its full path because some functions cannot otherwise find the file. This is not necessary if the model file is in MATLAB's current working directory (i.e., if you can see the model file in the <code>Current Folder</code> window).</p>
 </div>
 <h4 id="from-the-humangemxlsx-file">From the <code>HumanGEM.xlsx</code> file</h4>
 <p>The <code>.xslx</code> (Excel) version of Human-GEM is loaded using the RAVEN <code>importExcelModel</code> function.</p>
@@ -221,8 +235,38 @@
 
 </code></pre>
 
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>By default, <code>importExcelModel</code> will remove the boundary metabolites (those in the <code>x</code> compartment) from the model. To prevent removal of the boundary metabolites, specify <code>false</code> in the second argument: <code>importExcelModel('HumanGEM.xlsx', false)</code>.</p>
+</div>
 <h4 id="from-the-humangemtxt-file">From the <code>HumanGEM.txt</code> file</h4>
 <p>There is no function to import the <code>.txt</code> version of the model. The <code>HumanGEM.txt</code> file is supplied for those who need or prefer a more human-readable plain-text format, but is not intended for loading into MATLAB.</p>
+<h2 id="using-human-gem-with-cobra">Using Human-GEM with COBRA</h2>
+<p>Using the provided Human-GEM models directly with COBRA is likely to cause errors or unexpected behavior. Therefore, the model should first be converted to a COBRA-friendly format before using the COBRA Toolbox.</p>
+<h4 id="1-load-the-model-into-matlab">1. Load the model into MATLAB</h4>
+<p>Use one of the methods described <a href="#loading-human-gem-into-matlab">above</a> to load Human-GEM into MATLAB.</p>
+<pre><code class="matlab">load('HumanGEM.mat');  % loads model as structure named &quot;ihuman&quot;
+</code></pre>
+
+<h4 id="2-convert-the-model-into-cobra-format">2. Convert the model into COBRA format</h4>
+<p>Use the RAVEN <code>ravenCobraWrapper</code> function to convert the model into a COBRA-friendly format.</p>
+<pre><code class="matlab">model = ravenCobraWrapper(ihuman);
+
+%  Converting RAVEN structure to COBRA..
+</code></pre>
+
+<p>The resulting <code>model</code> output should now be ready for use with the COBRA Toolbox.</p>
+<h4 id="alternative-approach-not-recommended">Alternative approach (not recommended)</h4>
+<p>Another option is to load the SBML model <code>HumanGEM.xml</code> directly into COBRA format using the COBRA <code>readCbModel</code> function.</p>
+<pre><code class="matlab">model = readCbModel(which('HumanGEM.xml'));
+
+% The model contains 0 errors and 1 warnings.
+</code></pre>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since the SBML file is not formatted for COBRA, the resulting model may be missing content or exhibit unexpected behavior. Proceed with caution.</p>
+</div>
               
             </div>
           </div>
@@ -230,7 +274,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../running_fba/" class="btn btn-neutral float-right" title="Running FBA">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../flux_balance_analysis/" class="btn btn-neutral float-right" title="Flux balance analysis">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -262,7 +306,7 @@
         <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../running_fba/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../flux_balance_analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
