@@ -9,7 +9,7 @@ This guide contains instructions and examples of how to use Human-GEM.
 
 - [Installation](installation.md)
 - [Getting started](getting_started.md)
-- [Running FBA](running_fba.md)
+- [Flux balance analysis](flux_balance_analysis.md)
 - [GEM extraction using tINIT](gem_extraction.md)
 - [GEM comparison](gem_comparison.md)
 
