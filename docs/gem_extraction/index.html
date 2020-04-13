@@ -69,17 +69,15 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#taskdriven-integrative-network-inference-for-tissues-tinit">Task‐driven Integrative Network Inference for Tissues (tINIT)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example-extract-a-liver-gem">Example: Extract a liver GEM</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#prepare-the-transcriptomic-data">Prepare the transcriptomic data</a>
+    <li class="toctree-l2"><a class="reference internal" href="#retrieve-the-data">Retrieve the data</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#load-the-reference-gem">Load the reference GEM</a>
+    <li class="toctree-l2"><a class="reference internal" href="#prepare-the-transcriptomic-data">Prepare the transcriptomic data</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#prepare-the-metabolic-task-list">Prepare the metabolic task list</a>
+    <li class="toctree-l2"><a class="reference internal" href="#load-the-reference-gem">Load the reference GEM</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#run-tinit">Run tINIT</a>
+    <li class="toctree-l2"><a class="reference internal" href="#prepare-the-metabolic-task-list">Prepare the metabolic task list</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#run-tinit">Run tINIT</a>
     </li>
     </ul>
                     </li>
@@ -131,10 +129,10 @@
 <li><a href="https://doi.org/10.1126/scisignal.aaz1482">Robinson <em>et al.</em> (2020) <em>Sci Signal</em></a> - Recognition of enzyme complexes</li>
 </ol>
 <p>The original (2014) tINIT algorithm is implemented in the RAVEN Toolbox, where its main calling function is <code>getINITModel</code>. This guide will cover the updated (2020) version of tINIT that is maintained on the Human-GEM repository, called using the <code>getINITModel2</code> function.</p>
-<h2 id="example-extract-a-liver-gem">Example: Extract a liver GEM</h2>
+<h2 id="retrieve-the-data">Retrieve the data</h2>
 <p>To demonstrate the use of tINIT, we will walk through an example that replicates part of the <a href="https://doi.org/10.1126/scisignal.aaz1482">Human-GEM publication</a>. </p>
 <p>The data used in this example can be retrieved from the <a href="https://doi.org/10.5281/zenodo.3577466">Zenodo repository</a> associated with the publication. Download the Zenodo repository .zip file, and extract.</p>
-<h4 id="prepare-the-transcriptomic-data">Prepare the transcriptomic data</h4>
+<h2 id="prepare-the-transcriptomic-data">Prepare the transcriptomic data</h2>
 <p>Data from the condition, tissue, or cell type for which the GEM will be generated is necessary to determine which reactions from the reference model (Human-GEM) should be included. In this case, we are using RNA-Seq data (TPM normalized) that was originally obtained from the <a href="https://gtexportal.org/home/">GTEx database</a>. </p>
 <p>In MATLAB, load the <code>gtex_median_tissue_tpm.txt</code> file from the Zenodo repository <code>tINIT_GEMs/data/</code> subdirectory.</p>
 <pre><code class="matlab">% replace 'my/path/' with the path on your system, or change to the directory with the file
@@ -193,7 +191,7 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 %     threshold: 1
 </code></pre>
 
-<h4 id="load-the-reference-gem">Load the reference GEM</h4>
+<h2 id="load-the-reference-gem">Load the reference GEM</h2>
 <p>The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the <code>HumanGEM.mat</code> file in the Human-GEM repository</p>
 <pre><code class="matlab">load('HumanGEM.mat');  % loads model as a structure named &quot;ihuman&quot;
 </code></pre>
@@ -202,7 +200,7 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 <p class="admonition-title">Important</p>
 <p>The tINIT algorithm requires that the model is provided in "closed form"; i.e., it contains boundary metabolites. Therefore, the boundary metabolites should <strong>not</strong> be removed by e.g., the <code>simplifyModel</code> function before use with tINIT. At the same time, the exchange reactions should all be unbounded (lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in a format that satisfies both of these requirements, so no additional changes are needed.</p>
 </div>
-<h4 id="prepare-the-metabolic-task-list">Prepare the metabolic task list</h4>
+<h2 id="prepare-the-metabolic-task-list">Prepare the metabolic task list</h2>
 <p>The tINIT algorithm has the option to specify one or more metabolic tasks that the extracted model should be able to perform, such as transport of essential amino acids or production of biomass. Although task specification is not required, it is generally recommended to obtain a more functional extracted GEM, especially if it is going to be used in simulation-based analysis (e.g., FBA).</p>
 <p>Following with the procedure used in the Human-GEM manuscript, this example will use the list of 57 "essential" metabolic tasks that all cells are expected to be able to perform to be viable.</p>
 <p>Load the <code>metabolicTasks_Essential.xlsx</code> list of metabolic tasks from the <code>data/metabolicTasks/</code> subdirectory of the Human-GEM repository using the RAVEN <code>parseTaskList</code> function.</p>
@@ -248,7 +246,7 @@ checkTasks(ihuman, [], true, false, false, essentialTasks);
 % ...
 </code></pre>
 
-<h4 id="run-tinit">Run tINIT</h4>
+<h2 id="run-tinit">Run tINIT</h2>
 <p>Now all inputs are ready to run tINIT and extract a GEM specific to the liver tissue based on its corresponding RNA expression profile. </p>
 <p>Although it's not necessary to re-assign the input variables before calling the <code>getINITModel2</code> function, we do it here to make the inputs very clear. Use the <code>help getINITModel2</code> command to see more details on the function inputs and outputs.</p>
 <pre><code class="matlab">refModel = ihuman;  % the reference model from which the GEM will be extracted
@@ -302,13 +300,9 @@ Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
 <p class="admonition-title">Warning</p>
 <p>This algorithm will take a while to run (30 min to 1 hr). It is therefore recommended that this is run on a compute cluster, especially when repeating for many different GEMs.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Unfortunately, there is currently a bug in how RAVEN processes the optimization parameters passed by the <code>params</code> and <code>paramsFT</code> arguments when using the Gurobi solver. Therefore, optimization parameters (such as time limit) need to be changed manually within the RAVEN <code>optimizeProb</code> function.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this example, we called <code>getINITModel2</code> with one output, <code>liverGEM</code>. Use <code>help getINITModel2</code> to see a description of the other optional outputs.</p>
+<p>In this example, we called <code>getINITModel2</code> with one output, <code>liverGEM</code>. Use <code>help getINITModel2</code> to see a description of the additional optional outputs.</p>
 </div>
 <p>Once the optimization is complete, we can take a look at the extracted GEM.</p>
 <pre><code class="matlab">liverGEM
@@ -348,6 +342,10 @@ Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
 %                 version: '1.3.1'
 %              annotation: [1×1 struct]
 %                geneFrom: {2305×1 cell}
+</code></pre>
+
+<p>It is recommended to change the model <code>id</code> to a more descriptive name than the default of "INITModel". This is particularly useful when analyzing several models together.</p>
+<pre><code class="matlab">liverGEM.id = 'liver';
 </code></pre>
 
 <p>Notice that the model has fewer reactions, metabolites, and genes compared to the reference model.</p>
