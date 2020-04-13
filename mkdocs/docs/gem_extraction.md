@@ -16,14 +16,14 @@ Although many GEM extraction methods exist, this guide will cover the tINIT algo
 The original (2014) tINIT algorithm is implemented in the RAVEN Toolbox, where its main calling function is `getINITModel`. This guide will cover the updated (2020) version of tINIT that is maintained on the Human-GEM repository, called using the `getINITModel2` function.
 
 
-## Example: Extract a liver GEM
+## Retrieve the data
 
 To demonstrate the use of tINIT, we will walk through an example that replicates part of the [Human-GEM publication](https://doi.org/10.1126/scisignal.aaz1482). 
 
 The data used in this example can be retrieved from the [Zenodo repository](https://doi.org/10.5281/zenodo.3577466) associated with the publication. Download the Zenodo repository .zip file, and extract.
 
 
-#### Prepare the transcriptomic data
+## Prepare the transcriptomic data
 
 Data from the condition, tissue, or cell type for which the GEM will be generated is necessary to determine which reactions from the reference model (Human-GEM) should be included. In this case, we are using RNA-Seq data (TPM normalized) that was originally obtained from the [GTEx database](https://gtexportal.org/home/). 
 
@@ -86,7 +86,7 @@ data_struct
 %     threshold: 1
 ```
 
-#### Load the reference GEM
+## Load the reference GEM
 
 The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the `HumanGEM.mat` file in the Human-GEM repository
 ```matlab
@@ -97,7 +97,7 @@ load('HumanGEM.mat');  % loads model as a structure named "ihuman"
 	The tINIT algorithm requires that the model is provided in "closed form"; i.e., it contains boundary metabolites. Therefore, the boundary metabolites should **not** be removed by e.g., the `simplifyModel` function before use with tINIT. At the same time, the exchange reactions should all be unbounded (lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in a format that satisfies both of these requirements, so no additional changes are needed.
 
 
-#### Prepare the metabolic task list
+## Prepare the metabolic task list
 
 The tINIT algorithm has the option to specify one or more metabolic tasks that the extracted model should be able to perform, such as transport of essential amino acids or production of biomass. Although task specification is not required, it is generally recommended to obtain a more functional extracted GEM, especially if it is going to be used in simulation-based analysis (e.g., FBA).
 
@@ -150,7 +150,7 @@ checkTasks(ihuman, [], true, false, false, essentialTasks);
 ```
 
 
-#### Run tINIT
+## Run tINIT
 
 Now all inputs are ready to run tINIT and extract a GEM specific to the liver tissue based on its corresponding RNA expression profile. 
 
@@ -208,11 +208,8 @@ Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
 !!! warning
 	This algorithm will take a while to run (30 min to 1 hr). It is therefore recommended that this is run on a compute cluster, especially when repeating for many different GEMs.
 
-!!! warning
-	Unfortunately, there is currently a bug in how RAVEN processes the optimization parameters passed by the `params` and `paramsFT` arguments when using the Gurobi solver. Therefore, optimization parameters (such as time limit) need to be changed manually within the RAVEN `optimizeProb` function.
-
 !!! note
-	In this example, we called `getINITModel2` with one output, `liverGEM`. Use `help getINITModel2` to see a description of the other optional outputs.
+	In this example, we called `getINITModel2` with one output, `liverGEM`. Use `help getINITModel2` to see a description of the additional optional outputs.
 
 
 Once the optimization is complete, we can take a look at the extracted GEM.
@@ -254,6 +251,11 @@ liverGEM
 %                 version: '1.3.1'
 %              annotation: [1×1 struct]
 %                geneFrom: {2305×1 cell}
+```
+
+It is recommended to change the model `id` to a more descriptive name than the default of "INITModel". This is particularly useful when analyzing several models together.
+```matlab
+liverGEM.id = 'liver';
 ```
 
 Notice that the model has fewer reactions, metabolites, and genes compared to the reference model.
