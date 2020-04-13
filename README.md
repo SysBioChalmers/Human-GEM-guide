@@ -11,6 +11,8 @@ pip install mkdocs
 ```
 
 ### Editing the guide
+**Do not directly edit any files in the top-level `docs/` directory. Such edits will be overwritten!**
+
 To preview changes to the guide before re-building the site, run the serve command from within the `mkdocs/` directory:
 ```
 mkdocs serve
