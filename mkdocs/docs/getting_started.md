@@ -154,7 +154,7 @@ model = readCbModel(which('HumanGEM.xml'));
 % The model contains 0 errors and 1 warnings.
 ```
 !!! warning
-	Since the SBML file is not formatted for COBRA, the resulting model may be missing content or exhibit unexpected behavior. Proceed with caution.
+	Since the SBML file is not formatted for COBRA, loading it using `readCbModel` will yield a model that may be missing content or exhibit unexpected behavior. Proceed with caution.
 
 
 
