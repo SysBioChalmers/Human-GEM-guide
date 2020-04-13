@@ -6,6 +6,9 @@ nav:
   - Flux balance analysis: flux_balance_analysis.md
   - GEM extraction using tINIT: gem_extraction.md
   - GEM comparison: gem_comparison.md
+  - Additional tools: additional_tools.md
+  - FAQs and troubleshooting: faq_troubleshoot.md
+  - Contact: contact.md
 theme:
   name: readthedocs
   highlightjs: true

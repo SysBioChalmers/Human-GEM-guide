@@ -1,17 +1,17 @@
 # Human-GEM User Guide
 
-!!! note
-	UNDER DEVELOPMENT
-
 ## Overview
 
-This guide contains instructions and examples of how to use Human-GEM.
+This guide contains instructions and examples of how to use [Human-GEM](https://github.com/SysBioChalmers/Human-GEM), a human genome-scale metabolic model (GEM). Choose a section from the sidebar or the list below to get started!
 
 - [Installation](installation.md)
 - [Getting started](getting_started.md)
 - [Flux balance analysis](flux_balance_analysis.md)
 - [GEM extraction using tINIT](gem_extraction.md)
 - [GEM comparison](gem_comparison.md)
+- [Additional tools](additional_tools.md)
+- [FAQs and troubleshooting](faq_troubleshoot.md)
+- [Contact](contact.md)
 
 
 ## Citation
