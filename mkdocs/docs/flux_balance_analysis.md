@@ -100,7 +100,7 @@ model = setExchangeBounds(model, 'glucose', -1);  % negative flux indicates impo
 ```
 
 !!! note
-	The `setExchangeBounds` function will by default allow unrestricted _production_ of all metabolites, but will prevent _consumption_ of any metabolites not specified in the input argument.
+	By default, the `setExchangeBounds` function allows unrestricted *export* of all metabolites. The *import* of all metabolites is blocked, except for the metabolites specified in the input argument.
 
 
 Now perform FBA to determine the maximum amount of ATP hydrolyzed (ADP phosphorylated) per equivalent of glucose consumed.
