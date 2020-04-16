@@ -211,7 +211,7 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>setExchangeBounds</code> function will by default allow unrestricted <em>production</em> of all metabolites, but will prevent <em>consumption</em> of any metabolites not specified in the input argument.</p>
+<p>By default, the <code>setExchangeBounds</code> function allows unrestricted <em>export</em> of all metabolites. The <em>import</em> of all metabolites is blocked, except for the metabolites specified in the input argument.</p>
 </div>
 <p>Now perform FBA to determine the maximum amount of ATP hydrolyzed (ADP phosphorylated) per equivalent of glucose consumed.</p>
 <pre><code class="matlab">sol = solveLP(model)

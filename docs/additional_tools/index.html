@@ -132,6 +132,32 @@ model.grRules = grRules;
 model.genes = genes;
 model.rxnGeneMat = rxnGeneMat;
 </code></pre>
+
+<p>In some cases, ID associations are non-unique or missing; e.g., one Ensembl ID is associated with multiple gene names, one gene name is associated with multiple Ensembl IDs, or there is no gene name corresponding to an Ensembl ID. Such cases are handled as follows:</p>
+<p><strong>1. Original ID is associated with multiple new IDs</strong>
+The original ID will be replaced with all matching new IDs, which are then formulated as isozymes. For example, if the original grRule is</p>
+<pre><code>'geneA and geneB'
+</code></pre>
+
+<p>and <code>geneB</code> is associated with <code>id1</code>, <code>id2</code>, and <code>id3</code>, the new grRule will be</p>
+<pre><code>'geneA and (id1 or id2 or id3)'
+</code></pre>
+
+<p><strong>2. Multiple original IDs are associated with the same new ID</strong>
+The original IDs will be replaced with this new ID, and any duplications in grRules will be automatically detected and removed. For example, if the original grRule is</p>
+<pre><code>'geneA or geneB or geneC'
+</code></pre>
+
+<p>and <code>geneB</code> and <code>geneC</code> are both associated with <code>id1</code>, the new grRule will be</p>
+<pre><code>'geneA or id1'
+</code></pre>
+
+<p><strong>3. Original ID is not associated with any new IDs</strong>
+In this case, the original ID will be removed from the model. Such cases will therefore result in information loss if genes are converted to new IDs and then again back to the original IDs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>translateGrRules</code> function has an optional <code>noMatch</code> input, where users can change how IDs without a match are treated. This input defaults to <code>'delete'</code>, but if <code>'original'</code> is specified, it will simply keep the original ID. Be aware that this will result in mixed ID types, which may be problematic.</p>
+</div>
               
             </div>
           </div>

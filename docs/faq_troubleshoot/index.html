@@ -81,7 +81,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions-faqs">Frequently asked questions (FAQs)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#question">Question?</a>
+    <li class="toctree-l3"><a class="reference internal" href="#does-human-gem-contain-an-atp-maintenance-reaction">Does Human-GEM contain an ATP maintenance reaction?</a>
     </li>
         </ul>
     </li>
@@ -132,8 +132,17 @@
               
                 <h1 id="frequently-asked-questions-and-troubleshooting">Frequently asked questions and troubleshooting</h1>
 <h2 id="frequently-asked-questions-faqs">Frequently asked questions (FAQs)</h2>
-<h4 id="question">Question?</h4>
-<p>Answer.</p>
+<h4 id="does-human-gem-contain-an-atp-maintenance-reaction">Does Human-GEM contain an ATP maintenance reaction?</h4>
+<p>Yes, <code>HMR_3964</code> is an ATP hydrolysis reaction:</p>
+<pre><code class="matlab">constructEquations(ihuman, 'HMR_3964')
+
+ans =
+
+  1×1 cell array
+
+    {'ATP[c] + H2O[c] =&gt; ADP[c] + H+[c] + Pi[c]'}
+</code></pre>
+
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h4 id="biomass-flux-is-zero">Biomass flux is zero</h4>
 <p><strong>Problem:</strong> Running FBA on Human-GEM or a model derived from Human-GEM with a biomass reaction as the objective results in a solution with zero flux, even when all exchange reaction bounds are open.</p>
