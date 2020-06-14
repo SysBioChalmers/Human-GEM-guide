@@ -86,7 +86,7 @@ data_struct
 %     threshold: 1
 ```
 
-## Load the reference GEM
+## Load and prepare the reference GEM
 
 The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the `HumanGEM.mat` file in the Human-GEM repository
 ```matlab
@@ -94,7 +94,18 @@ load('HumanGEM.mat');  % loads model as a structure named "ihuman"
 ```
 
 !!! important
-	The tINIT algorithm requires that the model is provided in "closed form"; i.e., it contains boundary metabolites. Therefore, the boundary metabolites should **not** be removed by e.g., the `simplifyModel` function before use with tINIT. At the same time, the exchange reactions should all be unbounded (lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in a format that satisfies both of these requirements, so no additional changes are needed.
+	The metabolic task evaluation and tINIT algorithms requires that the model is provided in "closed form"; i.e., it contains **boundary metabolites**. Therefore, the boundary metabolites must be added to the GEM before proceeding.
+
+Add boundary metabolites to the model
+```matlab
+ihuman = addBoundaryMets(ihuman);
+
+% Boundary metabolites were added to 1677 reactions.
+% New (boundary) versions of 1677 metabolites were added to the model.
+```
+
+!!! note
+    The exchange reactions should all be unbounded (e.g., lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in this format, so no additional changes are needed.
 
 
 ## Prepare the metabolic task list
