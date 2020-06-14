@@ -45,10 +45,10 @@ The Human-GEM model files are provided in RAVEN-friendly format, and many of the
 
 #### The COBRA Toolbox
 
-The [COBRA Toolbox](https://opencobra.github.io/cobratoolbox/stable/) is not required for most of the functions associated with Human-GEM. However, it offers many additional analysis tools that are not available in RAVEN.
+The [COBRA Toolbox](https://opencobra.github.io/cobratoolbox/stable/) is not required for most of the functions associated with Human-GEM. However, it offers many additional analysis tools that are not available in RAVEN, and can for the most part be used instead of RAVEN.
 
 !!! important
-	The Human-GEM model files are formatted for use with the RAVEN Toolbox. Before using the model with the COBRA toolbox, convert the model to a COBRA-friendly format in MATLAB using the `ravenCobraWrapper` function from the RAVEN Toolbox:
+	The Human-GEM model files were originally designed for use with the RAVEN Toolbox. Although the model should be compatible with most COBRA functions as-is, it may be necessary to first convert the model to a COBRA-friendly format in MATLAB using the `ravenCobraWrapper` function from the RAVEN Toolbox:
 	`cobraModel = ravenCobraWrapper(ravenModel);`
 
 !!! note
