@@ -28,33 +28,32 @@ ihuman
 % 
 %                      id: 'Human-GEM'
 %             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {13417×1 cell}
-%                    mets: {10138×1 cell}
-%                       S: [10138×13417 double]
-%                      lb: [13417×1 double]
-%                      ub: [13417×1 double]
-%                     rev: [13417×1 double]
-%                       c: [13417×1 double]
-%                       b: [10138×1 double]
-%                   comps: {10×1 cell}
-%               compNames: {10×1 cell}
-%                rxnNames: {13417×1 cell}
-%                 grRules: {13417×1 cell}
-%              rxnGeneMat: [13417×3625 double]
-%              subSystems: {13417×1 cell}
-%                 eccodes: {13417×1 cell}
-%                   genes: {3625×1 cell}
-%                metNames: {10138×1 cell}
-%                metComps: [10138×1 double]
-%                  inchis: {10138×1 cell}
-%             metFormulas: {10138×1 cell}
-%           unconstrained: [10138×1 double]
-%           rxnReferences: {13417×1 cell}
-%                 rxnFrom: {13417×1 cell}
-%                 metFrom: {10138×1 cell}
-%     rxnConfidenceScores: [13417×1 double]
-%              metCharges: [10138×1 int64]
-%                 version: '1.3.1'
+%                    rxns: {13416×1 cell}
+%                    mets: {8458×1 cell}
+%                       S: [8458×13416 double]
+%                      lb: [13416×1 double]
+%                      ub: [13416×1 double]
+%                     rev: [13416×1 double]
+%                       c: [13416×1 double]
+%                       b: [8458×1 double]
+%                   comps: {9×1 cell}
+%               compNames: {9×1 cell}
+%                rxnNames: {13416×1 cell}
+%                 grRules: {13416×1 cell}
+%              rxnGeneMat: [13416×3628 double]
+%              subSystems: {13416×1 cell}
+%                 eccodes: {13416×1 cell}
+%                   genes: {3628×1 cell}
+%                metNames: {8458×1 cell}
+%                metComps: [8458×1 double]
+%                  inchis: {8458×1 cell}
+%             metFormulas: {8458×1 cell}
+%           rxnReferences: {13416×1 cell}
+%                 rxnFrom: {13416×1 cell}
+%                 metFrom: {8458×1 cell}
+%     rxnConfidenceScores: [13416×1 double]
+%              metCharges: [8458×1 int64]
+%                 version: '1.4.0'
 %              annotation: [1×1 struct]
 ```
 
@@ -66,11 +65,11 @@ The yaml version of Human-GEM is loaded using the `importHumanYaml` function.
 ihuman = importHumanYaml('HumanGEM.yml');
 
 % Start importing...
-%         metaData
-%         metabolites
-%         reactions
-%         genes
-%         compartments
+%   1
+%   2
+%   3
+%   4
+%   5
 % 
 % importing completed
 % follow-up processing... Done!
@@ -128,7 +127,7 @@ There is no function to import the `.txt` version of the model. The `HumanGEM.tx
 
 ## Using Human-GEM with COBRA
 
-Using the provided Human-GEM models directly with COBRA is likely to cause errors or unexpected behavior. Therefore, the model should first be converted to a COBRA-friendly format before using the COBRA Toolbox.
+The provided Human-GEM models can generally be used directly with COBRA, though there may remain some incompatibilities that cause errors or unexpected behavior. We suggest to first convert the model to a COBRA-friendly format before using the COBRA Toolbox.
 
 #### 1. Load the model into MATLAB
 Use one of the methods described [above](#loading-human-gem-into-matlab) to load Human-GEM into MATLAB.
