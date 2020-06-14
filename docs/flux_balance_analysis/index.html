@@ -63,7 +63,7 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Flux balance analysis</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#model-preparation">Model preparation</a>
+    <li class="toctree-l2"><a class="reference internal" href="#optimization-objective">Optimization objective</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#run-fba">Run FBA</a>
     </li>
@@ -134,32 +134,7 @@
 <p class="admonition-title">Important</p>
 <p>You must have a linear optimization solver (e.g., Gurobi) installed and accessible by MATLAB to run FBA. See the <a href="../installation/">installation</a> page of this guide or the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies">RAVEN instructions</a> for details on setting up a solver.</p>
 </div>
-<h2 id="model-preparation">Model preparation</h2>
-<p>The Human-GEM model is provided in a format containing "boundary" metabolites (in the <code>x</code> compartment). Boundary metabolites are used to balance reactions that exchange mass between the extracellular compartment (<code>s</code>) and the system boundary. For example, take a look at the glucose exchange reaction:</p>
-<pre><code class="matlab">constructEquations(ihuman, 'HMR_9034')
-
-% ans =
-% 
-%   1×1 cell array
-% 
-%     {'glucose[s] &lt;=&gt; glucose[x]'}
-</code></pre>
-
-<p>However, this effectively closes all exchange reactions when running FBA. Therefore, the boundary metabolites need to be removed before using FBA.</p>
-<pre><code class="matlab">model = simplifyModel(ihuman);
-</code></pre>
-
-<p>Now all boundary metabolites are removed, enabling exchange to/from the system.</p>
-<pre><code class="matlab">constructEquations(model, 'HMR_9034')
-
-% ans =
-% 
-%   1×1 cell array
-% 
-%     {'glucose[s] &lt;=&gt; '}
-</code></pre>
-
-<h2 id="run-fba">Run FBA</h2>
+<h2 id="optimization-objective">Optimization objective</h2>
 <p>By default, the model objective (defined by the <code>.c</code> model field) is set to maximize flux through the <code>biomass_human</code> reaction, and all exchange reactions are open.</p>
 <pre><code class="matlab">model.rxns(model.c == 1)
 
@@ -170,6 +145,7 @@
 %     {'biomass_human'}
 </code></pre>
 
+<h2 id="run-fba">Run FBA</h2>
 <p>Run FBA using the RAVEN <code>solveLP</code> function.</p>
 <pre><code class="matlab">sol = solveLP(model)
 
@@ -177,7 +153,7 @@
 % 
 %   struct with fields:
 % 
-%        x: [13417×1 double]
+%        x: [13416×1 double]
 %        f: -187.3536
 %     stat: 1
 %      msg: 'Optimal solution found'

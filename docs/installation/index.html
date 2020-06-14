@@ -173,10 +173,10 @@ MATLAB is the primary software used for working with Human-GEM. Unfortunately, M
 The Human-GEM model files are provided in RAVEN-friendly format, and many of the functions in the Human-GEM repository depend on the RAVEN Toolbox. Ensure that the RAVEN Toolbox is installed and added to your MATLAB path. See the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#installation">RAVEN installation instructions</a> for more detail.</p>
 <h2 id="additional-dependencies">Additional dependencies</h2>
 <h4 id="the-cobra-toolbox">The COBRA Toolbox</h4>
-<p>The <a href="https://opencobra.github.io/cobratoolbox/stable/">COBRA Toolbox</a> is not required for most of the functions associated with Human-GEM. However, it offers many additional analysis tools that are not available in RAVEN.</p>
+<p>The <a href="https://opencobra.github.io/cobratoolbox/stable/">COBRA Toolbox</a> is not required for most of the functions associated with Human-GEM. However, it offers many additional analysis tools that are not available in RAVEN, and can for the most part be used instead of RAVEN.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The Human-GEM model files are formatted for use with the RAVEN Toolbox. Before using the model with the COBRA toolbox, convert the model to a COBRA-friendly format in MATLAB using the <code>ravenCobraWrapper</code> function from the RAVEN Toolbox:
+<p>The Human-GEM model files were originally designed for use with the RAVEN Toolbox. Although the model should be compatible with most COBRA functions as-is, it may be necessary to first convert the model to a COBRA-friendly format in MATLAB using the <code>ravenCobraWrapper</code> function from the RAVEN Toolbox:
 <code>cobraModel = ravenCobraWrapper(ravenModel);</code></p>
 </div>
 <div class="admonition note">
