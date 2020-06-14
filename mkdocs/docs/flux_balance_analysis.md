@@ -6,39 +6,7 @@ One of the most common analysis methods for GEMs is flux balance analysis (FBA).
 	You must have a linear optimization solver (e.g., Gurobi) installed and accessible by MATLAB to run FBA. See the [installation](installation.md) page of this guide or the [RAVEN instructions](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies) for details on setting up a solver.
 
 
-## Model preparation
-
-The Human-GEM model is provided in a format containing "boundary" metabolites (in the `x` compartment). Boundary metabolites are used to balance reactions that exchange mass between the extracellular compartment (`s`) and the system boundary. For example, take a look at the glucose exchange reaction:
-
-```matlab
-constructEquations(ihuman, 'HMR_9034')
-
-% ans =
-% 
-%   1×1 cell array
-% 
-%     {'glucose[s] <=> glucose[x]'}
-```
-
-However, this effectively closes all exchange reactions when running FBA. Therefore, the boundary metabolites need to be removed before using FBA.
-
-```matlab
-model = simplifyModel(ihuman);
-```
-
-Now all boundary metabolites are removed, enabling exchange to/from the system.
-```matlab
-constructEquations(model, 'HMR_9034')
-
-% ans =
-% 
-%   1×1 cell array
-% 
-%     {'glucose[s] <=> '}
-```
-
-
-## Run FBA
+## Optimization objective
 
 By default, the model objective (defined by the `.c` model field) is set to maximize flux through the `biomass_human` reaction, and all exchange reactions are open.
 ```matlab
@@ -51,6 +19,9 @@ model.rxns(model.c == 1)
 %     {'biomass_human'}
 ```
 
+
+## Run FBA
+
 Run FBA using the RAVEN `solveLP` function.
 ```matlab
 sol = solveLP(model)
@@ -59,7 +30,7 @@ sol = solveLP(model)
 % 
 %   struct with fields:
 % 
-%        x: [13417×1 double]
+%        x: [13416×1 double]
 %        f: -187.3536
 %     stat: 1
 %      msg: 'Optimal solution found'
