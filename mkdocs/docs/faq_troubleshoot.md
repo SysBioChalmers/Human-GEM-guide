@@ -20,19 +20,16 @@ ans =
 #### Biomass flux is zero
 **Problem:** Running FBA on Human-GEM or a model derived from Human-GEM with a biomass reaction as the objective results in a solution with zero flux, even when all exchange reaction bounds are open.
 
-**Solution:** Ensure that the model is in "simulation" format, meaning that all boundary metabolites (those in the `x` compartment) have been removed.
+**Solution:** Convert the model to "open" format, meaning that it does not contain any "boundary" ("unconstrained") metabolites.
 ```matlab
-% get coundary compartment index
-[~, boundary_comp_index] = ismember('x', model.comps);
+% using RAVEN: use the simplifyModel function
+model = simplifyModel(model);
 
-% check if any metabolites are in the boundary compartment - should be FALSE (0)
-any(model.metComps == boundary_comp_index)
-
-% ans =
-% 
-%   logical
-% 
-%    0
+% using COBRA: find and remove all boundary metabolites
+[~, boundary_comp_index] = ismember('Boundary', model.compNames);
+if isfield(model, 'metComps')
+    model = removeMetabolites(model, model.mets(model.metComps == boundary_comp_index));
+end
 ```
 
 
