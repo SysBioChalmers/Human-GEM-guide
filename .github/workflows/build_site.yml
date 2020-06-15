@@ -12,15 +12,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Set python version
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.7.7'
-
     - name: Install MkDocs
       run: |
         sudo pip install pip --upgrade
-        sudo pip install 'mkdocs==1.1'
+        sudo pip install mkdocs
       
     - name: Build site
       run: |
