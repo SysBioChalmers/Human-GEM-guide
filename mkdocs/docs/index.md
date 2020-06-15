@@ -1,5 +1,8 @@
 # Human-GEM User Guide
 
+!!! important
+    This guide applies to Human-GEM version [v1.4.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.4.0) or newer. If you are using an older version of Human-GEM, we cannot guarantee that it will function as described in this guide.
+
 ## Overview
 
 This guide contains instructions and examples of how to use [Human-GEM](https://github.com/SysBioChalmers/Human-GEM), a human genome-scale metabolic model (GEM). Choose a section from the sidebar or the list below to get started!
