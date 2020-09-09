@@ -151,9 +151,9 @@
 <p class="admonition-title">Note</p>
 <p>All the model file formats described below are on the <code>master</code> branch of the Human-GEM repository. Note that only the <code>.yml</code> version is available on branches other than <code>master</code> (e.g., <code>devel</code>), to facilitate tracking of model changes.</p>
 </div>
-<h4 id="from-the-humangemmat-file-recommended">From the <code>HumanGEM.mat</code> file (recommended)</h4>
+<h4 id="from-the-human-gemmat-file-recommended">From the <code>Human-GEM.mat</code> file (recommended)</h4>
 <p>The quickest and easiest way to load the Human-GEM model is from the <code>.mat</code> file.</p>
-<pre><code class="matlab">load('HumanGEM.mat');
+<pre><code class="matlab">load('Human-GEM.mat');
 </code></pre>
 
 <p>This will load the model as a structure named <code>ihuman</code>.</p>
@@ -194,9 +194,9 @@
 %              annotation: [1×1 struct]
 </code></pre>
 
-<h4 id="from-the-humangemyml-file-recommended-if-not-on-master-branch">From the <code>HumanGEM.yml</code> file (recommended if not on <code>master</code> branch)</h4>
+<h4 id="from-the-human-gemyml-file-recommended-if-not-on-master-branch">From the <code>Human-GEM.yml</code> file (recommended if not on <code>master</code> branch)</h4>
 <p>The yaml version of Human-GEM is loaded using the <code>importHumanYaml</code> function.</p>
-<pre><code class="matlab">ihuman = importHumanYaml('HumanGEM.yml');
+<pre><code class="matlab">ihuman = importHumanYaml('Human-GEM.yml');
 
 % Start importing...
 %   1
@@ -209,9 +209,9 @@
 % follow-up processing... Done!
 </code></pre>
 
-<h4 id="from-the-humangemxml-sbml-file">From the <code>HumanGEM.xml</code> (SBML) file</h4>
+<h4 id="from-the-human-gemxml-sbml-file">From the <code>Human-GEM.xml</code> (SBML) file</h4>
 <p>The <code>.xml</code> (SBML) version of Human-GEM is loaded using the RAVEN <code>importHumanYaml</code> function.</p>
-<pre><code class="matlab">ihuman = importModel(which('HumanGEM.xml'));
+<pre><code class="matlab">ihuman = importModel(which('Human-GEM.xml'));
 
 % The model contains 0 errors and 1 warnings.
 % 
@@ -229,9 +229,9 @@
 <p class="admonition-title">Note</p>
 <p>We include the <code>which()</code> command around the model filename to provide its full path because some functions cannot otherwise find the file. This is not necessary if the model file is in MATLAB's current working directory (i.e., if you can see the model file in the <code>Current Folder</code> window).</p>
 </div>
-<h4 id="from-the-humangemxlsx-file">From the <code>HumanGEM.xlsx</code> file</h4>
+<h4 id="from-the-human-gemxlsx-file">From the <code>Human-GEM.xlsx</code> file</h4>
 <p>The <code>.xslx</code> (Excel) version of Human-GEM is loaded using the RAVEN <code>importExcelModel</code> function.</p>
-<pre><code class="matlab">ihuman = importExcelModel(which('HumanGEM.xlsx'));
+<pre><code class="matlab">ihuman = importExcelModel(which('Human-GEM.xlsx'));
 
 % WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s): 
 %         HMR_7161
@@ -244,17 +244,13 @@
 
 </code></pre>
 
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>By default, <code>importExcelModel</code> will remove the boundary metabolites (those in the <code>x</code> compartment) from the model. To prevent removal of the boundary metabolites, specify <code>false</code> in the second argument: <code>importExcelModel('HumanGEM.xlsx', false)</code>.</p>
-</div>
-<h4 id="from-the-humangemtxt-file">From the <code>HumanGEM.txt</code> file</h4>
-<p>There is no function to import the <code>.txt</code> version of the model. The <code>HumanGEM.txt</code> file is supplied for those who need or prefer a more human-readable plain-text format, but is not intended for loading into MATLAB.</p>
+<h4 id="from-the-human-gemtxt-file">From the <code>Human-GEM.txt</code> file</h4>
+<p>There is no function to import the <code>.txt</code> version of the model. The <code>Human-GEM.txt</code> file is supplied for those who need or prefer a more human-readable plain-text format, but is not intended for loading into MATLAB.</p>
 <h2 id="using-human-gem-with-cobra">Using Human-GEM with COBRA</h2>
 <p>The provided Human-GEM models can generally be used directly with COBRA, though there may remain some incompatibilities that cause errors or unexpected behavior. We suggest to first convert the model to a COBRA-friendly format before using the COBRA Toolbox.</p>
 <h4 id="1-load-the-model-into-matlab">1. Load the model into MATLAB</h4>
 <p>Use one of the methods described <a href="#loading-human-gem-into-matlab">above</a> to load Human-GEM into MATLAB.</p>
-<pre><code class="matlab">load('HumanGEM.mat');  % loads model as structure named &quot;ihuman&quot;
+<pre><code class="matlab">load('Human-GEM.mat');  % loads model as structure named &quot;ihuman&quot;
 </code></pre>
 
 <h4 id="2-convert-the-model-into-cobra-format">2. Convert the model into COBRA format</h4>
@@ -266,8 +262,8 @@
 
 <p>The resulting <code>model</code> output should now be ready for use with the COBRA Toolbox.</p>
 <h4 id="alternative-approach-not-recommended">Alternative approach (not recommended)</h4>
-<p>Another option is to load the SBML model <code>HumanGEM.xml</code> directly into COBRA format using the COBRA <code>readCbModel</code> function.</p>
-<pre><code class="matlab">model = readCbModel(which('HumanGEM.xml'));
+<p>Another option is to load the SBML model <code>Human-GEM.xml</code> directly into COBRA format using the COBRA <code>readCbModel</code> function.</p>
+<pre><code class="matlab">model = readCbModel(which('Human-GEM.xml'));
 
 % The model contains 0 errors and 1 warnings.
 </code></pre>

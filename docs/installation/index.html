@@ -67,7 +67,7 @@
         
             <li><a class="toctree-l3" href="#required-software">Required software</a></li>
         
-            <li><a class="toctree-l3" href="#additional-dependencies">Additional dependencies</a></li>
+            <li><a class="toctree-l3" href="#alternative-software">Alternative software</a></li>
         
         </ul>
     
@@ -145,6 +145,10 @@
                 <h1 id="installation">Installation</h1>
 <h2 id="human-gem">Human-GEM</h2>
 <p>The Human-GEM model is maintained in a <a href="https://github.com/SysBioChalmers/Human-GEM">GitHub repository</a> to track changes and facilitate collaboration. In addition to several different model formats (e.g., <code>.mat</code>, <code>.xml</code>, <code>.yml</code>), the repository contains a number of functions and data files that support Human-GEM analysis, maintenance, editing, and other actions. We therefore recommend cloning the GitHub repository to gain full functionality and easy access to the most updated version of Human-GEM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the functions contained within the Human-GEM repository require <strong>MATLAB</strong>, the model itself can still be used with other languages such as <strong>Python</strong> (see <a href="#cobrapy">section below on COBRApy</a>).</p>
+</div>
 <h4 id="1-clone-the-repository-recommended">1. Clone the repository (recommended)</h4>
 <p>Clone the repository using <a href="https://git-scm.com/">git</a>. Navigate to the directory where you would like to save the Human-GEM repository, and in the command line/terminal run:</p>
 <pre><code class="bash">git clone https://github.com/SysBioChalmers/Human-GEM.git
@@ -154,7 +158,7 @@
 <h4 id="1b-alternative-download-as-a-zip">1b. Alternative: Download as a .zip</h4>
 <p>The latest release of the repository can be downloaded as a <a href="https://github.com/SysBioChalmers/Human-GEM/releases/latest">.zip or .tar.gz file</a>. Download the file using the link, and unzip/expand the file.</p>
 <h4 id="2-add-the-repository-to-the-matlab-path">2. Add the repository to the MATLAB path</h4>
-<p>In order for MATLAB to find and use the functions and files in the repository directory (and subdirectories), they need to be added to the PATH. In MATLAB, select <code>HOME</code> from the top menu bar, and choose <code>Set Path</code> and then <code>Add with Subfolders...</code>. Choose the <code>code/</code>, <code>data/</code>, and <code>modelFiles/</code> subdirectories in the <code>Human-GEM</code> folder to be added to the path, and click <code>Save</code> when finished.</p>
+<p>In order for MATLAB to find and use the functions and files in the repository directory (and subdirectories), they need to be added to the PATH. In MATLAB, select <code>HOME</code> from the top menu bar, and choose <code>Set Path</code> and then <code>Add with Subfolders...</code>. Choose the <code>code/</code>, <code>data/</code>, and <code>model/</code> subdirectories in the <code>Human-GEM</code> folder to be added to the path, and click <code>Save</code> when finished.</p>
 <p>Alternatively, you can run the following lines in MATLAB:</p>
 <pre><code class="matlab">cd /my/path/Human-GEM  % replace &quot;/my/path/&quot; with the actual path to the Human-GEM folder
 addpath(strjoin(cellfun(@genpath, split(ls), 'UniformOutput', false), ''));
@@ -169,8 +173,7 @@ MATLAB is the primary software used for working with Human-GEM. Unfortunately, M
 <h4 id="the-raven-toolbox">The RAVEN Toolbox</h4>
 <p><strong>[v2.3.1 or newer]</strong><br />
 The Human-GEM model files are provided in RAVEN-friendly format, and many of the functions in the Human-GEM repository depend on the RAVEN Toolbox. Ensure that the RAVEN Toolbox is installed and added to your MATLAB path. See the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#installation">RAVEN installation instructions</a> for more detail.</p>
-<h2 id="additional-dependencies">Additional dependencies</h2>
-<h4 id="the-cobra-toolbox">The COBRA Toolbox</h4>
+<h4 id="the-cobra-toolbox-optional">The COBRA Toolbox (optional)</h4>
 <p>The <a href="https://opencobra.github.io/cobratoolbox/stable/">COBRA Toolbox</a> is not required for most of the functions associated with Human-GEM. However, it offers many additional analysis tools that are not available in RAVEN, and can for the most part be used instead of RAVEN.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -184,6 +187,14 @@ The Human-GEM model files are provided in RAVEN-friendly format, and many of the
 <h4 id="linear-optimization-solver">Linear optimization solver</h4>
 <p>A solver is required to run flux balance analysis (FBA), GEM extraction (using tINIT), or any other function involving an optimization. Compatible solvers are Gurobi Optimizer, MOSEK, or GLPK.</p>
 <p>For instructions on how to set up a solver and obtain a license (if required), see the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies">RAVEN instructions</a>.</p>
+<h2 id="alternative-software">Alternative software</h2>
+<h4 id="cobrapy">COBRApy</h4>
+<p>The functions contained within the Human-GEM GitHub repository are written in MATLAB, but the Human-GEM model can be used outside of MATLAB; for example, with Python (COBRApy).</p>
+<p><a href="https://opencobra.github.io/cobrapy/">COBRApy</a> is a Python package that allows users to perform constraint-based reconstruction and analysis of genome-scale metabolic models. See the <a href="https://cobrapy.readthedocs.io/en/stable/">COBRApy Documentation</a> for instructions on how to install and use COBRApy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend using the YAML (<code>Human-GEM.yml</code>) or SBML (<code>Human-GEM.xml</code>) versions of Human-GEM with COBRApy.</p>
+</div>
               
             </div>
           </div>
