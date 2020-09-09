@@ -88,9 +88,9 @@ data_struct
 
 ## Load and prepare the reference GEM
 
-The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the `HumanGEM.mat` file in the Human-GEM repository
+The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the `Human-GEM.mat` file in the Human-GEM repository
 ```matlab
-load('HumanGEM.mat');  % loads model as a structure named "ihuman"
+load('Human-GEM.mat');  % loads model as a structure named "ihuman"
 ```
 
 !!! important
