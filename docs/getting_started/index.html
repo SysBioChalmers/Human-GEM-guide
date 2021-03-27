@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Getting started - Human-GEM Guide</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,8 +25,8 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,6 +37,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Human-GEM Guide</a>
         <div role="search">
@@ -46,71 +48,70 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Getting started</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#getting-started">Getting Started</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Getting started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#loading-human-gem-into-matlab">Loading Human-GEM into MATLAB</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#loading-human-gem-into-matlab">Loading Human-GEM into MATLAB</a></li>
-        
-            <li><a class="toctree-l3" href="#using-human-gem-with-cobra">Using Human-GEM with COBRA</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-human-gemmat-file-recommended">From the Human-GEM.mat file (recommended)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-human-gemyml-file-recommended-if-not-on-master-branch">From the Human-GEM.yml file (recommended if not on master branch)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-human-gemxml-sbml-file">From the Human-GEM.xml (SBML) file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-human-gemxlsx-file">From the Human-GEM.xlsx file</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-the-human-gemtxt-file">From the Human-GEM.txt file</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-human-gem-with-cobra">Using Human-GEM with COBRA</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-load-the-model-into-matlab">1. Load the model into MATLAB</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-convert-the-model-into-cobra-format">2. Convert the model into COBRA format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#alternative-approach-not-recommended">Alternative approach (not recommended)</a>
+    </li>
+        </ul>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../flux_balance_analysis/">Flux balance analysis</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gem_extraction/">GEM extraction using tINIT</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gem_comparison/">GEM comparison</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../additional_tools/">Additional tools</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../faq_troubleshoot/">FAQs and troubleshooting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../contact/">Contact</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../flux_balance_analysis/">Flux balance analysis</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gem_extraction/">GEM extraction using tINIT</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gem_comparison/">GEM comparison</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faq_troubleshoot/">FAQs and troubleshooting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -135,6 +136,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -153,11 +155,10 @@
 </div>
 <h4 id="from-the-human-gemmat-file-recommended">From the <code>Human-GEM.mat</code> file (recommended)</h4>
 <p>The quickest and easiest way to load the Human-GEM model is from the <code>.mat</code> file.</p>
-<pre><code class="matlab">load('Human-GEM.mat');
+<pre><code class="language-matlab">load('Human-GEM.mat');
 </code></pre>
-
 <p>This will load the model as a structure named <code>ihuman</code>.</p>
-<pre><code class="matlab">ihuman
+<pre><code class="language-matlab">ihuman
 
 % ihuman = 
 % 
@@ -165,109 +166,99 @@
 % 
 %                      id: 'Human-GEM'
 %             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {13416×1 cell}
-%                    mets: {8458×1 cell}
-%                       S: [8458×13416 double]
-%                      lb: [13416×1 double]
-%                      ub: [13416×1 double]
-%                     rev: [13416×1 double]
-%                       c: [13416×1 double]
-%                       b: [8458×1 double]
+%                    rxns: {13082×1 cell}
+%                    mets: {8378×1 cell}
+%                       S: [8378×13082 double]
+%                      lb: [13082×1 double]
+%                      ub: [13082×1 double]
+%                     rev: [13082×1 double]
+%                       c: [13082×1 double]
+%                       b: [8378×1 double]
 %                   comps: {9×1 cell}
 %               compNames: {9×1 cell}
-%                rxnNames: {13416×1 cell}
-%                 grRules: {13416×1 cell}
-%              rxnGeneMat: [13416×3628 double]
-%              subSystems: {13416×1 cell}
-%                 eccodes: {13416×1 cell}
-%                   genes: {3628×1 cell}
-%                metNames: {8458×1 cell}
-%                metComps: [8458×1 double]
-%                  inchis: {8458×1 cell}
-%             metFormulas: {8458×1 cell}
-%           rxnReferences: {13416×1 cell}
-%                 rxnFrom: {13416×1 cell}
-%                 metFrom: {8458×1 cell}
-%     rxnConfidenceScores: [13416×1 double]
-%              metCharges: [8458×1 int64]
-%                 version: '1.4.0'
+%                rxnNames: {13082×1 cell}
+%                 grRules: {13082×1 cell}
+%              rxnGeneMat: [13082×3625 double]
+%              subSystems: {13082×1 cell}
+%                 eccodes: {13082×1 cell}
+%                   genes: {3625×1 cell}
+%                metNames: {8378×1 cell}
+%                metComps: [8378×1 double]
+%                  inchis: {8378×1 cell}
+%             metFormulas: {8378×1 cell}
+%           rxnReferences: {13082×1 cell}
+%                 rxnFrom: {13082×1 cell}
+%                 metFrom: {8378×1 cell}
+%     rxnConfidenceScores: [13082×1 double]
+%              metCharges: [8378×1 int64]
+%                 version: '1.6.0'
 %              annotation: [1×1 struct]
 </code></pre>
-
 <h4 id="from-the-human-gemyml-file-recommended-if-not-on-master-branch">From the <code>Human-GEM.yml</code> file (recommended if not on <code>master</code> branch)</h4>
 <p>The yaml version of Human-GEM is loaded using the <code>importHumanYaml</code> function.</p>
-<pre><code class="matlab">ihuman = importHumanYaml('Human-GEM.yml');
+<pre><code class="language-matlab">ihuman = importHumanYaml('Human-GEM.yml');
 
 % Start importing...
-%   1
-%   2
-%   3
-%   4
-%   5
+%         1
+%         2
+%         3
+%         4
+%         5
 % 
 % importing completed
 % follow-up processing... Done!
 </code></pre>
-
 <h4 id="from-the-human-gemxml-sbml-file">From the <code>Human-GEM.xml</code> (SBML) file</h4>
 <p>The <code>.xml</code> (SBML) version of Human-GEM is loaded using the RAVEN <code>importHumanYaml</code> function.</p>
-<pre><code class="matlab">ihuman = importModel(which('Human-GEM.xml'));
+<pre><code class="language-matlab">ihuman = importModel(which('Human-GEM.xml'));
 
 % The model contains 0 errors and 1 warnings.
 % 
-% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s): 
+% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s):
+%         HMR_4137 
 %         HMR_7161
 %         HMR_7162
 %         ATPasel
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The warning regarding the <code>grRules</code> can be ignored. Some packages are a bit more strict in their gene-reaction rule formulation, but Human-GEM functions have no such restrictions.</p>
+<p>The warning regarding the <code>grRules</code> can be ignored. Some packages are a bit more strict in their gene-reaction rule formulation, but Human-GEM functions do not have such restrictions.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We include the <code>which()</code> command around the model filename to provide its full path because some functions cannot otherwise find the file. This is not necessary if the model file is in MATLAB's current working directory (i.e., if you can see the model file in the <code>Current Folder</code> window).</p>
+<p>We include the <code>which()</code> command around the model filename to provide its full path because some functions cannot otherwise find the file. This is not necessary if the model file is in MATLAB's current working directory (i.e., if you can see the model file in the <code>Current Folder</code> window), or if you provide the full path to the file.</p>
 </div>
 <h4 id="from-the-human-gemxlsx-file">From the <code>Human-GEM.xlsx</code> file</h4>
 <p>The <code>.xslx</code> (Excel) version of Human-GEM is loaded using the RAVEN <code>importExcelModel</code> function.</p>
-<pre><code class="matlab">ihuman = importExcelModel(which('Human-GEM.xlsx'));
+<pre><code class="language-matlab">ihuman = importExcelModel(which('Human-GEM.xlsx'));
 
-% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s): 
+% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s):
+%         HMR_4137
 %         HMR_7161
 %         HMR_7162
 %         ATPasel
-% 
-% WARNING: The following InChI strings are associated to more than one unique metabolite name:
-%         1S/C27H46O2/c1-18(2)7-6-14-27(5,29)24-11-10-22-21-9-8-19-17-20(28)12-15-25(19,3)23(21)13-16-26(22,24)4/h8,18,20-24,28-29H,6-7,9-17H2,1-5H3/t20-,21-,22-,23-,24-,25-,26-,27-/m0/s1
-%         1S/C42H58NO/c1-32(20-22-39-35(4)17-12-25-41(39,6)7)14-10-16-34(3)30-38-31-37(24-27-43(38)28-29-44)19-11-15-33(2)21-23-40-36(5)18-13-26-42(40,8)9/h10-11,14-16,19-24,27,30-31,44H,12-13,17-18,25-26,28-29H2,1-9H3/q+1
-
 </code></pre>
-
 <h4 id="from-the-human-gemtxt-file">From the <code>Human-GEM.txt</code> file</h4>
 <p>There is no function to import the <code>.txt</code> version of the model. The <code>Human-GEM.txt</code> file is supplied for those who need or prefer a more human-readable plain-text format, but is not intended for loading into MATLAB.</p>
 <h2 id="using-human-gem-with-cobra">Using Human-GEM with COBRA</h2>
 <p>The provided Human-GEM models can generally be used directly with COBRA, though there may remain some incompatibilities that cause errors or unexpected behavior. We suggest to first convert the model to a COBRA-friendly format before using the COBRA Toolbox.</p>
 <h4 id="1-load-the-model-into-matlab">1. Load the model into MATLAB</h4>
 <p>Use one of the methods described <a href="#loading-human-gem-into-matlab">above</a> to load Human-GEM into MATLAB.</p>
-<pre><code class="matlab">load('Human-GEM.mat');  % loads model as structure named &quot;ihuman&quot;
+<pre><code class="language-matlab">load('Human-GEM.mat');  % loads model as structure named &quot;ihuman&quot;
 </code></pre>
-
 <h4 id="2-convert-the-model-into-cobra-format">2. Convert the model into COBRA format</h4>
 <p>Use the RAVEN <code>ravenCobraWrapper</code> function to convert the model into a COBRA-friendly format.</p>
-<pre><code class="matlab">model = ravenCobraWrapper(ihuman);
+<pre><code class="language-matlab">model = ravenCobraWrapper(ihuman);
 
 %  Converting RAVEN structure to COBRA..
 </code></pre>
-
 <p>The resulting <code>model</code> output should now be ready for use with the COBRA Toolbox.</p>
 <h4 id="alternative-approach-not-recommended">Alternative approach (not recommended)</h4>
 <p>Another option is to load the SBML model <code>Human-GEM.xml</code> directly into COBRA format using the COBRA <code>readCbModel</code> function.</p>
-<pre><code class="matlab">model = readCbModel(which('Human-GEM.xml'));
+<pre><code class="language-matlab">model = readCbModel(which('Human-GEM.xml'));
 
 % The model contains 0 errors and 1 warnings.
 </code></pre>
-
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Since the SBML file is not formatted for COBRA, loading it using <code>readCbModel</code> will yield a model that may be missing content or exhibit unexpected behavior. Proceed with caution.</p>
@@ -294,7 +285,7 @@
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -304,7 +295,7 @@
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -318,6 +309,11 @@
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

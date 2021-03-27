@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>FAQs and troubleshooting - Human-GEM Guide</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,8 +25,8 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,6 +37,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Human-GEM Guide</a>
         <div role="search">
@@ -46,71 +48,60 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">Getting started</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../flux_balance_analysis/">Flux balance analysis</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gem_extraction/">GEM extraction using tINIT</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gem_comparison/">GEM comparison</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../additional_tools/">Additional tools</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">FAQs and troubleshooting</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#frequently-asked-questions-and-troubleshooting">Frequently asked questions and troubleshooting</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting_started/">Getting started</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../flux_balance_analysis/">Flux balance analysis</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gem_extraction/">GEM extraction using tINIT</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gem_comparison/">GEM comparison</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">FAQs and troubleshooting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions-faqs">Frequently asked questions (FAQs)</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#frequently-asked-questions-faqs">Frequently asked questions (FAQs)</a></li>
-        
-            <li><a class="toctree-l3" href="#troubleshooting">Troubleshooting</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#does-human-gem-contain-an-atp-maintenance-reaction">Does Human-GEM contain an ATP maintenance reaction?</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#biomass-flux-is-zero">Biomass flux is zero</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#github-discussions">GitHub Discussions</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../contact/">Contact</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -135,6 +126,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -144,7 +136,7 @@
 <h2 id="frequently-asked-questions-faqs">Frequently asked questions (FAQs)</h2>
 <h4 id="does-human-gem-contain-an-atp-maintenance-reaction">Does Human-GEM contain an ATP maintenance reaction?</h4>
 <p>Yes, <code>HMR_3964</code> is an ATP hydrolysis reaction:</p>
-<pre><code class="matlab">constructEquations(ihuman, 'HMR_3964')
+<pre><code class="language-matlab">constructEquations(ihuman, 'HMR_3964')
 
 ans =
 
@@ -152,12 +144,11 @@ ans =
 
     {'ATP[c] + H2O[c] =&gt; ADP[c] + H+[c] + Pi[c]'}
 </code></pre>
-
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h4 id="biomass-flux-is-zero">Biomass flux is zero</h4>
 <p><strong>Problem:</strong> Running FBA on Human-GEM or a model derived from Human-GEM with a biomass reaction as the objective results in a solution with zero flux, even when all exchange reaction bounds are open.</p>
 <p><strong>Solution:</strong> Convert the model to "open" format, meaning that it does not contain any "boundary" ("unconstrained") metabolites.</p>
-<pre><code class="matlab">% using RAVEN: use the simplifyModel function
+<pre><code class="language-matlab">% using RAVEN: use the simplifyModel function
 model = simplifyModel(model);
 
 % using COBRA: find and remove all boundary metabolites
@@ -166,6 +157,8 @@ if isfield(model, 'metComps')
     model = removeMetabolites(model, model.mets(model.metComps == boundary_comp_index));
 end
 </code></pre>
+<h2 id="github-discussions">GitHub Discussions</h2>
+<p>For additional questions and discussions related to Human-GEM, check out the <a href="https://github.com/SysBioChalmers/Human-GEM/discussions">Discussions page</a> within the Human-GEM GitHub repository! Feel free to submit a question there if you cannot find a solution to your problem.</p>
               
             </div>
           </div>
@@ -188,7 +181,7 @@ end
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -198,7 +191,7 @@ end
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -212,6 +205,11 @@ end
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
