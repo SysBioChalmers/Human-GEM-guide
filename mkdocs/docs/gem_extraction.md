@@ -100,8 +100,8 @@ Add boundary metabolites to the model
 ```matlab
 ihuman = addBoundaryMets(ihuman);
 
-% Boundary metabolites were added to 1677 reactions.
-% New (boundary) versions of 1677 metabolites were added to the model.
+% Boundary metabolites were added to 1665 reactions.
+% New (boundary) versions of 1665 metabolites were added to the model.
 ```
 
 !!! note

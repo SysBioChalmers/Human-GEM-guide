@@ -30,7 +30,7 @@ sol = solveLP(model)
 % 
 %   struct with fields:
 % 
-%        x: [13416×1 double]
+%        x: [13082×1 double]
 %        f: -187.3536
 %     stat: 1
 %      msg: 'Optimal solution found'
@@ -82,7 +82,7 @@ sol = solveLP(model)
 % 
 %   struct with fields:
 % 
-%        x: [13417×1 double]
+%        x: [13082×1 double]
 %        f: -2.0000
 %     stat: 1
 %      msg: 'Optimal solution found'
@@ -103,7 +103,7 @@ sol = solveLP(model)
 % 
 %   struct with fields:
 % 
-%        x: [13417×1 double]
+%        x: [13082×1 double]
 %        f: -31.5000
 %     stat: 1
 %      msg: 'Optimal solution found'
