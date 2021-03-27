@@ -33,4 +33,8 @@ end
 ```
 
 
+## GitHub Discussions
+
+For additional questions and discussions related to Human-GEM, check out the [Discussions page](https://github.com/SysBioChalmers/Human-GEM/discussions) within the Human-GEM GitHub repository! Feel free to submit a question there if you cannot find a solution to your problem.
+
 
