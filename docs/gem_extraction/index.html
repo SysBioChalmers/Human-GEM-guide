@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>GEM extraction using tINIT - Human-GEM Guide</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,8 +25,8 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,6 +37,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> Human-GEM Guide</a>
         <div role="search">
@@ -46,79 +48,58 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Overview</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../getting_started/">Getting started</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../flux_balance_analysis/">Flux balance analysis</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">GEM extraction using tINIT</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#gem-extraction">GEM Extraction</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#taskdriven-integrative-network-inference-for-tissues-tinit">Task‐driven Integrative Network Inference for Tissues (tINIT)</a></li>
-        
-            <li><a class="toctree-l3" href="#retrieve-the-data">Retrieve the data</a></li>
-        
-            <li><a class="toctree-l3" href="#prepare-the-transcriptomic-data">Prepare the transcriptomic data</a></li>
-        
-            <li><a class="toctree-l3" href="#load-and-prepare-the-reference-gem">Load and prepare the reference GEM</a></li>
-        
-            <li><a class="toctree-l3" href="#prepare-the-metabolic-task-list">Prepare the metabolic task list</a></li>
-        
-            <li><a class="toctree-l3" href="#run-tinit">Run tINIT</a></li>
-        
-        </ul>
-    
-
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../getting_started/">Getting started</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../flux_balance_analysis/">Flux balance analysis</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GEM extraction using tINIT</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#taskdriven-integrative-network-inference-for-tissues-tinit">Task‐driven Integrative Network Inference for Tissues (tINIT)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#retrieve-the-data">Retrieve the data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prepare-the-transcriptomic-data">Prepare the transcriptomic data</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#load-and-prepare-the-reference-gem">Load and prepare the reference GEM</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prepare-the-metabolic-task-list">Prepare the metabolic task list</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-tinit">Run tINIT</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gem_comparison/">GEM comparison</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../additional_tools/">Additional tools</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../faq_troubleshoot/">FAQs and troubleshooting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../contact/">Contact</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gem_comparison/">GEM comparison</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../faq_troubleshoot/">FAQs and troubleshooting</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -143,6 +124,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -165,7 +147,7 @@
 <h2 id="prepare-the-transcriptomic-data">Prepare the transcriptomic data</h2>
 <p>Data from the condition, tissue, or cell type for which the GEM will be generated is necessary to determine which reactions from the reference model (Human-GEM) should be included. In this case, we are using RNA-Seq data (TPM normalized) that was originally obtained from the <a href="https://gtexportal.org/home/">GTEx database</a>. </p>
 <p>In MATLAB, load the <code>gtex_median_tissue_tpm.txt</code> file from the Zenodo repository <code>tINIT_GEMs/data/</code> subdirectory.</p>
-<pre><code class="matlab">% replace 'my/path/' with the path on your system, or change to the directory with the file
+<pre><code class="language-matlab">% replace 'my/path/' with the path on your system, or change to the directory with the file
 gtex_data = readtable('my/path/tINIT_GEMs/data/gtex_median_tissue_tpm.txt');
 
 % take a look at the first few rows and columns of the table
@@ -184,14 +166,12 @@ gtex_data(1:5,1:5)
 %     {'ENSG00000237613'}       0.03653            0.0405         0.03668       0.04113
 %     {'ENSG00000268020'}       0.02565           0.03479               0             0
 </code></pre>
-
 <p>Extract information from the table into a structure called <code>data_struct</code></p>
-<pre><code class="matlab">% extract the tissue and gene names
+<pre><code class="language-matlab">% extract the tissue and gene names
 data_struct.tissues = gtex_data.Properties.VariableNames(2:end)';  % sample (tissue) names
 data_struct.genes = gtex_data.genes;  % gene names
 data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 </code></pre>
-
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The name of the data structure (<code>data_struct</code> in this example) is not important. However, its fields (<code>genes</code>, <code>tissues</code>, <code>levels</code>) should <strong>not</strong> be changed.</p>
@@ -201,15 +181,14 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 <p>We don't actually need all of the data for this example since we are only generating a model for one tissue (liver). One could instead extract only the <code>liver</code> column into the <code>levels</code> field, and included only <code>liver</code> in the <code>tissues</code> field.</p>
 </div>
 <p>Although the original tINIT implementation always compared gene expression in the tissue of interest to the average of all other provided tissues, the updated version enables the option to instead compare the expression to a threshold value. Here, we will use this alternative approach with a threshold value of 1 TPM.</p>
-<pre><code class="matlab">data_struct.threshold = 1;
+<pre><code class="language-matlab">data_struct.threshold = 1;
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Exclude the <code>threshold</code> field from the data structure to use the original tINIT approach of comparing the gene expression in your tissue of interest with all other tissues. If you choose this approach, however, you <em><strong>must include the gene expression data from the other tissues</strong></em> so that the algorithm has something to compare to.</p>
 </div>
 <p>Take a look at <code>data_struct</code> to make sure all the fields are present and have the expected dimensions</p>
-<pre><code class="matlab">data_struct
+<pre><code class="language-matlab">data_struct
 
 % data_struct =
 %
@@ -220,23 +199,20 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 %        levels: [56202×30 double]
 %     threshold: 1
 </code></pre>
-
 <h2 id="load-and-prepare-the-reference-gem">Load and prepare the reference GEM</h2>
 <p>The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the <code>Human-GEM.mat</code> file in the Human-GEM repository</p>
-<pre><code class="matlab">load('Human-GEM.mat');  % loads model as a structure named &quot;ihuman&quot;
+<pre><code class="language-matlab">load('Human-GEM.mat');  % loads model as a structure named &quot;ihuman&quot;
 </code></pre>
-
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The metabolic task evaluation and tINIT algorithms requires that the model is provided in "closed form"; i.e., it contains <strong>boundary metabolites</strong>. Therefore, the boundary metabolites must be added to the GEM before proceeding.</p>
 </div>
 <p>Add boundary metabolites to the model</p>
-<pre><code class="matlab">ihuman = addBoundaryMets(ihuman);
+<pre><code class="language-matlab">ihuman = addBoundaryMets(ihuman);
 
-% Boundary metabolites were added to 1677 reactions.
-% New (boundary) versions of 1677 metabolites were added to the model.
+% Boundary metabolites were added to 1665 reactions.
+% New (boundary) versions of 1665 metabolites were added to the model.
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The exchange reactions should all be unbounded (e.g., lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in this format, so no additional changes are needed.</p>
@@ -245,7 +221,7 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 <p>The tINIT algorithm has the option to specify one or more metabolic tasks that the extracted model should be able to perform, such as transport of essential amino acids or production of biomass. Although task specification is not required, it is generally recommended to obtain a more functional extracted GEM, especially if it is going to be used in simulation-based analysis (e.g., FBA).</p>
 <p>Following with the procedure used in the Human-GEM manuscript, this example will use the list of 57 "essential" metabolic tasks that all cells are expected to be able to perform to be viable.</p>
 <p>Load the <code>metabolicTasks_Essential.xlsx</code> list of metabolic tasks from the <code>data/metabolicTasks/</code> subdirectory of the Human-GEM repository using the RAVEN <code>parseTaskList</code> function.</p>
-<pre><code class="matlab">essentialTasks = parseTaskList('/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Essential.xlsx')
+<pre><code class="language-matlab">essentialTasks = parseTaskList('/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Essential.xlsx')
 
 % essentialTasks = 
 % 
@@ -269,10 +245,9 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 %     LBrxn
 %     UBrxn
 </code></pre>
-
 <p>It is important to first verify that the reference model (Human-GEM) can successfully perform all of the tasks. If the reference model cannot perform a task, then neither can any GEM extracted from that model.</p>
 <p>Verify that the reference model passes all of the essential metabolic tasks.</p>
-<pre><code class="matlab">% see what the other inputs mean by typing &quot;help checkTasks&quot;
+<pre><code class="language-matlab">% see what the other inputs mean by typing &quot;help checkTasks&quot;
 checkTasks(ihuman, [], true, false, false, essentialTasks);
 
 % PASS: [ER] Aerobic rephosphorylation of ATP from glucose
@@ -286,11 +261,10 @@ checkTasks(ihuman, [], true, false, false, essentialTasks);
 % PASS: [BS] dATP de novo synthesis
 % ...
 </code></pre>
-
 <h2 id="run-tinit">Run tINIT</h2>
 <p>Now all inputs are ready to run tINIT and extract a GEM specific to the liver tissue based on its corresponding RNA expression profile. </p>
 <p>Although it's not necessary to re-assign the input variables before calling the <code>getINITModel2</code> function, we do it here to make the inputs very clear. Use the <code>help getINITModel2</code> command to see more details on the function inputs and outputs.</p>
-<pre><code class="matlab">refModel = ihuman;  % the reference model from which the GEM will be extracted
+<pre><code class="language-matlab">refModel = ihuman;  % the reference model from which the GEM will be extracted
 tissue = 'liver';  % must match the tissue name in data_struct.tissues
 celltype = [];  % used if tissues are subdivided into cell type, which is not the case here
 hpaData = [];  % data structure containing protein abundance information (not used here)
@@ -304,9 +278,8 @@ taskStructure = essentialTasks;  % metabolic task structure (used instead &quot;
 params = [];  % additional optimization parameters for the INIT algorithm
 paramsFT = [];  % additional optimization parameters for the fit-tasks algorithm
 </code></pre>
-
 <p>Run the getINITModel2 function to extract the GEM</p>
-<pre><code class="matlab">liverGEM = getINITModel2(refModel, tissue, celltype, hpaData, arrayData, metabolomicsData, removeGenes, taskFile, useScoresForTasks, printReport, taskStructure, params, paramsFT);
+<pre><code class="language-matlab">liverGEM = getINITModel2(refModel, tissue, celltype, hpaData, arrayData, metabolomicsData, removeGenes, taskFile, useScoresForTasks, printReport, taskStructure, params, paramsFT);
 
 % ***Generating model for: liver
 % -Using array data
@@ -336,7 +309,6 @@ Gurobi Optimizer version 9.0.1 build v9.0.1rc0 (mac64)
 Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
 ...
 </code></pre>
-
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This algorithm will take a while to run (30 min to 1 hr). It is therefore recommended that this is run on a compute cluster, especially when repeating for many different GEMs.</p>
@@ -346,7 +318,7 @@ Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
 <p>In this example, we called <code>getINITModel2</code> with one output, <code>liverGEM</code>. Use <code>help getINITModel2</code> to see a description of the additional optional outputs.</p>
 </div>
 <p>Once the optimization is complete, we can take a look at the extracted GEM.</p>
-<pre><code class="matlab">liverGEM
+<pre><code class="language-matlab">liverGEM
 
 % liverGEM = 
 % 
@@ -384,13 +356,11 @@ Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
 %              annotation: [1×1 struct]
 %                geneFrom: {2305×1 cell}
 </code></pre>
-
 <p>It is recommended to change the model <code>id</code> to a more descriptive name than the default of "INITModel". This is particularly useful when analyzing several models together.</p>
-<pre><code class="matlab">liverGEM.id = 'liver';
+<pre><code class="language-matlab">liverGEM.id = 'liver';
 </code></pre>
-
 <p>Notice that the model has fewer reactions, metabolites, and genes compared to the reference model.</p>
-<pre><code class="matlab">numel(ihuman.rxns) - numel(liverGEM.rxns)
+<pre><code class="language-matlab">numel(ihuman.rxns) - numel(liverGEM.rxns)
 
 % ans =
 % 
@@ -408,9 +378,8 @@ numel(ihuman.genes) - numel(liverGEM.genes)
 % 
 %         1320
 </code></pre>
-
 <p>It is also good to verify that the extracted GEM can also perform the required metabolic tasks.</p>
-<pre><code class="matlab">checkTasks(liverGEM, [], true, false, false, essentialTasks);
+<pre><code class="language-matlab">checkTasks(liverGEM, [], true, false, false, essentialTasks);
 </code></pre>
               
             </div>
@@ -434,7 +403,7 @@ numel(ihuman.genes) - numel(liverGEM.genes)
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -444,7 +413,7 @@ numel(ihuman.genes) - numel(liverGEM.genes)
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -458,6 +427,11 @@ numel(ihuman.genes) - numel(liverGEM.genes)
     <script>var base_url = '..';</script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
