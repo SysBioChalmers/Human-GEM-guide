@@ -28,32 +28,32 @@ ihuman
 % 
 %                      id: 'Human-GEM'
 %             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {13082×1 cell}
+%                    rxns: {13083×1 cell}
 %                    mets: {8378×1 cell}
-%                       S: [8378×13082 double]
-%                      lb: [13082×1 double]
-%                      ub: [13082×1 double]
-%                     rev: [13082×1 double]
-%                       c: [13082×1 double]
+%                       S: [8378×13083 double]
+%                      lb: [13083×1 double]
+%                      ub: [13083×1 double]
+%                     rev: [13083×1 double]
+%                       c: [13083×1 double]
 %                       b: [8378×1 double]
 %                   comps: {9×1 cell}
 %               compNames: {9×1 cell}
-%                rxnNames: {13082×1 cell}
-%                 grRules: {13082×1 cell}
-%              rxnGeneMat: [13082×3625 double]
-%              subSystems: {13082×1 cell}
-%                 eccodes: {13082×1 cell}
+%                rxnNames: {13083×1 cell}
+%                 grRules: {13083×1 cell}
+%              rxnGeneMat: [13083×3625 double]
+%              subSystems: {13083×1 cell}
+%                 eccodes: {13083×1 cell}
 %                   genes: {3625×1 cell}
 %                metNames: {8378×1 cell}
 %                metComps: [8378×1 double]
 %                  inchis: {8378×1 cell}
 %             metFormulas: {8378×1 cell}
-%           rxnReferences: {13082×1 cell}
-%                 rxnFrom: {13082×1 cell}
+%           rxnReferences: {13083×1 cell}
+%                 rxnFrom: {13083×1 cell}
 %                 metFrom: {8378×1 cell}
-%     rxnConfidenceScores: [13082×1 double]
+%     rxnConfidenceScores: [13083×1 double]
 %              metCharges: [8378×1 int64]
-%                 version: '1.6.0'
+%                 version: '1.8.0'
 %              annotation: [1×1 struct]
 ```
 
@@ -84,11 +84,11 @@ ihuman = importModel(which('Human-GEM.xml'));
 
 % The model contains 0 errors and 1 warnings.
 % 
-% WARNING: Potentially problematic ") AND (" in the grRules for reaction(s):
-%         HMR_4137 
-%         HMR_7161
-%         HMR_7162
-%         ATPasel
+% WARNING: Potentially problematic ") AND (" in the grRules for reaction(s): 
+%         MAR04137
+%         MAR07161
+%         MAR07162
+%         MAR00080
 ```
 
 !!! note
@@ -105,11 +105,11 @@ The `.xslx` (Excel) version of Human-GEM is loaded using the RAVEN `importExcelM
 ```matlab
 ihuman = importExcelModel(which('Human-GEM.xlsx'));
 
-% WARNING: Potentially problematic ") AND (" in the grRules for reaction(s):
-%         HMR_4137
-%         HMR_7161
-%         HMR_7162
-%         ATPasel
+% WARNING: Potentially problematic ") AND (" in the grRules for reaction(s): 
+%         MAR04137
+%         MAR07161
+%         MAR07162
+%         MAR00080
 ```
 
 

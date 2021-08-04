@@ -8,7 +8,7 @@ One of the most common analysis methods for GEMs is flux balance analysis (FBA).
 
 ## Optimization objective
 
-By default, the model objective (defined by the `.c` model field) is set to maximize flux through the `biomass_human` reaction, and all exchange reactions are open.
+By default, the model objective (defined by the `.c` model field) is set to maximize flux through the generic human biomass reaction (`MAR13082`), and all exchange reactions are open.
 ```matlab
 model.rxns(model.c == 1)
 
@@ -16,7 +16,7 @@ model.rxns(model.c == 1)
 % 
 %   1×1 cell array
 % 
-%     {'biomass_human'}
+%     {'MAR13082'}
 ```
 
 
@@ -49,9 +49,9 @@ The `sol.f` field contains the (negative) value of the objective, and the `sol.x
 
 To illustrate an example of a more meaningful flux solution, we can use FBA to calculate ATP yield (more specifically, the amount of ADP phosphorylated) per glucose consumed. 
 
-ATP yield can be quantified by the amount of flux through the ATP hydrolysis reaction `HMR_3964`.
+ATP yield can be quantified by the amount of flux through the ATP hydrolysis reaction `MAR03964`.
 ```matlab
-constructEquations(model, 'HMR_3964')
+constructEquations(model, 'MAR03964')
 
 % ans =
 % 
@@ -62,7 +62,7 @@ constructEquations(model, 'HMR_3964')
 
 Change the objective to maximize flux through the ATP hydrolysis reaction:
 ```matlab
-model = setParam(model, 'obj', 'HMR_3964', 1);
+model = setParam(model, 'obj', 'MAR03964', 1);
 ```
 
 Prevent import of all metabolites except glucose, for which the max import flux is set to 1 (mmol/gDW/h):

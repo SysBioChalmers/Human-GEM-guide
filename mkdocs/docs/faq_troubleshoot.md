@@ -3,9 +3,9 @@
 ## Frequently asked questions (FAQs)
 
 #### Does Human-GEM contain an ATP maintenance reaction?
-Yes, `HMR_3964` is an ATP hydrolysis reaction:
+Yes, `MAR03964` is an ATP hydrolysis reaction:
 ```matlab
-constructEquations(ihuman, 'HMR_3964')
+constructEquations(ihuman, 'MAR03964')
 
 ans =
 
