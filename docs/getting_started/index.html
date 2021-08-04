@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -25,10 +25,9 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/matlab.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/matlab.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -42,7 +41,7 @@
         <a href=".." class="icon icon-home"> Human-GEM Guide</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -139,6 +138,7 @@
   
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -166,32 +166,32 @@
 % 
 %                      id: 'Human-GEM'
 %             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {13082×1 cell}
+%                    rxns: {13083×1 cell}
 %                    mets: {8378×1 cell}
-%                       S: [8378×13082 double]
-%                      lb: [13082×1 double]
-%                      ub: [13082×1 double]
-%                     rev: [13082×1 double]
-%                       c: [13082×1 double]
+%                       S: [8378×13083 double]
+%                      lb: [13083×1 double]
+%                      ub: [13083×1 double]
+%                     rev: [13083×1 double]
+%                       c: [13083×1 double]
 %                       b: [8378×1 double]
 %                   comps: {9×1 cell}
 %               compNames: {9×1 cell}
-%                rxnNames: {13082×1 cell}
-%                 grRules: {13082×1 cell}
-%              rxnGeneMat: [13082×3625 double]
-%              subSystems: {13082×1 cell}
-%                 eccodes: {13082×1 cell}
+%                rxnNames: {13083×1 cell}
+%                 grRules: {13083×1 cell}
+%              rxnGeneMat: [13083×3625 double]
+%              subSystems: {13083×1 cell}
+%                 eccodes: {13083×1 cell}
 %                   genes: {3625×1 cell}
 %                metNames: {8378×1 cell}
 %                metComps: [8378×1 double]
 %                  inchis: {8378×1 cell}
 %             metFormulas: {8378×1 cell}
-%           rxnReferences: {13082×1 cell}
-%                 rxnFrom: {13082×1 cell}
+%           rxnReferences: {13083×1 cell}
+%                 rxnFrom: {13083×1 cell}
 %                 metFrom: {8378×1 cell}
-%     rxnConfidenceScores: [13082×1 double]
+%     rxnConfidenceScores: [13083×1 double]
 %              metCharges: [8378×1 int64]
-%                 version: '1.6.0'
+%                 version: '1.8.0'
 %              annotation: [1×1 struct]
 </code></pre>
 <h4 id="from-the-human-gemyml-file-recommended-if-not-on-master-branch">From the <code>Human-GEM.yml</code> file (recommended if not on <code>master</code> branch)</h4>
@@ -214,11 +214,11 @@
 
 % The model contains 0 errors and 1 warnings.
 % 
-% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s):
-%         HMR_4137 
-%         HMR_7161
-%         HMR_7162
-%         ATPasel
+% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s): 
+%         MAR04137
+%         MAR07161
+%         MAR07162
+%         MAR00080
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -232,11 +232,11 @@
 <p>The <code>.xslx</code> (Excel) version of Human-GEM is loaded using the RAVEN <code>importExcelModel</code> function.</p>
 <pre><code class="language-matlab">ihuman = importExcelModel(which('Human-GEM.xlsx'));
 
-% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s):
-%         HMR_4137
-%         HMR_7161
-%         HMR_7162
-%         ATPasel
+% WARNING: Potentially problematic &quot;) AND (&quot; in the grRules for reaction(s): 
+%         MAR04137
+%         MAR07161
+%         MAR07162
+%         MAR00080
 </code></pre>
 <h4 id="from-the-human-gemtxt-file">From the <code>Human-GEM.txt</code> file</h4>
 <p>There is no function to import the <code>.txt</code> version of the model. The <code>Human-GEM.txt</code> file is supplied for those who need or prefer a more human-readable plain-text format, but is not intended for loading into MATLAB.</p>
@@ -296,17 +296,18 @@
   </div>
 
   <div class="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../flux_balance_analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../flux_balance_analysis/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
     <script defer>
