@@ -1,7 +1,7 @@
 # Human-GEM User Guide
 
 !!! important
-    This guide applies to Human-GEM version [v1.8.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.8.0). If you are using a different version of Human-GEM, we cannot guarantee that it will function as described in this guide.
+    This guide applies to Human-GEM version [v1.9.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.9.0). If you are using a different version of Human-GEM, we cannot guarantee that it will function as described in this guide.
 
 ## Overview
 
