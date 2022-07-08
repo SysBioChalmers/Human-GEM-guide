@@ -53,7 +53,10 @@ The [COBRA Toolbox](https://opencobra.github.io/cobratoolbox/stable/) is not req
 
 
 #### Linear optimization solver
-A solver is required to run flux balance analysis (FBA), GEM extraction (using tINIT), or any other function involving an optimization. Compatible solvers are Gurobi Optimizer, MOSEK, or GLPK.
+A solver is required to run flux balance analysis (FBA), GEM extraction (using tINIT), or any other function involving an optimization. Compatible solvers are Gurobi Optimizer (recommended), GLPK, or the COBRA solver.
+
+!!! important
+    We **strongly recommend** using the Gurobi Optimizer, as issues are sometimes observed for other solvers since Human-GEM is a relatively large model.
 
 For instructions on how to set up a solver and obtain a license (if required), see the [RAVEN instructions](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies).
 
