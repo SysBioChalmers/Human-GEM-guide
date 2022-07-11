@@ -17,6 +17,7 @@ Although many GEM extraction methods exist, this guide will cover the ftINIT alg
 The ftINIT algorithm is available in the RAVEN Toolbox, and we use it together with help functions for Human-GEM available in the Human-GEM repository.
 
 To support users of the previous algorithm (tINIT), we also include a [guide](gem_extraction_old_tINIT.md) for the previous (2020) version of tINIT, called the `getINITModel2` function.
+
 ## Retrieve the data
 
 To demonstrate the use of ftINIT, we will walk through an example where we generate models from GTEx data. For simplicity, we extracted 60 RNA-Seq profiles from in total 12 tissues. The data can be downloaded [here](https://doi.org/10.5281/zenodo.6811073)  together with other data useful for this tutorial. 
@@ -26,24 +27,27 @@ Download the Zenodo repository .zip file, and extract.
 ## Load and prepare the reference model for use with ftINIT
 
 The reference GEM from which the tissue-specific models will be extracted is Human-GEM. Load the model from the `Human-GEM.mat` file in the Human-GEM repository
+
 ```matlab
 load('Human-GEM.mat');  % loads model as a structure named "ihuman"
 ```
+
 ftINIT has a preparation step that needs to be run once for a reference model such as Human-GEM. The purpose of the preparation step is to make calculations in advance to reduce the time it takes to generate each context-specific model. The result is a prepData structure that contains various information needed by ftINIT. This operation takes 1-2 hours on a standard laptop computer, so make sure to save it once it has completed. For version 1.12.0 of Human-GEM, the prepData is available in the Zenodo .zip file.
+
 ```matlab
 %The second flag indicates if the model should be converted to gene symbols (from ENSEMBL). This has to be decided at this point.
 prepData = prepHumanModelForftINIT(ihuman, false);
 save('prepData.mat', 'prepData')
 ```
 
-prepHumanModelForftINIT tests that the reference model (Human-GEM) can successfully perform all of the tasks, which is an important step. If the reference model cannot perform a task, then neither can any GEM extracted from that model.
+`prepHumanModelForftINIT` tests that the reference model (Human-GEM) can successfully perform all essential metabolic tasks (defined in `data/metabolicTasks/metabolicTasks_Essential.txt`), which is an important step. If the reference model cannot perform a task, then neither can any GEM extracted from that model.
 
 
 !!! note
     The exchange reactions should all be unbounded (e.g., lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in this format, so no additional changes are needed.
 
 !!! note
-    The function `prepHumanModelForftINIT` will automatically use the essential tasks specified in Human-GEM. To specify different tasks, use `prepINITModel` in RAVEN directly instead.
+    The function `prepHumanModelForftINIT` will automatically use the essential tasks from `metabolicTasks_Essential.txt` in the Human-GEM repository. To specify different metabolic tasks, use `prepINITModel` in RAVEN directly instead.
 
 
 ## Prepare the transcriptomic data
@@ -53,13 +57,13 @@ Data from the condition, tissue, or cell type for which the GEM will be generate
 In MATLAB, load the `gtexSampForTutorialTPM.txt` file from the Zenodo repository.
 
 ```matlab
-% replace 'my/path/' with the path on your system, or change to the directory with the file
+% replace 'my/path/' with the path on your system, or change to the directory containing the file
 gtex_data = readtable('my/path/gtexSampForTutorialTPM.txt');
-[~,n] = size(gtex_data);
+[~, n] = size(gtex_data);
 numSamp = n-2; %the first two columns are the genes in ENSEMBL and gene symbols format
 
 % take a look at the first few rows and columns of the table
-gtex_data(1:5,1:5)
+gtex_data(1:5, 1:5)
 % ans =
 % 
 %   5×5 table
@@ -77,9 +81,9 @@ gtex_data(1:5,1:5)
 Extract information from the table into a structure called `data_struct`
 ```matlab
 % extract the tissue and gene names
-data_struct.genes = gtex_data{:,1}; % gene names
+data_struct.genes = gtex_data{:, 1}; % gene names
 data_struct.tissues = gtex_data.Properties.VariableNames(3:n); % sample (tissue) names
-data_struct.levels = gtex_data{:,3:n}; % gene TPM values
+data_struct.levels = gtex_data{:, 3:n}; % gene TPM values
 ```
 
 !!! important
@@ -109,12 +113,12 @@ data_struct
 
 ## Run ftINIT
 
-Now all inputs are ready to run ftINIT and extract GEMs specific to the samples based on their corresponding RNA expression profile. ftINIT normally runs in two steps, of which the second is optional. The first step excludes most of the reactions without gene rules from the problem, and the second step determines which of those reactions that should be removed. The second step can be omitted, which leads to that most reactions without GPRs will be kept in the model. This is a good option in many cases, for example for structural comparison of models, since removal of reactions without GPRs will not add any extra information that is not already available in the model, and may add randomness in cases where there are several equally good solutions.
+Now all inputs are ready to run ftINIT and extract GEMs specific to the samples based on their corresponding RNA expression profile. ftINIT normally runs in two steps, of which the second is optional. The first step excludes most of the reactions without gene rules (GPRs) from the problem, and the second step determines which of those reactions should be removed. The second step can be omitted, which causes most reactions without GPRs to remain in the model. This is a good option in many cases, for example for structural comparison of models, since removal of reactions without GPRs does not provide any additional information and may add randomness in cases where there are several equally good solutions.
 
-We first run ftINIT without the second step, a setup that is called '1+0', which typically takes 30 - 60 s:
+We first run ftINIT without the second step, a setup that is called `'1+0'`, which typically takes 30 - 60 seconds:
 
 ```matlab
-model1 = ftINIT(prepData,data_struct.tissues{1},[],[],data_struct,{},getHumanGEMINITSteps('1+0'),false,true);
+model1 = ftINIT(prepData, data_struct.tissues{1}, [], [], data_struct, {}, getHumanGEMINITSteps('1+0'), false, true);
 
 model1
 % 
@@ -152,10 +156,10 @@ model1
 %              annotation: [1×1 struct]
 ```
 
-As an alternative, we can run it with the second step included ('1+1'), which takes roughly 2 - 3 times as long and generates a smaller model:
+As an alternative, we can run it with the second step included (`'1+1'`), which takes roughly 2 - 3 times as long and generates a smaller model:
 
 ```matlab
-model2 = ftINIT(prepData,data_struct.tissues{1},[],[],data_struct,{},getHumanGEMINITSteps('1+1'),false,true);
+model2 = ftINIT(prepData, data_struct.tissues{1}, [], [], data_struct, {}, getHumanGEMINITSteps('1+1'), false, true);
 
 model2
 % 
@@ -193,30 +197,30 @@ model2
 %              annotation: [1×1 struct]
 ```
 
-It is also possible to supply cell type for cases where tissues are subdivided into cell type, which is not the case here. The method also accepts proteomics data from Human Protein Atlas (HPA) and metabolomics data, but we don't use these here.
+It is also possible to supply cell type for cases where tissues are subdivided into cell type, which is not the case here. The method also accepts proteomics data from Human Protein Atlas (HPA) and metabolomics data, but these are not demonstrated here.
 
 
 !!! note
-	The two steps used here are the two most common ways to run ftINIT and the ways we recommend, but they are not the only options. ftINIT can for example be run in a very similar way to original tINIT by using the 'full' setup.
-
+	The two steps used here are the two most common approaches to run ftINIT and are what we recommend, but they are not the only options. ftINIT can for example be run in a very similar way to the original tINIT algorithm by using the `'full'` setup.
 
 
 It is recommended to change the model `id` to a more descriptive name than the default of "INITModel". This is particularly useful when analyzing several models together.
 ```matlab
 model1.id = data_struct.tissues{1};
 ```
+
 ## Run ftINIT for all samples
 
 We can now run ftINIT on all samples:
 
 ```matlab
-models = cell(numSamp,1);
+models = cell(numSamp, 1);
 for i = 1:numSamp
     disp(['Model: ' num2str(i) ' of ' num2str(numSamp)])
-    models{i} = ftINIT(prepData,data_struct.tissues{i},[],[],data_struct,{},getHumanGEMINITSteps('1+0'),false,true);
+    models{i} = ftINIT(prepData, data_struct.tissues{i}, [], [], data_struct, {}, getHumanGEMINITSteps('1+0'), false, true);
 end
 
-save('models.mat','models')
+save('models.mat', 'models')
 ```
 
 !!! warning
@@ -224,28 +228,29 @@ save('models.mat','models')
 
 ## Quick examination of the models
 
-To get a quick structural overview of the models, we perform a t-sne transformation of the models and export that data to a file for visualization in R.
+To get a quick structural overview of the models, we perform a t-SNE (t-Distributed Stochastic Neighbor Embedding) transformation of the models' reaction content and export that data to a file for visualization in R.
 
 ```matlab
 baseModel = prepData.refModel;
 
-%now build a matrix saying which reactions are on
+% now build a matrix saying which reactions are on
 compMat = false(length(baseModel.rxns), length(models));
 
 for i = 1:size(compMat,2)
     compMat(:,i) = ismember(baseModel.rxns,models{i}.rxns);
 end
 
-%run t-sne
-rng(1);%set random seed to make reproducible
-proj_coords = tsne(double(compMat.'),'Distance','hamming','NumDimensions',2,'Exaggeration',6,'Perplexity',10);
+% run t-sne
+rng(1);  %set random seed to make reproducible
+proj_coords = tsne(double(compMat.'), 'Distance', 'hamming', 'NumDimensions', 2, 'Exaggeration', 6, 'Perplexity', 10);
 
-%export to R
+% export to R
 d = struct();
-d.tsneX = proj_coords(:,1);
-d.tsneY = proj_coords(:,2);
+d.tsneX = proj_coords(:, 1);
+d.tsneY = proj_coords(:, 2);
 save('TSNE.mat', 'd');
 ```
+
 We can then visualize the data in R (use e.g., RStudio) using ggplot:
 
 ```R
