@@ -1,6 +1,6 @@
 # GEM Extraction from single-cell RNA-Seq data
 
-Single-cell RNA-Seq data is sparse, which means that the data is based on much fewer mRNA molecules than what is normally the case for bulk RNA-Seq samples. It is therefore not recommended to generate context-specific models per cell - it is necessary to pool the transcriptomes of many cells gathered into a cell population to obtain a reliable gene expression. The typical use case is to generate context-specific models for cell types, where the transcriptomes of all cells classified as belonging to each type are pooled into a single cell type profile.
+Single-cell RNA-Seq data is sparse, which means that samples (cells) contain much fewer mRNA molecules than what is normally the case for bulk RNA-Seq samples. It is therefore not recommended to generate context-specific models per individual cell - it is necessary to pool the transcriptomes of many cells gathered into a cell population to obtain a reliable gene expression profile. The typical use case is to generate context-specific models for cell types, where the transcriptomes of all cells classified as belonging to each type are pooled into a single cell type profile.
 
 Generation of context-specific models from single-cell RNA-Seq data is further described in [Gustafsson *et al.* (2022) *BioRXiv*](https://doi.org/10.1101/2022.04.25.489379).
 
@@ -9,11 +9,11 @@ Single-cell RNA-Seq data come in many forms and there are many different technol
 
 ## Estimation of the minimum cell population size for generation of stable models
 
-The number of cells that needs to be pooled to generate stable models varies across cell types and datasets. To estimate the minimum number of cells required to generate a stable model we use the tool DSAVE described in [Gustafsson *et al.* (2020) *PLOS ONE*](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0243360). This can be installed using the following commands:
+The number of cells that needs to be pooled to generate stable models varies across cell types and datasets. To estimate the minimum number of cells required to generate a stable model we use the tool DSAVE described in [Gustafsson *et al.* (2020) *PLOS ONE*](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0243360). This can be installed using the following commands in R:
 
 
 ```R
-Install and load devtools:
+# Install and load devtools:
 install.packages("devtools")
 library(devtools)
 install_github("SysBioChalmers/DSAVE-R")
@@ -31,7 +31,7 @@ setwd("C:/Work/MatlabCode/components/human-GEM/Human-GEMftINIT/Human-GEM/tutoria
 scData = readRDS("NKPopForTutorial.rds")
 
 #Run DSAVE and plot it
-varNK = DSAVEGetTotalVariationPoolSize(scData,upperBound = 50, lowerBound = 5e-1)
+varNK = DSAVEGetTotalVariationPoolSize(scData, upperBound = 50, lowerBound = 5e-1)
 fig = DSAVEPlotTotalVariation(varNK, c("NK Cells"), bulkIndex = 4)
 fig
 
@@ -47,7 +47,7 @@ ggsave(
 We conclude that we need at least somewhere between 1,500 to 2,000 cells to get a similar variation as between bulk samples (the blue line) for this population. 
 
 !!! note
-	The DSAVE method can only test sizes up to half of the total population size. To investigate several populations in a dataset, it is therefore recommended to look at the large cell populations, check that the smaller ones have similar number of UMIs/counts per cell, and then use the larger cell population to estimate the minimum required number of cells for all populations.
+	The DSAVE method can only test pool sizes up to half of the total population size. To investigate several populations in a dataset, it is therefore recommended to look at the large cell populations, check that the smaller ones have similar number of UMIs/counts per cell, and then use the larger cell population to estimate the minimum required number of cells for all populations.
 
 
 ## Pool the data
@@ -55,31 +55,34 @@ We conclude that we need at least somewhere between 1,500 to 2,000 cells to get 
 To pool the data into a profile, we simply add up the counts/UMIs from all cells in the population. We also convert the gene expression profile to counts per million (CPM) as a preparation for use with ftINIT.
 
 ```R
-library(textTinyR) #needed for rowSums to work with sparse matrices
+library(textTinyR)  # needed for rowSums to work with sparse matrices
 genes = rownames(scData)
 gexProfile = rowSums(scData)
 toExport = tibble(genes = genes, NKCells = gexProfile)
-#convert the data to CPM (counts per million, comparable to TPM)
-toExport[[2]] = toExport[[2]]*10^6/sum(toExport[[2]])
-#always check that it worked
-sum(toExport[[2]]) #10^6
+
+# convert the data to CPM (counts per million, comparable to TPM)
+toExport[[2]] = toExport[[2]]*10^6 / sum(toExport[[2]])
+
+# always check that it worked
+sum(toExport[[2]])  # 10^6
 write_tsv(toExport, 'NKCells.txt')
 ```
-The text file can then be imported to MATLAB followed by generation of a context-specific model by ftINIT in a similar way that was shown for the GTEx data. In this case, prepHumanModelForftINIT need to be run with gene conversion turned on, since the genes in this table are in the gene symbols format.
+
+The text file can then be imported to MATLAB followed by generation of a context-specific model by ftINIT in a similar way [that was shown for the GTEx data](gem_extraction.md). In this case, `prepHumanModelForftINIT` must be run with gene symbol conversion turned on (`prepHumanModelForftINIT(model, true)`), since the genes in this table are in the gene symbols format.
 
 ## Estimation of the uncertainty in generated models
 
-To estimate the uncertainty in models generated from single-cell RNA-Seq data, it is possible to generate bootstraps from the single-cell data. Bootstrapping is a method for generating samples with appropriate variation from the full population, and can be used to estimate the uncertainty in the model generation. How bootstraps can be used is demonstrated in [Gustafsson *et al.* (2022) *BioRXiv*](https://doi.org/10.1101/2022.04.25.489379).
+To estimate the uncertainty in models generated from single-cell RNA-Seq data, it is possible to generate bootstraps (samples of cells) from the single-cell data. Bootstrapping is a method for generating samples with appropriate variation from the full population, and can be used to estimate the uncertainty in the model generation. How bootstraps can be used is demonstrated in [Gustafsson *et al.* (2022) *BioRXiv*](https://doi.org/10.1101/2022.04.25.489379).
 
 ```R
-library(textTinyR) #needed for rowSums to work with sparse matrices
-set.seed(1) #make reproducible
+library(textTinyR)  # needed for rowSums to work with sparse matrices
+set.seed(1)  # make reproducible
 pooledBootstraps = Matrix(0, nrow = length(genes), ncol=100)
 rownames(pooledBootstraps) = genes
 for (j in 1:100) {
-  #bootstrap,i.e. sample the same number of samples with replacement 
+  # bootstrap,i.e. sample the same number of samples with replacement 
   sel = sample(ncol(scData),ncol(scData), replace = TRUE) 
-  pooledBootstraps[,j] = rowSums(scData[,sel])
+  pooledBootstraps[, j] = rowSums(scData[, sel])
 }
 tibbBstr = as_tibble(pooledBootstraps) %>% add_column(gene = genes, .before = 1)
 write_tsv(tibbBstr, "NKCell_bootstraps.txt")
