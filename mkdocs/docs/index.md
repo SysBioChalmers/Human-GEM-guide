@@ -1,7 +1,7 @@
 # Human-GEM User Guide
 
 !!! important
-    This guide applies to Human-GEM version [v1.9.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.9.0). If you are using a different version of Human-GEM, we cannot guarantee that it will function as described in this guide.
+    This guide applies to Human-GEM version [v1.12.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.9.0). If you are using a different version of Human-GEM, we cannot guarantee that it will function as described in this guide.
 
 ## Overview
 
@@ -10,8 +10,9 @@ This guide contains instructions and examples of how to use [Human-GEM](https://
 - [Installation](installation.md)
 - [Getting started](getting_started.md)
 - [Flux balance analysis](flux_balance_analysis.md)
-- [GEM extraction using tINIT](gem_extraction.md)
+- [GEM extraction using ftINIT](gem_extraction.md)
 - [GEM comparison](gem_comparison.md)
+- [GEM extraction from single-cell RNA-Seq data](gem_extraction_sc.md)
 - [Additional tools](additional_tools.md)
 - [FAQs and troubleshooting](faq_troubleshoot.md)
 - [Contact](contact.md)

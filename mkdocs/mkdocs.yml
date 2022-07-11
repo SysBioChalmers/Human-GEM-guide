@@ -4,8 +4,9 @@ nav:
   - Installation: installation.md
   - Getting started: getting_started.md
   - Flux balance analysis: flux_balance_analysis.md
-  - GEM extraction using tINIT: gem_extraction.md
+  - GEM extraction using ftINIT: gem_extraction.md
   - GEM comparison: gem_comparison.md
+  - GEM extraction from scRNA-Seq data: gem_extraction_sc.md
   - Additional tools: additional_tools.md
   - FAQs and troubleshooting: faq_troubleshoot.md
   - Contact: contact.md
