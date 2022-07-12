@@ -114,9 +114,9 @@ The tINIT algorithm has the option to specify one or more metabolic tasks that t
 
 Following with the procedure used in the Human-GEM manuscript, this example will use the list of 57 "essential" metabolic tasks that all cells are expected to be able to perform to be viable.
 
-Load the `metabolicTasks_Essential.xlsx` list of metabolic tasks from the `data/metabolicTasks/` subdirectory of the Human-GEM repository using the RAVEN `parseTaskList` function.
+Load the `metabolicTasks_Essential.txt` list of metabolic tasks from the `data/metabolicTasks/` subdirectory of the Human-GEM repository using the RAVEN `parseTaskList` function.
 ```matlab
-essentialTasks = parseTaskList('/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Essential.xlsx')
+essentialTasks = parseTaskList('/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Essential.txt')
 
 % essentialTasks = 
 % 
@@ -168,19 +168,19 @@ Now all inputs are ready to run tINIT and extract a GEM specific to the liver ti
 Although it's not necessary to re-assign the input variables before calling the `getINITModel2` function, we do it here to make the inputs very clear. Use the `help getINITModel2` command to see more details on the function inputs and outputs.
 
 ```matlab
-refModel = ihuman;  % the reference model from which the GEM will be extracted
-tissue = 'liver';  % must match the tissue name in data_struct.tissues
-celltype = [];  % used if tissues are subdivided into cell type, which is not the case here
-hpaData = [];  % data structure containing protein abundance information (not used here)
-arrayData = data_struct;  % data structure with gene (RNA) abundance information
-metabolomicsData = [];  % list of metabolite names if metabolomic data is available
-removeGenes = true;  % (default) remove lowly/non-expressed genes from the extracted GEM
-taskFile = [];  % we already loaded the task file, so this input is not required
-useScoresForTasks = true;  % (default) use expression data to decide which reactions to keep
-printReport = true;  % (default) print status/completion report to screen
+refModel = ihuman;          % the reference model from which the GEM will be extracted
+tissue = 'liver';           % must match the tissue name in data_struct.tissues
+celltype = [];              % used if tissues are subdivided into cell type, which is not the case here
+hpaData = [];               % data structure containing protein abundance information (not used here)
+arrayData = data_struct;    % data structure with gene (RNA) abundance information
+metabolomicsData = [];      % list of metabolite names if metabolomic data is available
+removeGenes = true;         % (default) remove lowly/non-expressed genes from the extracted GEM
+taskFile = [];              % we already loaded the task file, so this input is not required
+useScoresForTasks = true;   % (default) use expression data to decide which reactions to keep
+printReport = true;         % (default) print status/completion report to screen
 taskStructure = essentialTasks;  % metabolic task structure (used instead "taskFile")
-params = [];  % additional optimization parameters for the INIT algorithm
-paramsFT = [];  % additional optimization parameters for the fit-tasks algorithm
+params = [];                % additional optimization parameters for the INIT algorithm
+paramsFT = [];              % additional optimization parameters for the fit-tasks algorithm
 ```
 
 Run the getINITModel2 function to extract the GEM
@@ -192,32 +192,34 @@ liverGEM = getINITModel2(refModel, tissue, celltype, hpaData, arrayData, metabol
 % -Using metabolic tasks
 % 
 % Reference model statistics:
-%         13417 reactions, 3625 genes
-%         Mean reaction score: 4.1017
-%         Mean gene score: 5.3912
-%         Reactions with positive scores: 54.2372%
-%
-%  Pruned model statistics:
-%         11903 reactions, 3052 genes
-%         Mean reaction score: 4.1094
-%         Mean gene score: 5.1854
-%         Reactions with positive scores: 54.1964%
-%  
-%  Reactions essential for tasks:
-%         403 reactions, 365 genes
-%         Mean reaction score: 8.3307
-%         Mean gene score: 7.1855
-%         Reactions with positive scores: 87.8412%
-
-MILP detected.
-Academic license - for non-commercial use only
-Gurobi Optimizer version 9.0.1 build v9.0.1rc0 (mac64)
-Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
+%         13070 reactions, 3067 genes
+%         Mean reaction score: 4.0838
+%         Mean gene score: 5.5685
+%         Reactions with positive scores: 54.0857%
+% 
+% Pruned model statistics:
+%         11884 reactions, 2494 genes
+%         Mean reaction score: 4.1082
+%         Mean gene score: 5.351
+%         Reactions with positive scores: 54.1905%
+% 
+% Reactions essential for tasks:
+%         386 reactions, 401 genes
+%         Mean reaction score: 8.1834
+%         Mean gene score: 7.2771
+%         Reactions with positive scores: 86.7876%
+% 
+% MILP detected.
+% Set parameter Username
+% Set parameter TimeLimit to value 1000
+% Set parameter IntFeasTol to value 1e-09
+% Set parameter MIPGap to value 1e-12
 ...
 ```
 
 !!! warning
 	This algorithm will take a while to run (30 min to 1 hr). It is therefore recommended that this is run on a compute cluster, especially when repeating for many different GEMs.
+    Alternatively, we recommend you try out the new "fast" tINIT ([ftINIT](https://github.com/SysBioChalmers/RAVEN/blob/main/INIT/ftINIT.m)) algorithm, available from the RAVEN Toolbox. More detailed usage instructions for ftINIT will be added to this guide in the near future.
 
 !!! note
 	In this example, we called `getINITModel2` with one output, `liverGEM`. Use `help getINITModel2` to see a description of the additional optional outputs.
@@ -233,35 +235,37 @@ liverGEM
 % 
 %                      id: 'INITModel'
 %             description: 'Automatically generated model for liver'
-%                    rxns: {7971×1 cell}
-%                    mets: {6744×1 cell}
-%                       S: [6744×7971 double]
-%                      lb: [7971×1 double]
-%                      ub: [7971×1 double]
-%                     rev: [7971×1 double]
-%                       c: [7971×1 double]
-%                       b: [6744×2 double]
+%                    rxns: {7970×1 cell}
+%                    mets: {6740×1 cell}
+%                       S: [6740×7970 double]
+%                      lb: [7970×1 double]
+%                      ub: [7970×1 double]
+%                     rev: [7970×1 double]
+%                       c: [7970×1 double]
+%                       b: [6740×2 double]
 %                   comps: {10×1 cell}
 %               compNames: {10×1 cell}
-%                rxnNames: {7971×1 cell}
-%                 grRules: {7971×1 cell}
-%              rxnGeneMat: [7971×2305 double]
-%              subSystems: {7971×1 cell}
-%                 eccodes: {7971×1 cell}
-%                   genes: {2305×1 cell}
-%                metNames: {6744×1 cell}
-%                metComps: [6744×1 double]
-%                  inchis: {6744×1 cell}
-%             metFormulas: {6744×1 cell}
-%           unconstrained: [6744×1 double]
-%           rxnReferences: {7971×1 cell}
-%                 rxnFrom: {7971×1 cell}
-%                 metFrom: {6744×1 cell}
-%     rxnConfidenceScores: [7971×1 double]
-%              metCharges: [6744×1 int64]
-%                 version: '1.3.1'
+%                rxnNames: {7970×1 cell}
+%                 grRules: {7970×1 cell}
+%              rxnGeneMat: [7970×1904 double]
+%              subSystems: {7970×1 cell}
+%                 eccodes: {7970×1 cell}
+%                rxnNotes: {7970×1 cell}
+%                   genes: {1904×1 cell}
+%                metNames: {6740×1 cell}
+%                metComps: [6740×1 double]
+%                  inchis: {6740×1 cell}
+%             metFormulas: {6740×1 cell}
+%           rxnReferences: {7970×1 cell}
+%                 rxnFrom: {7970×1 cell}
+%                 metFrom: {6740×1 cell}
+%     rxnConfidenceScores: [7970×1 double]
+%              metCharges: [6740×1 int64]
+%                 version: '1.12.0'
 %              annotation: [1×1 struct]
-%                geneFrom: {2305×1 cell}
+%           unconstrained: [6740×1 double]
+%                    name: ''
+%                geneFrom: {1904×1 cell}
 ```
 
 It is recommended to change the model `id` to a more descriptive name than the default of "INITModel". This is particularly useful when analyzing several models together.
@@ -275,19 +279,19 @@ numel(ihuman.rxns) - numel(liverGEM.rxns)
 
 % ans =
 % 
-%         5446
+%         5100
 
 numel(ihuman.mets) - numel(liverGEM.mets)
 
 % ans =
 % 
-%         3394
+%         3294
 
 numel(ihuman.genes) - numel(liverGEM.genes)
 
 % ans =
 % 
-%         1320
+%         1163
 ```
 
 It is also good to verify that the extracted GEM can also perform the required metabolic tasks.
