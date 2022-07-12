@@ -38,7 +38,7 @@ Ignore the `Warning: Name is nonexistent or not a directory` messages.
 MATLAB is the primary software used for working with Human-GEM. Unfortunately, MATLAB is not free, though a ([30-day trial](https://www.mathworks.com/campaigns/products/trials.highResolutionDisplay.html)) is available.
 
 #### The RAVEN Toolbox
-**[v2.3.1 or newer]**  
+**[v2.7.5 or newer]**  
 The Human-GEM model files are provided in RAVEN-friendly format, and many of the functions in the Human-GEM repository depend on the RAVEN Toolbox. Ensure that the RAVEN Toolbox is installed and added to your MATLAB path. See the [RAVEN installation instructions](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#installation) for more detail.
 
 #### The COBRA Toolbox (optional)
