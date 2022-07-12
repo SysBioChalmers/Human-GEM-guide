@@ -9,7 +9,7 @@ Make sure you have completed the [installation process](installation.md) before 
 
 
 !!! note
-	All the model file formats described below are on the `master` branch of the Human-GEM repository. Note that only the `.yml` version is available on branches other than `master` (e.g., `devel`), to facilitate tracking of model changes.
+	All the model file formats described below are on the `main` branch of the Human-GEM repository. Note that only the `.yml` version is available on branches other than `main` (e.g., `devel`), to facilitate tracking of model changes.
 
 #### From the `Human-GEM.mat` file (recommended)
 
@@ -59,18 +59,17 @@ ihuman
 ```
 
 
-#### From the `Human-GEM.yml` file (recommended if not on `master` branch)
+#### From the `Human-GEM.yml` file (recommended if not on `main` branch or if using Cobrapy)
 
-The yaml version of Human-GEM is loaded using the `importHumanYaml` function.
+The yaml version of Human-GEM is loaded using the `importYaml` function.
 ```matlab
-ihuman = importHumanYaml('Human-GEM.yml');
+ihuman = importYaml('Human-GEM.yml');
 
-% Start importing...
-%         1
-%         2
-%         3
-%         4
-%         5
+%   1
+%   2
+%   3
+%   4
+%   5
 % 
 % importing completed
 % follow-up processing... Done!

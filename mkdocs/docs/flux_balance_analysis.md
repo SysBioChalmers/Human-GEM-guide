@@ -10,7 +10,7 @@ One of the most common analysis methods for GEMs is flux balance analysis (FBA).
 
 By default, the model objective (defined by the `.c` model field) is set to maximize flux through the generic human biomass reaction (`MAR13082`), and all exchange reactions are open.
 ```matlab
-model.rxns(model.c == 1)
+ihuman.rxns(ihuman.c == 1)
 
 % ans =
 % 
@@ -24,7 +24,7 @@ model.rxns(model.c == 1)
 
 Run FBA using the RAVEN `solveLP` function.
 ```matlab
-sol = solveLP(model)
+sol = solveLP(ihuman)
 
 % sol = 
 % 
@@ -51,7 +51,7 @@ To illustrate an example of a more meaningful flux solution, we can use FBA to c
 
 ATP yield can be quantified by the amount of flux through the ATP hydrolysis reaction `MAR03964`.
 ```matlab
-constructEquations(model, 'MAR03964')
+constructEquations(ihuman, 'MAR03964')
 
 % ans =
 % 
@@ -62,12 +62,12 @@ constructEquations(model, 'MAR03964')
 
 Change the objective to maximize flux through the ATP hydrolysis reaction:
 ```matlab
-model = setParam(model, 'obj', 'MAR03964', 1);
+ihuman = setParam(ihuman, 'obj', 'MAR03964', 1);
 ```
 
 Prevent import of all metabolites except glucose, for which the max import flux is set to 1 (mmol/gDW/h):
 ```matlab
-model = setExchangeBounds(model, 'glucose', -1);  % negative flux indicates import
+ihuman = setExchangeBounds(ihuman, 'glucose', -1);  % negative flux indicates import
 ```
 
 !!! note
@@ -76,14 +76,14 @@ model = setExchangeBounds(model, 'glucose', -1);  % negative flux indicates impo
 
 Now perform FBA to determine the maximum amount of ATP hydrolyzed (ADP phosphorylated) per equivalent of glucose consumed.
 ```matlab
-sol = solveLP(model)
+sol = solveLP(ihuman)
 
 % sol = 
 % 
 %   struct with fields:
 % 
 %        x: [13070×1 double]
-%        f: -2.0000
+%        f: -2
 %     stat: 1
 %      msg: 'Optimal solution found'
 ```
@@ -92,12 +92,12 @@ As expected, the theoretical mol ADP phosphorylated per mol glucose consumed is 
 
 Let us now calculate the same ATP yield, but in the present of oxygen. We first need to update the exchange constraints:
 ```matlab
-model = setExchangeBounds(model, {'glucose', 'O2'}, [-1, -1000]);
+ihuman = setExchangeBounds(ihuman, {'glucose', 'O2'}, [-1, -1000]);
 ```
 
 Note that we are allowing effectively infinite oxygen consumption, since we are interested in non-O2-limited ATP yield per glucose. Now re-run the FBA to see how the maximum yield has changed:
 ```matlab
-sol = solveLP(model)
+sol = solveLP(ihuman)
 
 % sol = 
 % 
