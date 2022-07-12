@@ -18,6 +18,7 @@ pip install mkdocs
 
 Preview your local version of the guide by running the `serve` command from within the `mkdocs/` directory:
 ```
+cd mkdocs/
 mkdocs serve
 ```
 
