@@ -1,20 +1,6 @@
-# GEM Extraction
+# GEM Extraction with tINIT (the older algorithm for extracting context-specific models)
 
-Human-GEM is a generic model of human metabolism, meaning that it contains metabolic reactions known to occur in any human cell. The model is therefore not representative of any one tissue or cell type, in which only a subset of the reactions would be active.
-
-A common approach is to extract the subset of the GEM that is likely to be active in the tissue or cell type of interest, based on a corresponding dataset (e.g., transcriptomics, proteomics, metabolomics, etc.). This approach is often referred to as *GEM extraction* or *contextualization*, where the generated model is termed the *extracted* or *contextualized*/*context-specific GEM*.
-
-
-## Task‐driven Integrative Network Inference for Tissues (tINIT)
-
-Although many GEM extraction methods exist, this guide will cover the tINIT algorithm. For more details on the algorithm itself, see the following papers:
-
-1. [Agren *et al.* (2012) *PLoS Comput Biol*](https://doi.org/10.1371/journal.pcbi.1002518) - Initial development of INIT
-2. [Agren *et al.* (2014) *Mol Syst Biol*](https://doi.org/10.1002/msb.145122) - Incorporation of metabolic tasks (tINIT)
-3. [Robinson *et al.* (2020) *Sci Signal*](https://doi.org/10.1126/scisignal.aaz1482) - Recognition of enzyme complexes
-
-The original (2014) tINIT algorithm is implemented in the RAVEN Toolbox, where its main calling function is `getINITModel`. This guide will cover the updated (2020) version of tINIT that is maintained on the Human-GEM repository, called using the `getINITModel2` function.
-
+The original (2014) tINIT algorithm is implemented in the RAVEN Toolbox, where its main calling function is `getINITModel`. This guide is for the updated (2020) version of tINIT that is maintained on the Human-GEM repository, called the `getINITModel2` function.
 
 ## Retrieve the data
 
