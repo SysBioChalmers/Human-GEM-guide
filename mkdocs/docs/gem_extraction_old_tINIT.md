@@ -205,7 +205,7 @@ liverGEM = getINITModel2(refModel, tissue, celltype, hpaData, arrayData, metabol
 
 !!! warning
 	This algorithm will take a while to run (30 min to 1 hr). It is therefore recommended that this is run on a compute cluster, especially when repeating for many different GEMs.
-    Alternatively, we recommend you try out the new "fast" tINIT ([ftINIT](https://github.com/SysBioChalmers/RAVEN/blob/main/INIT/ftINIT.m)) algorithm, available from the RAVEN Toolbox. More detailed usage instructions for ftINIT will be added to this guide in the near future.
+    Alternatively, we recommend using the new "fast" tINIT ([ftINIT](https://github.com/SysBioChalmers/RAVEN/blob/main/INIT/ftINIT.m)) algorithm, available from the RAVEN Toolbox. View instructions on using ftINIT [here](gem_extraction.md).
 
 !!! note
 	In this example, we called `getINITModel2` with one output, `liverGEM`. Use `help getINITModel2` to see a description of the additional optional outputs.
