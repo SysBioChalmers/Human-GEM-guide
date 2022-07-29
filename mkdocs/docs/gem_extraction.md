@@ -35,7 +35,7 @@ load('Human-GEM.mat');  % loads model as a structure named "ihuman"
 ftINIT has a preparation step that needs to be run once for a reference model such as Human-GEM. The purpose of the preparation step is to make calculations in advance to reduce the time it takes to generate each context-specific model. The result is a prepData structure that contains various information needed by ftINIT. This operation takes 1-2 hours on a standard laptop computer, so make sure to save it once it has completed. For version 1.12.0 of Human-GEM, the prepData is available in the Zenodo .zip file.
 
 ```matlab
-%The second flag indicates if the model should be converted to gene symbols (from ENSEMBL). This has to be decided at this point.
+% The second flag indicates if the model should be converted to gene symbols from ENSEMBL. This has to be decided at this point.
 prepData = prepHumanModelForftINIT(ihuman, false);
 save('prepData.mat', 'prepData')
 ```
