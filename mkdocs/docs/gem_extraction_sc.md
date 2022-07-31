@@ -26,7 +26,7 @@ library(tidyverse)
 library(ggplot2)
 library(DSAVE)
 
-setwd("C:/Work/MatlabCode/components/human-GEM/Human-GEMftINIT/Human-GEM/tutorials/ftINIT")
+setwd("my/path") #replace with your own path where the exported data was saved
 
 scData = readRDS("NKPopForTutorial.rds")
 
