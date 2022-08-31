@@ -15,7 +15,7 @@ jobs:
     - name: Install MkDocs
       run: |
         sudo pip install pip --upgrade
-        sudo pip install mkdocs mkdocs-material
+        sudo pip install mkdocs
       
     - name: Build site
       run: |
