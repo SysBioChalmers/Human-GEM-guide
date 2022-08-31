@@ -1,186 +1,566 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>GEM extraction using tINIT - Human-GEM Guide</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../css/theme.css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "GEM extraction using tINIT";
-    var mkdocs_page_input_path = "gem_extraction.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/matlab.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>GEM extraction using ftINIT - Human-GEM Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Human-GEM Guide</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gem-extraction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../getting_started/">Getting started</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../flux_balance_analysis/">Flux balance analysis</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">GEM extraction using tINIT</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#taskdriven-integrative-network-inference-for-tissues-tinit">Task‐driven Integrative Network Inference for Tissues (tINIT)</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#retrieve-the-data">Retrieve the data</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#prepare-the-transcriptomic-data">Prepare the transcriptomic data</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#load-and-prepare-the-reference-gem">Load and prepare the reference GEM</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#prepare-the-metabolic-task-list">Prepare the metabolic task list</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-tinit">Run tINIT</a>
-    </li>
-    </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../gem_comparison/">GEM comparison</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../additional_tools/">Additional tools</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../faq_troubleshoot/">FAQs and troubleshooting</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../contact/">Contact</a>
-                    </li>
-                </ul>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Human-GEM Guide" class="md-header__button md-logo" aria-label="Human-GEM Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Human-GEM Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GEM extraction using ftINIT
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Human-GEM Guide</a>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
       </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Human-GEM Guide" class="md-nav__button md-logo" aria-label="Human-GEM Guide" data-md-component="logo">
       
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Human-GEM Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
     
       
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
     
-    <li>GEM extraction using tINIT</li>
-    <li class="wy-breadcrumbs-aside">
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flux_balance_analysis/" class="md-nav__link">
+        Flux balance analysis
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GEM extraction using ftINIT
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GEM extraction using ftINIT
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fast-taskdriven-integrative-network-inference-for-tissues-ftinit" class="md-nav__link">
+    Fast Task‐driven Integrative Network Inference for Tissues (ftINIT)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-the-data" class="md-nav__link">
+    Retrieve the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-and-prepare-the-reference-model-for-use-with-ftinit" class="md-nav__link">
+    Load and prepare the reference model for use with ftINIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-the-transcriptomic-data" class="md-nav__link">
+    Prepare the transcriptomic data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-ftinit" class="md-nav__link">
+    Run ftINIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-ftinit-for-all-samples" class="md-nav__link">
+    Run ftINIT for all samples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-examination-of-the-models" class="md-nav__link">
+    Quick examination of the models
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
-  </ul>
   
-  <hr/>
-</div>
 
-          <div role="main">
-            <div class="section">
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gem_comparison/" class="md-nav__link">
+        GEM comparison
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gem_extraction_sc/" class="md-nav__link">
+        GEM extraction from scRNA-Seq data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../additional_tools/" class="md-nav__link">
+        Additional tools
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq_troubleshoot/" class="md-nav__link">
+        FAQs and troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact/" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
               
-                <h1 id="gem-extraction">GEM Extraction</h1>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fast-taskdriven-integrative-network-inference-for-tissues-ftinit" class="md-nav__link">
+    Fast Task‐driven Integrative Network Inference for Tissues (ftINIT)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#retrieve-the-data" class="md-nav__link">
+    Retrieve the data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-and-prepare-the-reference-model-for-use-with-ftinit" class="md-nav__link">
+    Load and prepare the reference model for use with ftINIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-the-transcriptomic-data" class="md-nav__link">
+    Prepare the transcriptomic data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-ftinit" class="md-nav__link">
+    Run ftINIT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-ftinit-for-all-samples" class="md-nav__link">
+    Run ftINIT for all samples
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-examination-of-the-models" class="md-nav__link">
+    Quick examination of the models
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="gem-extraction">GEM Extraction</h1>
 <p>Human-GEM is a generic model of human metabolism, meaning that it contains metabolic reactions known to occur in any human cell. The model is therefore not representative of any one tissue or cell type, in which only a subset of the reactions would be active.</p>
 <p>A common approach is to extract the subset of the GEM that is likely to be active in the tissue or cell type of interest, based on a corresponding dataset (e.g., transcriptomics, proteomics, metabolomics, etc.). This approach is often referred to as <em>GEM extraction</em> or <em>contextualization</em>, where the generated model is termed the <em>extracted</em> or <em>contextualized</em>/<em>context-specific GEM</em>.</p>
-<h2 id="taskdriven-integrative-network-inference-for-tissues-tinit">Task‐driven Integrative Network Inference for Tissues (tINIT)</h2>
-<p>Although many GEM extraction methods exist, this guide will cover the tINIT algorithm. For more details on the algorithm itself, see the following papers:</p>
+<h2 id="fast-taskdriven-integrative-network-inference-for-tissues-ftinit">Fast Task‐driven Integrative Network Inference for Tissues (ftINIT)</h2>
+<p>Although many GEM extraction methods exist, this guide will cover the ftINIT algorithm. For more details on the algorithm, see the following papers:</p>
 <ol>
 <li><a href="https://doi.org/10.1371/journal.pcbi.1002518">Agren <em>et al.</em> (2012) <em>PLoS Comput Biol</em></a> - Initial development of INIT</li>
 <li><a href="https://doi.org/10.1002/msb.145122">Agren <em>et al.</em> (2014) <em>Mol Syst Biol</em></a> - Incorporation of metabolic tasks (tINIT)</li>
 <li><a href="https://doi.org/10.1126/scisignal.aaz1482">Robinson <em>et al.</em> (2020) <em>Sci Signal</em></a> - Recognition of enzyme complexes</li>
+<li><a href="https://doi.org/10.1101/2022.04.25.489379">Gustafsson <em>et al.</em> (2022) <em>BioRXiv</em></a> - ftINIT, faster and produces less gaps in the models</li>
 </ol>
-<p>The original (2014) tINIT algorithm is implemented in the RAVEN Toolbox, where its main calling function is <code>getINITModel</code>. This guide will cover the updated (2020) version of tINIT that is maintained on the Human-GEM repository, called using the <code>getINITModel2</code> function.</p>
+<p>The ftINIT algorithm is available in the RAVEN Toolbox, and we use it together with help functions for Human-GEM available in the Human-GEM repository.</p>
+<p>To support users of the previous algorithm (tINIT), we also include a <a href="../gem_extraction_old_tINIT/">guide</a> for the previous (2020) version of tINIT, called the <code>getINITModel2</code> function.</p>
 <h2 id="retrieve-the-data">Retrieve the data</h2>
-<p>To demonstrate the use of tINIT, we will walk through an example that replicates part of the <a href="https://doi.org/10.1126/scisignal.aaz1482">Human-GEM publication</a>. </p>
-<p>The data used in this example can be retrieved from the <a href="https://doi.org/10.5281/zenodo.3577466">Zenodo repository</a> associated with the publication. Download the Zenodo repository .zip file, and extract.</p>
+<p>To demonstrate the use of ftINIT, we will walk through an example where we generate models from GTEx data. For simplicity, we extracted 60 RNA-Seq profiles from in total 12 tissues. The data can be downloaded <a href="https://doi.org/10.5281/zenodo.6811073">here</a>  together with other data useful for this tutorial. </p>
+<p>Download the Zenodo repository .zip file, and extract.</p>
+<h2 id="load-and-prepare-the-reference-model-for-use-with-ftinit">Load and prepare the reference model for use with ftINIT</h2>
+<p>The reference GEM from which the tissue-specific models will be extracted is Human-GEM. Load the model from the <code>Human-GEM.mat</code> file in the Human-GEM repository</p>
+<pre><code class="language-matlab">load('Human-GEM.mat');  % loads model as a structure named &quot;ihuman&quot;
+</code></pre>
+<p>ftINIT has a preparation step that needs to be run once for a reference model such as Human-GEM. The purpose of the preparation step is to make calculations in advance to reduce the time it takes to generate each context-specific model. The result is a prepData structure that contains various information needed by ftINIT. This operation takes 1-2 hours on a standard laptop computer, so make sure to save it once it has completed. For version 1.12.0 of Human-GEM, the prepData is available in the Zenodo .zip file.</p>
+<pre><code class="language-matlab">% The second flag indicates if the model should be converted to gene symbols from ENSEMBL. This has to be decided at this point.
+prepData = prepHumanModelForftINIT(ihuman, false);
+save('prepData.mat', 'prepData')
+</code></pre>
+<p><code>prepHumanModelForftINIT</code> tests that the reference model (Human-GEM) can successfully perform all essential metabolic tasks (defined in <code>data/metabolicTasks/metabolicTasks_Essential.txt</code>), which is an important step. If the reference model cannot perform a task, then neither can any GEM extracted from that model.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exchange reactions should all be unbounded (e.g., lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in this format, so no additional changes are needed.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <code>prepHumanModelForftINIT</code> will automatically use the essential tasks from <code>metabolicTasks_Essential.txt</code> in the Human-GEM repository. To specify different metabolic tasks, use <code>prepINITModel</code> in RAVEN directly instead.</p>
+</div>
 <h2 id="prepare-the-transcriptomic-data">Prepare the transcriptomic data</h2>
-<p>Data from the condition, tissue, or cell type for which the GEM will be generated is necessary to determine which reactions from the reference model (Human-GEM) should be included. In this case, we are using RNA-Seq data (TPM normalized) that was originally obtained from the <a href="https://gtexportal.org/home/">GTEx database</a>. </p>
-<p>In MATLAB, load the <code>gtex_median_tissue_tpm.txt</code> file from the Zenodo repository <code>tINIT_GEMs/data/</code> subdirectory.</p>
-<pre><code class="language-matlab">% replace 'my/path/' with the path on your system, or change to the directory with the file
-gtex_data = readtable('my/path/tINIT_GEMs/data/gtex_median_tissue_tpm.txt');
+<p>Data from the condition, tissue, or cell type for which the GEM will be generated is necessary to determine which reactions from the reference model (Human-GEM) should be included. In this case, we use a file with tissues extracted from the GTEx database, which is available in the Zenodo .zip file.</p>
+<p>In MATLAB, load the <code>gtexSampForTutorialTPM.txt</code> file from the Zenodo repository.</p>
+<pre><code class="language-matlab">% replace 'my/path/' with the path on your system, or change to the directory containing the file
+gtex_data = readtable('my/path/gtexSampForTutorialTPM.txt');
+[~, n] = size(gtex_data);
+numSamp = n-2; %the first two columns are the genes in ENSEMBL and gene symbols format
 
 % take a look at the first few rows and columns of the table
-gtex_data(1:5,1:5)
-
+gtex_data(1:5, 1:5)
 % ans =
 % 
 %   5×5 table
 % 
-%            genes           adipose_tissue    adrenal_gland    blood_vessel    bladder
-%     ___________________    ______________    _____________    ____________    _______
+%            Name              Description      GTEX_111YS_0006_SM_5NQBE    GTEX_1122O_0005_SM_5O99J    GTEX_1128S_0005_SM_5P9HI
+%     ___________________    _______________    ________________________    ________________________    ________________________
 % 
-%     {'ENSG00000223972'}       0.05458            0.0746         0.04535       0.05878
-%     {'ENSG00000227232'}          11.2             8.023           11.99         14.24
-%     {'ENSG00000243485'}       0.06012           0.08179         0.05278       0.06097
-%     {'ENSG00000237613'}       0.03653            0.0405         0.03668       0.04113
-%     {'ENSG00000268020'}       0.02565           0.03479               0             0
+%     {'ENSG00000223972'}    {'DDX11L1'    }            0.02171                     0.03015                      0.0203         
+%     {'ENSG00000227232'}    {'WASH7P'     }              1.555                       2.747                       4.441         
+%     {'ENSG00000278267'}    {'MIR6859-1'  }                  0                           0                           0         
+%     {'ENSG00000243485'}    {'MIR1302-2HG'}                  0                           0                           0         
+%     {'ENSG00000237613'}    {'FAM138A'    }                  0                           0                      0.0576         
 </code></pre>
 <p>Extract information from the table into a structure called <code>data_struct</code></p>
 <pre><code class="language-matlab">% extract the tissue and gene names
-data_struct.tissues = gtex_data.Properties.VariableNames(2:end)';  % sample (tissue) names
-data_struct.genes = gtex_data.genes;  % gene names
-data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
+data_struct.genes = gtex_data{:, 1}; % gene names
+data_struct.tissues = gtex_data.Properties.VariableNames(3:n); % sample (tissue) names
+data_struct.levels = gtex_data{:, 3:n}; % gene TPM values
 </code></pre>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The name of the data structure (<code>data_struct</code> in this example) is not important. However, its fields (<code>genes</code>, <code>tissues</code>, <code>levels</code>) should <strong>not</strong> be changed.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We don't actually need all of the data for this example since we are only generating a model for one tissue (liver). One could instead extract only the <code>liver</code> column into the <code>levels</code> field, and included only <code>liver</code> in the <code>tissues</code> field.</p>
-</div>
-<p>Although the original tINIT implementation always compared gene expression in the tissue of interest to the average of all other provided tissues, the updated version enables the option to instead compare the expression to a threshold value. Here, we will use this alternative approach with a threshold value of 1 TPM.</p>
+<p>Although the original tINIT implementation always compared gene expression in the tissue of interest to the average of all other provided tissues, ftINIT enables the option to instead compare the expression to a threshold value. Here, we will use this alternative approach with a threshold value of 1 TPM.</p>
 <pre><code class="language-matlab">data_struct.threshold = 1;
 </code></pre>
 <div class="admonition note">
@@ -194,245 +574,249 @@ data_struct.levels = table2array(gtex_data(:, 2:end));  % gene TPM values
 %
 %   struct with fields:
 % 
-%       tissues: {30×1 cell}
-%         genes: {56202×1 cell}
-%        levels: [56202×30 double]
+%         genes: {56200×1 cell}
+%       tissues: {1×60 cell}
+%        levels: [56200×60 double]
 %     threshold: 1
 </code></pre>
-<h2 id="load-and-prepare-the-reference-gem">Load and prepare the reference GEM</h2>
-<p>The reference GEM from which the liver-specific model will be extracted is Human-GEM. Load the model from the <code>Human-GEM.mat</code> file in the Human-GEM repository</p>
-<pre><code class="language-matlab">load('Human-GEM.mat');  % loads model as a structure named &quot;ihuman&quot;
-</code></pre>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The metabolic task evaluation and tINIT algorithms requires that the model is provided in "closed form"; i.e., it contains <strong>boundary metabolites</strong>. Therefore, the boundary metabolites must be added to the GEM before proceeding.</p>
-</div>
-<p>Add boundary metabolites to the model</p>
-<pre><code class="language-matlab">ihuman = addBoundaryMets(ihuman);
+<h2 id="run-ftinit">Run ftINIT</h2>
+<p>Now all inputs are ready to run ftINIT and extract GEMs specific to the samples based on their corresponding RNA expression profile. ftINIT normally runs in two steps, of which the second is optional. The first step excludes most of the reactions without gene rules (GPRs) from the problem, and the second step determines which of those reactions should be removed. The second step can be omitted, which causes most reactions without GPRs to remain in the model. This is a good option in many cases, for example for structural comparison of models, since removal of reactions without GPRs does not provide any additional information and may add randomness in cases where there are several equally good solutions.</p>
+<p>We first run ftINIT without the second step, a setup that is called <code>'1+0'</code>, which typically takes 30 - 60 seconds:</p>
+<pre><code class="language-matlab">model1 = ftINIT(prepData, data_struct.tissues{1}, [], [], data_struct, {}, getHumanGEMINITSteps('1+0'), false, true);
 
-% Boundary metabolites were added to 1665 reactions.
-% New (boundary) versions of 1665 metabolites were added to the model.
-</code></pre>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The exchange reactions should all be unbounded (e.g., lower and upper bounds of -1000 and 1000, respectively). Human-GEM is already provided in this format, so no additional changes are needed.</p>
-</div>
-<h2 id="prepare-the-metabolic-task-list">Prepare the metabolic task list</h2>
-<p>The tINIT algorithm has the option to specify one or more metabolic tasks that the extracted model should be able to perform, such as transport of essential amino acids or production of biomass. Although task specification is not required, it is generally recommended to obtain a more functional extracted GEM, especially if it is going to be used in simulation-based analysis (e.g., FBA).</p>
-<p>Following with the procedure used in the Human-GEM manuscript, this example will use the list of 57 "essential" metabolic tasks that all cells are expected to be able to perform to be viable.</p>
-<p>Load the <code>metabolicTasks_Essential.xlsx</code> list of metabolic tasks from the <code>data/metabolicTasks/</code> subdirectory of the Human-GEM repository using the RAVEN <code>parseTaskList</code> function.</p>
-<pre><code class="language-matlab">essentialTasks = parseTaskList('/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Essential.xlsx')
-
-% essentialTasks = 
-% 
-%   57×1 struct array with fields:
-% 
-%     id
-%     description
-%     shouldFail
-%     printFluxes
-%     comments
-%     inputs
-%     LBin
-%     UBin
-%     outputs
-%     LBout
-%     UBout
-%     equations
-%     LBequ
-%     UBequ
-%     changed
-%     LBrxn
-%     UBrxn
-</code></pre>
-<p>It is important to first verify that the reference model (Human-GEM) can successfully perform all of the tasks. If the reference model cannot perform a task, then neither can any GEM extracted from that model.</p>
-<p>Verify that the reference model passes all of the essential metabolic tasks.</p>
-<pre><code class="language-matlab">% see what the other inputs mean by typing &quot;help checkTasks&quot;
-checkTasks(ihuman, [], true, false, false, essentialTasks);
-
-% PASS: [ER] Aerobic rephosphorylation of ATP from glucose
-% PASS: [ER] Aerobic rephosphorylation of GTP
-% PASS: [ER] Aerobic rephosphorylation of CTP
-% PASS: [ER] Aerobic rephosphorylation of UTP
-% PASS: [BS] ATP de novo synthesis
-% PASS: [BS] CTP de novo synthesis
-% PASS: [BS] GTP de novo synthesis
-% PASS: [BS] UTP de novo synthesis
-% PASS: [BS] dATP de novo synthesis
-% ...
-</code></pre>
-<h2 id="run-tinit">Run tINIT</h2>
-<p>Now all inputs are ready to run tINIT and extract a GEM specific to the liver tissue based on its corresponding RNA expression profile. </p>
-<p>Although it's not necessary to re-assign the input variables before calling the <code>getINITModel2</code> function, we do it here to make the inputs very clear. Use the <code>help getINITModel2</code> command to see more details on the function inputs and outputs.</p>
-<pre><code class="language-matlab">refModel = ihuman;  % the reference model from which the GEM will be extracted
-tissue = 'liver';  % must match the tissue name in data_struct.tissues
-celltype = [];  % used if tissues are subdivided into cell type, which is not the case here
-hpaData = [];  % data structure containing protein abundance information (not used here)
-arrayData = data_struct;  % data structure with gene (RNA) abundance information
-metabolomicsData = [];  % list of metabolite names if metabolomic data is available
-removeGenes = true;  % (default) remove lowly/non-expressed genes from the extracted GEM
-taskFile = [];  % we already loaded the task file, so this input is not required
-useScoresForTasks = true;  % (default) use expression data to decide which reactions to keep
-printReport = true;  % (default) print status/completion report to screen
-taskStructure = essentialTasks;  % metabolic task structure (used instead &quot;taskFile&quot;)
-params = [];  % additional optimization parameters for the INIT algorithm
-paramsFT = [];  % additional optimization parameters for the fit-tasks algorithm
-</code></pre>
-<p>Run the getINITModel2 function to extract the GEM</p>
-<pre><code class="language-matlab">liverGEM = getINITModel2(refModel, tissue, celltype, hpaData, arrayData, metabolomicsData, removeGenes, taskFile, useScoresForTasks, printReport, taskStructure, params, paramsFT);
-
-% ***Generating model for: liver
-% -Using array data
-% -Using metabolic tasks
-% 
-% Reference model statistics:
-%         13417 reactions, 3625 genes
-%         Mean reaction score: 4.1017
-%         Mean gene score: 5.3912
-%         Reactions with positive scores: 54.2372%
-%
-%  Pruned model statistics:
-%         11903 reactions, 3052 genes
-%         Mean reaction score: 4.1094
-%         Mean gene score: 5.1854
-%         Reactions with positive scores: 54.1964%
-%  
-%  Reactions essential for tasks:
-%         403 reactions, 365 genes
-%         Mean reaction score: 8.3307
-%         Mean gene score: 7.1855
-%         Reactions with positive scores: 87.8412%
-
-MILP detected.
-Academic license - for non-commercial use only
-Gurobi Optimizer version 9.0.1 build v9.0.1rc0 (mac64)
-Optimize a model with 25830 rows, 60561 columns and 126189 nonzeros
-...
-</code></pre>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This algorithm will take a while to run (30 min to 1 hr). It is therefore recommended that this is run on a compute cluster, especially when repeating for many different GEMs.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In this example, we called <code>getINITModel2</code> with one output, <code>liverGEM</code>. Use <code>help getINITModel2</code> to see a description of the additional optional outputs.</p>
-</div>
-<p>Once the optimization is complete, we can take a look at the extracted GEM.</p>
-<pre><code class="language-matlab">liverGEM
-
-% liverGEM = 
+model1
 % 
 %   struct with fields:
 % 
-%                      id: 'INITModel'
-%             description: 'Automatically generated model for liver'
-%                    rxns: {7971×1 cell}
-%                    mets: {6744×1 cell}
-%                       S: [6744×7971 double]
-%                      lb: [7971×1 double]
-%                      ub: [7971×1 double]
-%                     rev: [7971×1 double]
-%                       c: [7971×1 double]
-%                       b: [6744×2 double]
-%                   comps: {10×1 cell}
-%               compNames: {10×1 cell}
-%                rxnNames: {7971×1 cell}
-%                 grRules: {7971×1 cell}
-%              rxnGeneMat: [7971×2305 double]
-%              subSystems: {7971×1 cell}
-%                 eccodes: {7971×1 cell}
-%                   genes: {2305×1 cell}
-%                metNames: {6744×1 cell}
-%                metComps: [6744×1 double]
-%                  inchis: {6744×1 cell}
-%             metFormulas: {6744×1 cell}
-%           unconstrained: [6744×1 double]
-%           rxnReferences: {7971×1 cell}
-%                 rxnFrom: {7971×1 cell}
-%                 metFrom: {6744×1 cell}
-%     rxnConfidenceScores: [7971×1 double]
-%              metCharges: [6744×1 int64]
-%                 version: '1.3.1'
+%                      id: 'Human-GEM'
+%             description: 'Generic genome-scale metabolic model of Homo sapiens'
+%                    rxns: {8407×1 cell}
+%                    mets: {5613×1 cell}
+%                       S: [5613×8407 double]
+%                      lb: [8407×1 double]
+%                      ub: [8407×1 double]
+%                     rev: [8407×1 double]
+%                       c: [8407×1 double]
+%                       b: [5613×1 double]
+%                   comps: {9×1 cell}
+%               compNames: {9×1 cell}
+%                rxnNames: {8407×1 cell}
+%                 grRules: {8407×1 cell}
+%              rxnGeneMat: [8407×2494 double]
+%              subSystems: {8407×1 cell}
+%                 eccodes: {8407×1 cell}
+%                rxnNotes: {8407×1 cell}
+%                   genes: {2494×1 cell}
+%                metNames: {5613×1 cell}
+%                metComps: [5613×1 double]
+%                  inchis: {5613×1 cell}
+%             metFormulas: {5613×1 cell}
+%           rxnReferences: {8407×1 cell}
+%                 rxnFrom: {8407×1 cell}
+%                 metFrom: {5613×1 cell}
+%     rxnConfidenceScores: [8407×1 double]
+%              metCharges: [5613×1 int64]
+%                 version: '1.12.0'
 %              annotation: [1×1 struct]
-%                geneFrom: {2305×1 cell}
 </code></pre>
+<p>As an alternative, we can run it with the second step included (<code>'1+1'</code>), which takes roughly 2 - 3 times as long and generates a smaller model:</p>
+<pre><code class="language-matlab">model2 = ftINIT(prepData, data_struct.tissues{1}, [], [], data_struct, {}, getHumanGEMINITSteps('1+1'), false, true);
+
+model2
+% 
+%   struct with fields:
+% 
+%                      id: 'Human-GEM'
+%             description: 'Generic genome-scale metabolic model of Homo sapiens'
+%                    rxns: {7752×1 cell}
+%                    mets: {5490×1 cell}
+%                       S: [5490×7752 double]
+%                      lb: [7752×1 double]
+%                      ub: [7752×1 double]
+%                     rev: [7752×1 double]
+%                       c: [7752×1 double]
+%                       b: [5490×1 double]
+%                   comps: {9×1 cell}
+%               compNames: {9×1 cell}
+%                rxnNames: {7752×1 cell}
+%                 grRules: {7752×1 cell}
+%              rxnGeneMat: [7752×2494 double]
+%              subSystems: {7752×1 cell}
+%                 eccodes: {7752×1 cell}
+%                rxnNotes: {7752×1 cell}
+%                   genes: {2494×1 cell}
+%                metNames: {5490×1 cell}
+%                metComps: [5490×1 double]
+%                  inchis: {5490×1 cell}
+%             metFormulas: {5490×1 cell}
+%           rxnReferences: {7752×1 cell}
+%                 rxnFrom: {7752×1 cell}
+%                 metFrom: {5490×1 cell}
+%     rxnConfidenceScores: [7752×1 double]
+%              metCharges: [5490×1 int64]
+%                 version: '1.12.0'
+%              annotation: [1×1 struct]
+</code></pre>
+<p>It is also possible to supply cell type for cases where tissues are subdivided into cell type, which is not the case here. The method also accepts proteomics data from Human Protein Atlas (HPA) and metabolomics data, but these are not demonstrated here.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The two steps used here are the two most common approaches to run ftINIT and are what we recommend, but they are not the only options. ftINIT can for example be run in a very similar way to the original tINIT algorithm by using the <code>'full'</code> setup.</p>
+</div>
 <p>It is recommended to change the model <code>id</code> to a more descriptive name than the default of "INITModel". This is particularly useful when analyzing several models together.</p>
-<pre><code class="language-matlab">liverGEM.id = 'liver';
+<pre><code class="language-matlab">model1.id = data_struct.tissues{1};
 </code></pre>
-<p>Notice that the model has fewer reactions, metabolites, and genes compared to the reference model.</p>
-<pre><code class="language-matlab">numel(ihuman.rxns) - numel(liverGEM.rxns)
+<h2 id="run-ftinit-for-all-samples">Run ftINIT for all samples</h2>
+<p>We can now run ftINIT on all samples:</p>
+<pre><code class="language-matlab">models = cell(numSamp, 1);
+for i = 1:numSamp
+    disp(['Model: ' num2str(i) ' of ' num2str(numSamp)])
+    models{i} = ftINIT(prepData, data_struct.tissues{i}, [], [], data_struct, {}, getHumanGEMINITSteps('1+0'), false, true);
+end
 
-% ans =
-% 
-%         5446
-
-numel(ihuman.mets) - numel(liverGEM.mets)
-
-% ans =
-% 
-%         3394
-
-numel(ihuman.genes) - numel(liverGEM.genes)
-
-% ans =
-% 
-%         1320
+save('models.mat', 'models')
 </code></pre>
-<p>It is also good to verify that the extracted GEM can also perform the required metabolic tasks.</p>
-<pre><code class="language-matlab">checkTasks(liverGEM, [], true, false, false, essentialTasks);
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This loop generates 60 models, which will take a while to run (30 min to 1 hr). For running many models, it is therefore recommended that this is run on a compute cluster.</p>
+</div>
+<h2 id="quick-examination-of-the-models">Quick examination of the models</h2>
+<p>To get a quick structural overview of the models, we perform a t-SNE (t-Distributed Stochastic Neighbor Embedding) transformation of the models' reaction content and export that data to a file for visualization in R.</p>
+<pre><code class="language-matlab">baseModel = prepData.refModel;
+
+% now build a matrix saying which reactions are on
+compMat = false(length(baseModel.rxns), length(models));
+
+for i = 1:size(compMat,2)
+    compMat(:,i) = ismember(baseModel.rxns,models{i}.rxns);
+end
+
+% run t-sne
+rng(1);  %set random seed to make reproducible
+proj_coords = tsne(double(compMat.'), 'Distance', 'hamming', 'NumDimensions', 2, 'Exaggeration', 6, 'Perplexity', 10);
+
+% export to R
+d = struct();
+d.tsneX = proj_coords(:, 1);
+d.tsneY = proj_coords(:, 2);
+save('TSNE.mat', 'd');
 </code></pre>
+<p>We can then visualize the data in R (use e.g., RStudio) using ggplot:</p>
+<pre><code class="language-R">library(R.matlab)
+library(tidyverse)
+library(ggplot2)
+
+#import the data using R.matlab
+setwd(&quot;my/path&quot;) #replace with your own path where the exported data was saved
+tsneData = readMat(&quot;TSNE.mat&quot;)
+x = as.numeric(tsneData$d[,,1]$tsneX)
+y = as.numeric(tsneData$d[,,1]$tsneY)
+
+#read the tissues to be able to color the models properly
+tissues = read_tsv('gtexSampTissuesForTutorial.txt', col_names = FALSE)[[1]]
+tissFact = as.factor(tissues)
+
+#set up a tibble for the plot
+df = tibble(x=x, y=y, tissue = tissFact)
+
+color_palette = c('#B5D39B','#E7B56C','#6B97BC','#BC976B','#BC556B','#000000')  
+
+#plot the data
+fig = ggplot(df, aes(x = x, y = y, color=tissue, shape=tissue)) +
+  geom_point(size=2, stroke = 2) +
+  scale_color_manual(values = c(color_palette,color_palette), labels = levels(tissFact) ) +
+  scale_shape_manual(values = c(19,19,19,19,19,19,0,0,0,0,0,0), labels=levels(tissFact)) +
+  ggplot2::labs(y=expression(&quot;t-SNE y&quot;), x=&quot;t-SNE x&quot;, title=&quot;Structural comparison&quot;) +
+  ggplot2::theme_bw() + 
+  ggplot2::theme(panel.background = element_rect(&quot;white&quot;, &quot;white&quot;, 0, 0, &quot;white&quot;), panel.grid.major= element_blank(),panel.grid.minor= element_blank()) +
+  ggplot2::theme(legend.title = element_blank(),legend.position=&quot;bottom&quot;, legend.text=element_text(size=14)) + guides(colour = guide_legend(nrow = 4), size = guide_legend(nrow = 4), linetype = guide_legend(nrow = 4)) +
+  ggplot2::theme(text = element_text(size=14),
+                 axis.text.x = element_text(color='black', size=14),
+                 axis.text.y = element_text(color='black', size=14))
+fig
+
+#export the figure to file
+ggsave(
+  &quot;StructCompftINIT.png&quot;,
+  plot = fig,
+  width = 8, height = 8, dpi = 300)
+</code></pre>
+<p><img alt="Structural comparison" src="../img/StructCompftINIT.png" style="width:95%" /></p>
+
+
+
+
               
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../flux_balance_analysis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Flux balance analysis" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Flux balance analysis
             </div>
           </div>
-          <footer>
+        </a>
+      
+      
+        
+        <a href="../gem_comparison/" class="md-footer__link md-footer__link--next" aria-label="Next: GEM comparison" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              GEM comparison
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../gem_comparison/" class="btn btn-neutral float-right" title="GEM comparison">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../flux_balance_analysis/" class="btn btn-neutral" title="Flux balance analysis"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
   </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <span><a href="../flux_balance_analysis/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
     
-    
-      <span><a href="../gem_comparison/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
-</body>
+  </body>
 </html>
