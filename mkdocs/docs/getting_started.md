@@ -9,7 +9,7 @@ Make sure you have completed the [installation process](installation.md) before 
 
 
 !!! note
-	All the model file formats described below are on the `master` branch of the Human-GEM repository. Note that only the `.yml` version is available on branches other than `master` (e.g., `devel`), to facilitate tracking of model changes.
+	All the model file formats described below are on the `main` branch of the Human-GEM repository. Note that only the `.yml` version is available on branches other than `main` (e.g., `devel`), to facilitate tracking of model changes.
 
 #### From the `Human-GEM.mat` file (recommended)
 
@@ -28,49 +28,48 @@ ihuman
 % 
 %                      id: 'Human-GEM'
 %             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {13081×1 cell}
-%                    mets: {8371×1 cell}
-%                       S: [8371×13081 double]
-%                      lb: [13081×1 double]
-%                      ub: [13081×1 double]
-%                     rev: [13081×1 double]
-%                       c: [13081×1 double]
-%                       b: [8371×1 double]
+%                    rxns: {13070×1 cell}
+%                    mets: {8369×1 cell}
+%                       S: [8369×13070 double]
+%                      lb: [13070×1 double]
+%                      ub: [13070×1 double]
+%                     rev: [13070×1 double]
+%                       c: [13070×1 double]
+%                       b: [8369×1 double]
 %                   comps: {9×1 cell}
 %               compNames: {9×1 cell}
-%                rxnNames: {13081×1 cell}
-%                 grRules: {13081×1 cell}
-%              rxnGeneMat: [13081×3625 double]
-%              subSystems: {13081×1 cell}
-%                 eccodes: {13081×1 cell}
-%                rxnNotes: {13081×1 cell}
-%                   genes: {3625×1 cell}
-%                metNames: {8371×1 cell}
-%                metComps: [8371×1 double]
-%                  inchis: {8371×1 cell}
-%             metFormulas: {8371×1 cell}
-%           rxnReferences: {13081×1 cell}
-%                 rxnFrom: {13081×1 cell}
-%                 metFrom: {8371×1 cell}
-%     rxnConfidenceScores: [13081×1 double]
-%              metCharges: [8371×1 int64]
-%                 version: '1.9.0'
+%                rxnNames: {13070×1 cell}
+%                 grRules: {13070×1 cell}
+%              rxnGeneMat: [13070×3067 double]
+%              subSystems: {13070×1 cell}
+%                 eccodes: {13070×1 cell}
+%                rxnNotes: {13070×1 cell}
+%                   genes: {3067×1 cell}
+%                metNames: {8369×1 cell}
+%                metComps: [8369×1 double]
+%                  inchis: {8369×1 cell}
+%             metFormulas: {8369×1 cell}
+%           rxnReferences: {13070×1 cell}
+%                 rxnFrom: {13070×1 cell}
+%                 metFrom: {8369×1 cell}
+%     rxnConfidenceScores: [13070×1 double]
+%              metCharges: [8369×1 int64]
+%                 version: '1.12.0'
 %              annotation: [1×1 struct]
 ```
 
 
-#### From the `Human-GEM.yml` file (recommended if not on `master` branch)
+#### From the `Human-GEM.yml` file (recommended if not on `main` branch or if using Cobrapy)
 
-The yaml version of Human-GEM is loaded using the `importHumanYaml` function.
+The yaml version of Human-GEM is loaded using the `importYaml` function.
 ```matlab
-ihuman = importHumanYaml('Human-GEM.yml');
+ihuman = importYaml('Human-GEM.yml');
 
-% Start importing...
-%         1
-%         2
-%         3
-%         4
-%         5
+%   1
+%   2
+%   3
+%   4
+%   5
 % 
 % importing completed
 % follow-up processing... Done!
