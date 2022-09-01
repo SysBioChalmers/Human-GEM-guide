@@ -11,7 +11,7 @@ nav:
   - FAQs and troubleshooting: faq_troubleshoot.md
   - Contact: contact.md
 theme:
-  name: readthedocs
+  name: material
   highlightjs: true
   hljs_languages:
     - matlab
