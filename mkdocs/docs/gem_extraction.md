@@ -36,7 +36,10 @@ ftINIT has a preparation step that needs to be run once for a reference model su
 
 ```matlab
 % The second flag indicates if the model should be converted to gene symbols from ENSEMBL. This has to be decided at this point.
-prepData = prepHumanModelForftINIT(ihuman, false);
+% Replace path/to/HumanGEM with your local path to the Human-GEM repo root.
+% For use with animal models derived from Human-GEM, such as Mouse-GEM, both the model and paths needs to be replaced. Also, 
+% the convert genes flag may be irrelevant depending on the if ENSEMBL genes are used in that model.
+prepData = prepHumanModelForftINIT(ihuman, false, 'path/to/HumanGEM/data/metabolicTasks/metabolicTasks_Essential.txt', 'path/to/HumanGEM/model/reactions.tsv');
 save('prepData.mat', 'prepData')
 ```
 
