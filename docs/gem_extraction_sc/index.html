@@ -511,7 +511,7 @@ toExport[[2]] = toExport[[2]]*10^6 / sum(toExport[[2]])
 sum(toExport[[2]])  # 10^6
 write_tsv(toExport, 'NKCells.txt')
 </code></pre>
-<p>The text file can then be imported to MATLAB followed by generation of a context-specific model by ftINIT in a similar way <a href="../gem_extraction/">that was shown for the GTEx data</a>. In this case, <code>prepHumanModelForftINIT</code> must be run with gene symbol conversion turned on (<code>prepHumanModelForftINIT(model, true)</code>), since the genes in this table are in the gene symbols format.</p>
+<p>The text file can then be imported to MATLAB followed by generation of a context-specific model by ftINIT in a similar way <a href="../gem_extraction/">that was shown for the GTEx data</a>. In this case, <code>prepHumanModelForftINIT</code> must be run with gene symbol conversion turned on (<code>prepHumanModelForftINIT(model, true, ...)</code>), since the genes in this table are in the gene symbols format.</p>
 <h2 id="estimation-of-the-uncertainty-in-generated-models">Estimation of the uncertainty in generated models</h2>
 <p>To estimate the uncertainty in models generated from single-cell RNA-Seq data, it is possible to generate bootstraps (samples of cells) from the single-cell data. Bootstrapping is a method for generating samples with appropriate variation from the full population, and can be used to estimate the uncertainty in the model generation. How bootstraps can be used is demonstrated in <a href="https://doi.org/10.1101/2022.04.25.489379">Gustafsson <em>et al.</em> (2022) <em>BioRXiv</em></a>.</p>
 <pre><code class="language-R">library(textTinyR)  # needed for rowSums to work with sparse matrices

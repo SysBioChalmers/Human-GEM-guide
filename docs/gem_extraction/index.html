@@ -523,7 +523,10 @@
 </code></pre>
 <p>ftINIT has a preparation step that needs to be run once for a reference model such as Human-GEM. The purpose of the preparation step is to make calculations in advance to reduce the time it takes to generate each context-specific model. The result is a prepData structure that contains various information needed by ftINIT. This operation takes 1-2 hours on a standard laptop computer, so make sure to save it once it has completed. For version 1.12.0 of Human-GEM, the prepData is available in the Zenodo .zip file.</p>
 <pre><code class="language-matlab">% The second flag indicates if the model should be converted to gene symbols from ENSEMBL. This has to be decided at this point.
-prepData = prepHumanModelForftINIT(ihuman, false);
+% Replace path/to/HumanGEM with your local path to the Human-GEM repo root.
+% For use with animal models derived from Human-GEM, such as Mouse-GEM, both the model and paths needs to be replaced. Also, 
+% the convert genes flag may be irrelevant depending on the if ENSEMBL genes are used in that model.
+prepData = prepHumanModelForftINIT(ihuman, false, 'path/to/HumanGEM/data/metabolicTasks/metabolicTasks_Essential.txt', 'path/to/HumanGEM/model/reactions.tsv');
 save('prepData.mat', 'prepData')
 </code></pre>
 <p><code>prepHumanModelForftINIT</code> tests that the reference model (Human-GEM) can successfully perform all essential metabolic tasks (defined in <code>data/metabolicTasks/metabolicTasks_Essential.txt</code>), which is an important step. If the reference model cannot perform a task, then neither can any GEM extracted from that model.</p>
