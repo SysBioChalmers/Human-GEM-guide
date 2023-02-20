@@ -24,10 +24,12 @@ In order for MATLAB to find and use the functions and files in the repository di
 
 Alternatively, you can run the following lines in MATLAB:
 ```matlab
-cd /my/path/Human-GEM  % replace "/my/path/" with the actual path to the Human-GEM folder
-addpath(strjoin(cellfun(@genpath, split(ls), 'UniformOutput', false), ''));
+cd /my/path/Human-GEM/code  % replace "/my/path/" with the actual path to the Human-GEM folder
+HumanGEMInstaller.install
 savepath
 ```
+To remove `Human-GEM` from the PATH, the following command can be used: `HumanGEMInstaller.uninstall`
+
 Ignore the `Warning: Name is nonexistent or not a directory` messages.
 
 
