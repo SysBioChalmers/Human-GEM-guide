@@ -68,7 +68,7 @@ sum(toExport[[2]])  # 10^6
 write_tsv(toExport, 'NKCells.txt')
 ```
 
-The text file can then be imported to MATLAB followed by generation of a context-specific model by ftINIT in a similar way [that was shown for the GTEx data](gem_extraction.md). In this case, `prepHumanModelForftINIT` must be run with gene symbol conversion turned on (`prepHumanModelForftINIT(model, true)`), since the genes in this table are in the gene symbols format.
+The text file can then be imported to MATLAB followed by generation of a context-specific model by ftINIT in a similar way [that was shown for the GTEx data](gem_extraction.md). In this case, `prepHumanModelForftINIT` must be run with gene symbol conversion turned on (`prepHumanModelForftINIT(model, true, ...)`), since the genes in this table are in the gene symbols format.
 
 ## Estimation of the uncertainty in generated models
 
