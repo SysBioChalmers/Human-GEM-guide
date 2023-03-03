@@ -12,7 +12,7 @@ Although many GEM extraction methods exist, this guide will cover the ftINIT alg
 1. [Agren *et al.* (2012) *PLoS Comput Biol*](https://doi.org/10.1371/journal.pcbi.1002518) - Initial development of INIT
 2. [Agren *et al.* (2014) *Mol Syst Biol*](https://doi.org/10.1002/msb.145122) - Incorporation of metabolic tasks (tINIT)
 3. [Robinson *et al.* (2020) *Sci Signal*](https://doi.org/10.1126/scisignal.aaz1482) - Recognition of enzyme complexes
-4. [Gustafsson *et al.* (2022) *BioRXiv*](https://doi.org/10.1101/2022.04.25.489379) - ftINIT, faster and produces less gaps in the models
+4. [Gustafsson *et al.* (2022) *PNAS*](https://doi.org/10.1073/pnas.2217868120) - ftINIT, faster and produces less gaps in the models
 
 The ftINIT algorithm is available in the RAVEN Toolbox, and we use it together with help functions for Human-GEM available in the Human-GEM repository.
 
