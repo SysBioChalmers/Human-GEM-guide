@@ -55,5 +55,4 @@ sbatch -o logs/run_evaless_depmap-%A-%a.log --array=1-40 run_evaless_depmap.sh
 
 4. Run `evaluateDepMapEssentialityPredictions.m`. Note that you may need to change the folder in the file and that there are some things in the file that need to be modified to match what you want to do. The file currently only gets stats for one model version, but can easily be expanded to take in data from more model versions, although these also need to be processed as above as well.
 
-5. Run `PlotGeneEss.R` in RStudio to make a violin plot of MCC for each model. The code needs some modification to fix paths and 
-number of models.
+5. Run `PlotGeneEss.R` in RStudio to make a violin plot of MCC for each model. The code needs some modification to fix paths and number of models.
