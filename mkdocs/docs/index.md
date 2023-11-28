@@ -1,7 +1,7 @@
 # Human-GEM User Guide
 
 !!! important
-    This guide applies to Human-GEM version [v1.12.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.12.0). If you are using a different version of Human-GEM, we cannot guarantee that it will function as described in this guide.
+This guide applies to Human-GEM version [v1.12.0](https://github.com/SysBioChalmers/Human-GEM/releases/tag/v1.12.0). If you are using a different version of Human-GEM, we cannot guarantee that it will function as described in this guide.
 
 ## Overview
 
@@ -13,18 +13,16 @@ This guide contains instructions and examples of how to use [Human-GEM](https://
 - [GEM extraction using ftINIT](gem_extraction.md)
 - [GEM comparison](gem_comparison.md)
 - [GEM extraction from single-cell RNA-Seq data](gem_extraction_sc.md)
+- [Gene essentiality with DepMap](gene_essentiality.md)
 - [Additional tools](additional_tools.md)
 - [FAQs and troubleshooting](faq_troubleshoot.md)
 - [Contact](contact.md)
-
 
 ## Citation
 
 > J. L. Robinson, et al. An atlas of human metabolism. _Sci. Signal._ 13, eaaz1482 (2020). [doi:10.1126/scisignal.aaz1482](https://doi.org/10.1126/scisignal.aaz1482)
 
-
 <br/><br/>
 
 [![SysBio](img/sysbio_logo.png){: style="width:200px"}](https://www.sysbio.se/) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [![Metabolic Atlas](img/metabolic_atlas_logo.svg){: style="width:200px"}](https://www.metabolicatlas.org/)
-
