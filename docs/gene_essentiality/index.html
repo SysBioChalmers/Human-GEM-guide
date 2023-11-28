@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../getting_started/">
+        <link rel="prev" href="../gem_extraction_sc/">
       
       
-        <link rel="next" href="../gem_extraction/">
+        <link rel="next" href="../additional_tools/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Flux balance analysis - Human-GEM Guide</title>
+        <title>Gene essentiality with DepMap - Human-GEM Guide</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#flux-balance-analysis" class="md-skip">
+        <a href="#gene-essentiality-with-depmap" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Flux balance analysis
+              Gene essentiality with DepMap
             
           </span>
         </div>
@@ -248,30 +248,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Flux balance analysis
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../flux_balance_analysis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -280,68 +260,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#optimization-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      Optimization objective
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-fba" class="md-nav__link">
-    <span class="md-ellipsis">
-      Run FBA
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#an-fba-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      An FBA example
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="An FBA example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#calculation-of-atp-yield" class="md-nav__link">
-    <span class="md-ellipsis">
-      Calculation of ATP yield
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -410,10 +328,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../gene_essentiality/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Gene essentiality with DepMap
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -422,6 +360,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-wrangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data wrangling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster-computation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster computation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cluster computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-cluster-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run cluster jobs
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -513,37 +522,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#optimization-objective" class="md-nav__link">
+  <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
-      Optimization objective
+      Setup
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-fba" class="md-nav__link">
+  <a href="#data-wrangling" class="md-nav__link">
     <span class="md-ellipsis">
-      Run FBA
+      Data wrangling
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#an-fba-example" class="md-nav__link">
+  <a href="#cluster-computation" class="md-nav__link">
     <span class="md-ellipsis">
-      An FBA example
+      Cluster computation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="An FBA example">
+    <nav class="md-nav" aria-label="Cluster computation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#calculation-of-atp-yield" class="md-nav__link">
+  <a href="#configure-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
-      Calculation of ATP yield
+      Configure dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-cluster-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run cluster jobs
     </span>
   </a>
   
@@ -569,91 +587,65 @@
                   
 
 
-<h1 id="flux-balance-analysis">Flux Balance Analysis</h1>
-<p>One of the most common analysis methods for GEMs is flux balance analysis (FBA). This page will briefly walk through the basics of using FBA with Human-GEM.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You must have a linear optimization solver (e.g., Gurobi) installed and accessible by MATLAB to run FBA. See the <a href="../installation/">installation</a> page of this guide or the <a href="https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies">RAVEN instructions</a> for details on setting up a solver.</p>
+<h1 id="gene-essentiality-with-depmap">Gene essentiality with DepMap</h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The writing of these instructions is a work in progress, originality created through the pull request https://github.com/SysBioChalmers/Human-GEM/pull/574/. The instructions are not guaranteed to work, and assume background knowledge.</p>
 </div>
-<h2 id="optimization-objective">Optimization objective</h2>
-<p>By default, the model objective (defined by the <code>.c</code> model field) is set to maximize flux through the generic human biomass reaction (<code>MAR13082</code>), and all exchange reactions are open.</p>
-<pre><code class="language-matlab">ihuman.rxns(ihuman.c == 1)
-
-% ans =
-% 
-%   1×1 cell array
-% 
-%     {'MAR13082'}
+<h2 id="setup">Setup</h2>
+<p>First make sure you have the DepMap.org data - we currently use DepMap version 2021Q3. You need to go to the downloads section at <a href="https://depmap.org/portal/download/all/">DepMap</a>, select <code>21Q3</code>.</p>
+<p>Move into <code>Human-GEM/code/DepMapGeneEss/data</code> the following downloaded files:</p>
+<ul>
+<li><code>Achilles_gene_effect.csv</code></li>
+<li><code>CCLE_expression_full.csv</code></li>
+</ul>
+<h2 id="data-wrangling">Data wrangling</h2>
+<ol>
+<li>Open the script <code>ConvertGeneEssInputData.R</code> in RStudio and run it. This will generate the file <code>DepMap_tpm_gene_symbols.txt</code>.</li>
+<li>Run <code>PrepDepMapData.m</code>. This will take an hour or so and generates the files:<ul>
+<li><code>arrayDataDepMap.mat</code></li>
+<li><code>prepDataGeneSymbols.mat</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="cluster-computation">Cluster computation</h2>
+<h3 id="configure-dependencies">Configure dependencies</h3>
+<ol>
+<li>Create a folder on the cluster with a suitable name, for example <code>GeneEssDepMap</code>. Within that folder, create a folder named <code>components</code>.</li>
+<li>Copy RAVEN, COBRA, and Human-GEM to <code>components</code> - they need to reside under those exact names, because those and underlying folders will be added to the Matlab path.</li>
+<li>Make sure the Human-GEM folder <code>Human-GEM/code/DepMapGeneEss/data</code> is copied as well with the files generated above under <em>Setup</em>.</li>
+<li>Create a folder <code>DepMapRuns</code> in the top folder <code>GeneEssDepMap</code>. Copy in this new folder the files:<ul>
+<li><code>run_gen_depmap_models.sh</code></li>
+<li><code>run_evaless_depmap.sh</code></li>
+<li><code>generate_DepMap_models_ftINIT_Cluster.m</code></li>
+<li><code>getTaskEssentialGenesCluster.m</code></li>
+</ul>
+</li>
+</ol>
+<p>Also create a folder called <code>logs</code> in the same folder.</p>
+<h3 id="run-cluster-jobs">Run cluster jobs</h3>
+<ol>
+<li>Make sure you are in the <code>DepMapRuns</code> folder. First, generate the models using the following line (also available in the .sh script):</li>
+</ol>
+<pre><code class="language-bash">sbatch -o logs/run_gen_depmap_models-%A-%a.log --array=1-40 run_gen_depmap_models.sh
 </code></pre>
-<h2 id="run-fba">Run FBA</h2>
-<p>Run FBA using the RAVEN <code>solveLP</code> function.</p>
-<pre><code class="language-matlab">sol = solveLP(ihuman)
-
-% sol = 
-% 
-%   struct with fields:
-% 
-%        x: [13070×1 double]
-%        f: -187.3536
-%     stat: 1
-%      msg: 'Optimal solution found'
+<p>It may be needed to inititialize the RAVEN, COBRA and GECKO toolboxes first. Each of these has their own installation command. Also remember to choose the solver for the RAVEN toolbox.</p>
+<ol>
+<li>After the model generation has completed, run:</li>
+</ol>
+<pre><code class="language-bash">sbatch -o logs/run_evaless_depmap-%A-%a.log --array=1-40 run_evaless_depmap.sh
 </code></pre>
-<p>The <code>sol.f</code> field contains the (negative) value of the objective, and the <code>sol.x</code> vector contains the flux value for each reaction.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>As mentioned, all the exchange reactions are fully opened (upper and lower bounds set to 1000 and -1000, respectively). Therefore, the value of the biomass flux here is meaningless (except that it is nonzero), and its units are undefined. Additional constraints, such as those defining the flux bounds of exchange reactions, are necessary to define a feasible solution space.</p>
-</div>
-<h2 id="an-fba-example">An FBA example</h2>
-<h4 id="calculation-of-atp-yield">Calculation of ATP yield</h4>
-<p>To illustrate an example of a more meaningful flux solution, we can use FBA to calculate ATP yield (more specifically, the amount of ADP phosphorylated) per glucose consumed. </p>
-<p>ATP yield can be quantified by the amount of flux through the ATP hydrolysis reaction <code>MAR03964</code>.</p>
-<pre><code class="language-matlab">constructEquations(ihuman, 'MAR03964')
-
-% ans =
-% 
-%   1×1 cell array
-% 
-%     {'ATP[c] + H2O[c] =&gt; ADP[c] + H+[c] + Pi[c]'}
-</code></pre>
-<p>Change the objective to maximize flux through the ATP hydrolysis reaction:</p>
-<pre><code class="language-matlab">ihuman = setParam(ihuman, 'obj', 'MAR03964', 1);
-</code></pre>
-<p>Prevent import of all metabolites except glucose, for which the max import flux is set to 1 (mmol/gDW/h):</p>
-<pre><code class="language-matlab">ihuman = setExchangeBounds(ihuman, 'glucose', -1);  % negative flux indicates import
-</code></pre>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>By default, the <code>setExchangeBounds</code> function allows unrestricted <em>export</em> of all metabolites. The <em>import</em> of all metabolites is blocked, except for the metabolites specified in the input argument.</p>
-</div>
-<p>Now perform FBA to determine the maximum amount of ATP hydrolyzed (ADP phosphorylated) per equivalent of glucose consumed.</p>
-<pre><code class="language-matlab">sol = solveLP(ihuman)
-
-% sol = 
-% 
-%   struct with fields:
-% 
-%        x: [13070×1 double]
-%        f: -2
-%     stat: 1
-%      msg: 'Optimal solution found'
-</code></pre>
-<p>As expected, the theoretical mol ADP phosphorylated per mol glucose consumed is 2. Note that we have not allowed the import of oxygen, so this is under anaerobic conditions. This is of course purely theoretical given that most humans produce very little of anything when deprived of oxygen.</p>
-<p>Let us now calculate the same ATP yield, but in the present of oxygen. We first need to update the exchange constraints:</p>
-<pre><code class="language-matlab">ihuman = setExchangeBounds(ihuman, {'glucose', 'O2'}, [-1, -1000]);
-</code></pre>
-<p>Note that we are allowing effectively infinite oxygen consumption, since we are interested in non-O2-limited ATP yield per glucose. Now re-run the FBA to see how the maximum yield has changed:</p>
-<pre><code class="language-matlab">sol = solveLP(ihuman)
-
-% sol = 
-% 
-%   struct with fields:
-% 
-%        x: [13070×1 double]
-%        f: -31.5000
-%     stat: 1
-%      msg: 'Optimal solution found'
-</code></pre>
-<p>We now see a much higher ATP yield per glucose consumed of 31.5.</p>
+<ol>
+<li>
+<p>Download all produced files to the data folder on your computer. These are found in <code>components/Human-GEM/code/DepMapGeneEss/data</code>.</p>
+</li>
+<li>
+<p>Run <code>evaluateDepMapEssentialityPredictions.m</code>. Note that you may need to change the folder in the file and that there are some things in the file that need to be modified to match what you want to do. The file currently only gets stats for one model version, but can easily be expanded to take in data from more model versions, although these also need to be processed as above as well.</p>
+</li>
+<li>
+<p>Run <code>PlotGeneEss.R</code> in RStudio to make a violin plot of MCC for each model. The code needs some modification to fix paths and number of models.</p>
+</li>
+</ol>
 
 
 
