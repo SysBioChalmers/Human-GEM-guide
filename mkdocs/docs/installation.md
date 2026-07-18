@@ -63,15 +63,28 @@ A solver is required to run flux balance analysis (FBA), GEM extraction (using t
 For instructions on how to set up a solver and obtain a license (if required), see the [RAVEN instructions](https://github.com/SysBioChalmers/RAVEN/wiki/Installation#dependencies).
 
 
-## Alternative software
+## Python
 
-#### COBRApy
-The functions contained within the Human-GEM GitHub repository are written in MATLAB, but the Human-GEM model can be used outside of MATLAB; for example, with Python (COBRApy).
+In addition to MATLAB, the Human-GEM model and the workflows in this guide can be used from Python. Three packages are used across this guide:
 
-[COBRApy](https://opencobra.github.io/cobrapy/) is a Python package that allows users to perform constraint-based reconstruction and analysis of genome-scale metabolic models. See the [COBRApy Documentation](https://cobrapy.readthedocs.io/en/stable/) for instructions on how to install and use COBRApy.
+**[COBRApy](https://opencobra.github.io/cobrapy/)** performs constraint-based reconstruction and analysis (loading the model, FBA, FVA, etc.). It is stable and available on PyPI:
+```bash
+pip install cobra
+```
 
 !!! note
-    We recommend using the YAML (`Human-GEM.yml`) or SBML (`Human-GEM.xml`) versions of Human-GEM with COBRApy.
+    Load Human-GEM from the SBML (`Human-GEM.xml`) file when using COBRApy; it does not read the RAVEN YAML format directly. See the [COBRApy Documentation](https://cobrapy.readthedocs.io/en/stable/) for more detail.
+
+**[raven-toolbox](https://github.com/SysBioChalmers/raven-toolbox)** is a Python implementation of the RAVEN Toolbox, providing reconstruction and analysis functions such as ftINIT model extraction and model comparison.
+
+**[geckopy](https://github.com/SysBioChalmers/geckopy)** is a Python implementation of GECKO for enzyme-constrained models (see [Enzyme-constrained models](enzyme_constrained.md)).
+
+!!! warning "Experimental"
+    `raven-toolbox` and `geckopy` are under active development and are not yet released on PyPI. Install them from GitHub `main`, and be aware that their APIs may still change:
+    ```bash
+    pip install "git+https://github.com/SysBioChalmers/raven-toolbox.git@main"
+    pip install "git+https://github.com/SysBioChalmers/geckopy.git@main"
+    ```
 
 
 

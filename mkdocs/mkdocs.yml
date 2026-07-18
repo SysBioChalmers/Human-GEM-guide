@@ -7,7 +7,9 @@ nav:
   - GEM extraction using ftINIT: gem_extraction.md
   - GEM comparison: gem_comparison.md
   - GEM extraction from scRNA-Seq data: gem_extraction_sc.md
+  - Enzyme-constrained models: enzyme_constrained.md
   - Gene essentiality with DepMap: gene_essentiality.md
+  - Whole-body models: whole_body_models.md
   - Additional tools: additional_tools.md
   - FAQs and troubleshooting: faq_troubleshoot.md
   - Contact: contact.md
@@ -16,6 +18,12 @@ theme:
   highlightjs: true
   hljs_languages:
     - matlab
+    - python
+    - r
+    - bash
 markdown_extensions:
   - admonition
   - attr_list
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

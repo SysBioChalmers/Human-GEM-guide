@@ -3,6 +3,17 @@
 The Human-GEM model and repository contain many tools and features that are not covered in detail (or at all) in the examples presented in this guide. These features are described below.
 
 
+### Reaction, metabolite, and gene annotations
+
+In addition to the model files, the `model/` directory of the Human-GEM repository provides annotation files that link Human-GEM identifiers to a wide range of external databases:
+
+- **`reactions.tsv`** — reaction cross-references, including KEGG, BiGG, MetaNetX, Reactome, Recon3D, HepatoNET1, EHMN, HMR2, TCDB, and **Rhea** identifiers, plus spontaneous-reaction flags.
+- **`metabolites.tsv`** — metabolite cross-references, including BiGG, KEGG, HMDB, ChEBI, PubChem, LipidMaps, MetaNetX, Recon3D, and Metabolic Atlas (**MA**) identifiers.
+- **`genes.tsv`** — Ensembl gene identifiers.
+
+In Human2 these cross-references were substantially expanded, and the metabolite structures (formulas and charges) were verified and standardized at physiological pH 7.3. Each `.tsv` file shares the same row order as the corresponding `model.rxns`, `model.mets`, or `model.genes` field, so the annotations can be joined to the model directly.
+
+
 ### Gene ID/name conversion
 
 The `translateGrRules` function enables quick and easy conversion of model gene IDs to a different type, such as gene abbreviations, NCBI (Entrez) IDs, or UniProt IDs.

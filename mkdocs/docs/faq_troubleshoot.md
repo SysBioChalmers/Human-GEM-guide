@@ -4,15 +4,24 @@
 
 #### Does Human-GEM contain an ATP maintenance reaction?
 Yes, `MAR03964` is an ATP hydrolysis reaction:
-```matlab
-constructEquations(ihuman, 'MAR03964')
 
-ans =
+=== "MATLAB"
+	```matlab
+	constructEquations(humanGEM, 'MAR03964')
 
-  1×1 cell array
+	% ans =
+	% 
+	%   1×1 cell array
+	% 
+	%     {'ATP[c] + H2O[c] => ADP[c] + H+[c] + Pi[c]'}
+	```
 
-    {'ATP[c] + H2O[c] => ADP[c] + H+[c] + Pi[c]'}
-```
+=== "Python"
+	```python
+	model.reactions.get_by_id('MAR03964').build_reaction_string(use_metabolite_names=True)
+
+	# 'ATP + H2O --> ADP + H+ + Pi'
+	```
 
 
 ## Troubleshooting

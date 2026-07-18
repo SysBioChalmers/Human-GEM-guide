@@ -87,4 +87,4 @@ tibbBstr = as_tibble(pooledBootstraps) %>% add_column(gene = genes, .before = 1)
 write_tsv(tibbBstr, "NKCell_bootstraps.txt")
 ```
 
-Models are generated the same way from bootstrap samples as from other data. The variation in analysis results can then be examined across the bootstrap models. Examples of how such analysis can be performed can be found in the code associated with [Gustafsson _et al._ (2022) Generation of context-specific models from single-cell RNA-Seq data is further described in [Gustafsson _et al._ (2022) _PNAS_](http://dx.doi.org/10.1073/pnas.2217868120).
+Models are generated the same way from bootstrap samples as from other data. The variation in analysis results can then be examined across the bootstrap models. Examples of how such analysis can be performed can be found in the code associated with [Gustafsson _et al._ (2022) _PNAS_](http://dx.doi.org/10.1073/pnas.2217868120).
