@@ -16,11 +16,12 @@ Although many GEM extraction methods exist, this guide will cover the ftINIT alg
 
 The ftINIT algorithm is available in the RAVEN Toolbox, and we use it together with help functions for Human-GEM available in the Human-GEM repository.
 
-To support users of the previous algorithm (tINIT), we also include a [guide](gem_extraction_old_tINIT.md) for the previous (2020) version of tINIT, called the `getINITModel2` function.
+!!! note "Python"
+	This walkthrough uses **MATLAB** (RAVEN). A Python implementation of ftINIT is available in the experimental [`raven-toolbox`](https://github.com/SysBioChalmers/raven-toolbox) package (`raven_toolbox.init.ftinit`); see its context-specific modeling guide for the current API. Loading the reference model in Python (COBRApy) is shown in [Getting started](getting_started.md). Like the MATLAB version, the genome-scale ftINIT MILP requires Gurobi.
 
 ## Retrieve the data
 
-To demonstrate the use of ftINIT, we will walk through an example where we generate models from GTEx data. For simplicity, we extracted 60 RNA-Seq profiles from in total 12 tissues. The data can be downloaded [here](https://doi.org/10.5281/zenodo.6811073)  together with other data useful for this tutorial. 
+To demonstrate the use of ftINIT, we will walk through an example where we generate models from GTEx data. For simplicity, we extracted 60 RNA-Seq profiles from in total 12 tissues. The data can be downloaded [here](https://doi.org/10.5281/zenodo.6811073) together with other data useful for this tutorial.
 
 Download the Zenodo repository .zip file, and extract.
 
@@ -29,17 +30,17 @@ Download the Zenodo repository .zip file, and extract.
 The reference GEM from which the tissue-specific models will be extracted is Human-GEM. Load the model from the `Human-GEM.mat` file in the Human-GEM repository
 
 ```matlab
-load('Human-GEM.mat');  % loads model as a structure named "ihuman"
+load('Human-GEM.mat');  % loads model as a structure named "humanGEM"
 ```
 
-ftINIT has a preparation step that needs to be run once for a reference model such as Human-GEM. The purpose of the preparation step is to make calculations in advance to reduce the time it takes to generate each context-specific model. The result is a prepData structure that contains various information needed by ftINIT. This operation takes 1-2 hours on a standard laptop computer, so make sure to save it once it has completed. For version 1.12.0 of Human-GEM, the prepData is available in the Zenodo .zip file.
+ftINIT has a preparation step that needs to be run once for a reference model such as Human-GEM. The purpose of the preparation step is to make calculations in advance to reduce the time it takes to generate each context-specific model. The result is a prepData structure that contains various information needed by ftINIT. This operation takes about an hour on a standard laptop computer, so make sure to save it once it has completed and reuse it for all subsequent extractions.
 
 ```matlab
 % The second flag indicates if the model should be converted to gene symbols from ENSEMBL. This has to be decided at this point.
 % Replace path/to/HumanGEM with your local path to the Human-GEM repo root.
 % For use with animal models derived from Human-GEM, such as Mouse-GEM, both the model and paths needs to be replaced. Also, 
 % the convert genes flag may be irrelevant depending on the if ENSEMBL genes are used in that model.
-prepData = prepHumanModelForftINIT(ihuman, false, 'path/to/HumanGEM/data/metabolicTasks/metabolicTasks_Essential.txt', 'path/to/HumanGEM/model/reactions.tsv');
+prepData = prepHumanModelForftINIT(humanGEM, false, 'path/to/HumanGEM/data/metabolicTasks/metabolicTasks_Essential.txt', 'path/to/HumanGEM/model/reactions.tsv');
 save('prepData.mat', 'prepData')
 ```
 
@@ -118,7 +119,7 @@ data_struct
 
 Now all inputs are ready to run ftINIT and extract GEMs specific to the samples based on their corresponding RNA expression profile. ftINIT normally runs in two steps, of which the second is optional. The first step excludes most of the reactions without gene rules (GPRs) from the problem, and the second step determines which of those reactions should be removed. The second step can be omitted, which causes most reactions without GPRs to remain in the model. This is a good option in many cases, for example for structural comparison of models, since removal of reactions without GPRs does not provide any additional information and may add randomness in cases where there are several equally good solutions.
 
-We first run ftINIT without the second step, a setup that is called `'1+0'`, which typically takes 30 - 60 seconds:
+We first run ftINIT without the second step, a setup that is called `'1+0'`, which typically takes 60 - 90 seconds:
 
 ```matlab
 model1 = ftINIT(prepData, data_struct.tissues{1}, [], [], data_struct, {}, getHumanGEMINITSteps('1+0'), false, true);
@@ -127,36 +128,39 @@ model1
 % 
 %   struct with fields:
 % 
-%                      id: 'Human-GEM'
-%             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {8407×1 cell}
-%                    mets: {5613×1 cell}
-%                       S: [5613×8407 double]
-%                      lb: [8407×1 double]
-%                      ub: [8407×1 double]
-%                     rev: [8407×1 double]
-%                       c: [8407×1 double]
-%                       b: [5613×1 double]
+%                      id: 'HumanGEM'
+%                    name: 'Generic genome-scale metabolic model of Homo sapiens'
+%             description: ''
+%                 version: '2.0.0'
+%                    date: '2026-03-26'
+%              annotation: [1×1 struct]
+%                    rxns: {8108×1 cell}
+%                rxnNames: {8108×1 cell}
+%                    mets: {5560×1 cell}
+%                metNames: {5560×1 cell}
+%                       S: [5560×8108 double]
+%                      lb: [8108×1 double]
+%                      ub: [8108×1 double]
+%                     rev: [8108×1 double]
+%                       c: [8108×1 double]
+%                       b: [5560×1 double]
+%                   genes: {2363×1 cell}
+%                 grRules: {8108×1 cell}
+%              rxnGeneMat: [8108×2363 double]
+%              subSystems: {8108×1 cell}
+%                 eccodes: {8108×1 cell}
+%                rxnNotes: {8108×1 cell}
+%           rxnReferences: {8108×1 cell}
+%     rxnConfidenceScores: [8108×1 double]
+%                metComps: [5560×1 double]
+%                  inchis: {5560×1 cell}
+%             metFormulas: {5560×1 cell}
+%              metCharges: [5560×1 double]
 %                   comps: {9×1 cell}
 %               compNames: {9×1 cell}
-%                rxnNames: {8407×1 cell}
-%                 grRules: {8407×1 cell}
-%              rxnGeneMat: [8407×2494 double]
-%              subSystems: {8407×1 cell}
-%                 eccodes: {8407×1 cell}
-%                rxnNotes: {8407×1 cell}
-%                   genes: {2494×1 cell}
-%                metNames: {5613×1 cell}
-%                metComps: [5613×1 double]
-%                  inchis: {5613×1 cell}
-%             metFormulas: {5613×1 cell}
-%           rxnReferences: {8407×1 cell}
-%                 rxnFrom: {8407×1 cell}
-%                 metFrom: {5613×1 cell}
-%     rxnConfidenceScores: [8407×1 double]
-%              metCharges: [5613×1 int64]
-%                 version: '1.12.0'
-%              annotation: [1×1 struct]
+%          geneShortNames: {2363×1 cell}
+%                 metFrom: {5560×1 cell}
+%                 rxnFrom: {8108×1 cell}
 ```
 
 As an alternative, we can run it with the second step included (`'1+1'`), which takes roughly 2 - 3 times as long and generates a smaller model:
@@ -168,36 +172,39 @@ model2
 % 
 %   struct with fields:
 % 
-%                      id: 'Human-GEM'
-%             description: 'Generic genome-scale metabolic model of Homo sapiens'
-%                    rxns: {7752×1 cell}
-%                    mets: {5490×1 cell}
-%                       S: [5490×7752 double]
-%                      lb: [7752×1 double]
-%                      ub: [7752×1 double]
-%                     rev: [7752×1 double]
-%                       c: [7752×1 double]
-%                       b: [5490×1 double]
+%                      id: 'HumanGEM'
+%                    name: 'Generic genome-scale metabolic model of Homo sapiens'
+%             description: ''
+%                 version: '2.0.0'
+%                    date: '2026-03-26'
+%              annotation: [1×1 struct]
+%                    rxns: {7406×1 cell}
+%                rxnNames: {7406×1 cell}
+%                    mets: {5444×1 cell}
+%                metNames: {5444×1 cell}
+%                       S: [5444×7406 double]
+%                      lb: [7406×1 double]
+%                      ub: [7406×1 double]
+%                     rev: [7406×1 double]
+%                       c: [7406×1 double]
+%                       b: [5444×1 double]
+%                   genes: {2363×1 cell}
+%                 grRules: {7406×1 cell}
+%              rxnGeneMat: [7406×2363 double]
+%              subSystems: {7406×1 cell}
+%                 eccodes: {7406×1 cell}
+%                rxnNotes: {7406×1 cell}
+%           rxnReferences: {7406×1 cell}
+%     rxnConfidenceScores: [7406×1 double]
+%                metComps: [5444×1 double]
+%                  inchis: {5444×1 cell}
+%             metFormulas: {5444×1 cell}
+%              metCharges: [5444×1 double]
 %                   comps: {9×1 cell}
 %               compNames: {9×1 cell}
-%                rxnNames: {7752×1 cell}
-%                 grRules: {7752×1 cell}
-%              rxnGeneMat: [7752×2494 double]
-%              subSystems: {7752×1 cell}
-%                 eccodes: {7752×1 cell}
-%                rxnNotes: {7752×1 cell}
-%                   genes: {2494×1 cell}
-%                metNames: {5490×1 cell}
-%                metComps: [5490×1 double]
-%                  inchis: {5490×1 cell}
-%             metFormulas: {5490×1 cell}
-%           rxnReferences: {7752×1 cell}
-%                 rxnFrom: {7752×1 cell}
-%                 metFrom: {5490×1 cell}
-%     rxnConfidenceScores: [7752×1 double]
-%              metCharges: [5490×1 int64]
-%                 version: '1.12.0'
-%              annotation: [1×1 struct]
+%          geneShortNames: {2363×1 cell}
+%                 metFrom: {5444×1 cell}
+%                 rxnFrom: {7406×1 cell}
 ```
 
 It is also possible to supply cell type for cases where tissues are subdivided into cell type, which is not the case here. The method also accepts proteomics data from Human Protein Atlas (HPA) and metabolomics data, but these are not demonstrated here.
@@ -298,8 +305,3 @@ ggsave(
 ```
 
 ![Structural comparison](img/StructCompftINIT.png){: style="width:95%"}
-
-
-
-
-

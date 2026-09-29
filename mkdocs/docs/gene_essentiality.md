@@ -1,7 +1,9 @@
 # Gene essentiality with DepMap
 
-!!! warning
-    The writing of these instructions is a work in progress, originality created through the pull request https://github.com/SysBioChalmers/Human-GEM/pull/574/. The instructions are not guaranteed to work, and assume background knowledge.
+!!! warning "Work in progress"
+    These instructions are a work in progress; they are not guaranteed to work and assume some background knowledge. They are being updated for Human-GEM v2.0.0.
+
+Gene essentiality prediction is one of the validations used for Human2: in [Luo *et al.* (2026) *PNAS*](https://doi.org/10.1073/pnas.2516511123), Human2 showed improved agreement (higher Matthews correlation coefficient) with CRISPR gene-essentiality screens, including DepMap, compared with Human1. This page describes how to reproduce such an analysis with DepMap data.
 
 ## Setup
 
