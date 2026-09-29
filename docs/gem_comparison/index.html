@@ -15,8 +15,11 @@
         <link rel="next" href="../gem_extraction_sc/">
       
       
+        
+      
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -24,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.fad675c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -43,11 +46,10 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -55,9 +57,6 @@
   
     <body dir="ltr">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -84,12 +83,12 @@
     <a href=".." title="Human-GEM Guide" class="md-header__button md-logo" aria-label="Human-GEM Guide" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -109,33 +108,38 @@
     </div>
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -146,6 +150,7 @@
     </div>
   </div>
 </div>
+      
     
     
   </nav>
@@ -176,7 +181,7 @@
     <a href=".." title="Human-GEM Guide" class="md-nav__button md-logo" aria-label="Human-GEM Guide" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Human-GEM Guide
@@ -194,9 +199,16 @@
       <a href=".." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Overview
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -214,9 +226,16 @@
       <a href="../installation/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Installation
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -234,9 +253,16 @@
       <a href="../getting_started/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Getting started
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -254,9 +280,16 @@
       <a href="../flux_balance_analysis/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Flux balance analysis
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -274,9 +307,16 @@
       <a href="../gem_extraction/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GEM extraction using ftINIT
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -303,9 +343,16 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
+    
+  
     GEM comparison
+  
+
+    
   </span>
+  
   
 
           <span class="md-nav__icon md-icon"></span>
@@ -314,9 +361,16 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GEM comparison
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -339,7 +393,9 @@
         <li class="md-nav__item">
   <a href="#prepare-the-gems" class="md-nav__link">
     <span class="md-ellipsis">
-      Prepare the GEMs
+      
+        Prepare the GEMs
+      
     </span>
   </a>
   
@@ -348,7 +404,9 @@
         <li class="md-nav__item">
   <a href="#compare-gem-structures" class="md-nav__link">
     <span class="md-ellipsis">
-      Compare GEM structures
+      
+        Compare GEM structures
+      
     </span>
   </a>
   
@@ -357,7 +415,9 @@
         <li class="md-nav__item">
   <a href="#compare-gem-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Compare GEM functions
+      
+        Compare GEM functions
+      
     </span>
   </a>
   
@@ -381,9 +441,43 @@
       <a href="../gem_extraction_sc/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     GEM extraction from scRNA-Seq data
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../enzyme_constrained/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enzyme-constrained models
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -401,9 +495,43 @@
       <a href="../gene_essentiality/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Gene essentiality with DepMap
+  
+
+    
   </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whole_body_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Whole-body models
+  
+
+    
+  </span>
+  
   
 
       </a>
@@ -421,9 +549,16 @@
       <a href="../additional_tools/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Additional tools
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -441,9 +576,16 @@
       <a href="../faq_troubleshoot/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     FAQs and troubleshooting
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -461,9 +603,16 @@
       <a href="../contact/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
+    
+  
     Contact
+  
+
+    
   </span>
+  
   
 
       </a>
@@ -500,7 +649,9 @@
         <li class="md-nav__item">
   <a href="#prepare-the-gems" class="md-nav__link">
     <span class="md-ellipsis">
-      Prepare the GEMs
+      
+        Prepare the GEMs
+      
     </span>
   </a>
   
@@ -509,7 +660,9 @@
         <li class="md-nav__item">
   <a href="#compare-gem-structures" class="md-nav__link">
     <span class="md-ellipsis">
-      Compare GEM structures
+      
+        Compare GEM structures
+      
     </span>
   </a>
   
@@ -518,7 +671,9 @@
         <li class="md-nav__item">
   <a href="#compare-gem-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Compare GEM functions
+      
+        Compare GEM functions
+      
     </span>
   </a>
   
@@ -534,77 +689,57 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
+
 
 
 <h1 id="structural-and-functional-comparison-of-gems">Structural and functional comparison of GEMs</h1>
 <p>A useful approach in comparing the metabolic network of different tissues or cell types is to compare their corresponding GEMs. There are many ways in which the structure and function of different GEMs can be compared, but this guide will focus on an approach similar to that employed in the Human-GEM <a href="https://doi.org/10.1126/scisignal.aaz1482">publication</a>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The model comparison approach presented here only applies to GEMs that were extracted from the same reference GEM, such that they share the same namespace (i.e., same reaction, metabolite, and gene ID types). </p>
+<p>The model comparison approach presented here only applies to GEMs that were extracted from the same reference GEM, such that they share the same namespace (i.e., same reaction, metabolite, and gene ID types).</p>
 </div>
 <h2 id="prepare-the-gems">Prepare the GEMs</h2>
-<p>To demonstrate some model comparison methods, we will present an example based on the Human-GEM publication. The data and GEMs can be retrieved from the <a href="https://doi.org/10.5281/zenodo.3577466">Zenodo repository</a> associated with the publication. </p>
-<p>Load the <code>.mat</code> file containing the tissue-specific GEMs that were extracted using GTEx RNA-Seq profiles.</p>
-<pre><code class="language-matlab">% replace '/my/path/' with the actual path on your machine
-load('/my/path/tINIT_GEMs/run_tINIT_outputs/GTEx/tINIT_GTEx_outputs.mat');
-</code></pre>
-<p>The <code>tINIT_GTEx_outputs.mat</code> will be loaded as a structure named <code>INIT_output</code>.</p>
-<pre><code class="language-matlab">INIT_output
-
-% INIT_output = 
-% 
-%   struct with fields:
-% 
-%        id: {30×1 cell}
-%     model: {30×1 cell}
-</code></pre>
+<p>To demonstrate the comparison methods, we use tissue-specific GEMs extracted from the GTEx tutorial data. For each of the 12 tissues in the dataset, the five samples were averaged and a model was extracted with ftINIT (<code>'1+0'</code>), as described in the <a href="../gem_extraction/">GEM extraction</a> section. This produces a cell array <code>models</code> of 12 tissue GEMs, each with its <code>id</code> set to the tissue name.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">load</span><span class="p">(</span><span class="s">'tissueModels.mat'</span><span class="p">);</span><span class="w">   </span><span class="c">% a cell array "models" of 12 tissue GEMs</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A cell array of models such as the one in the <code>model</code> field of the <code>INIT_output</code> structure can be generated by <code>models = {liverGEM; lungGEM; kidneyGEM; ... };</code>, where each GEM is a separate extracted model to be compared.</p>
+<p>A cell array of models such as <code>models</code> can be generated by <code>models = {liverGEM; lungGEM; kidneyGEM; ... };</code>, where each GEM is a separate extracted model to be compared. Setting a descriptive <code>models{i}.id</code> (e.g., the tissue name) makes the comparison plots easier to read.</p>
 </div>
-<p>Extract the fields as separate variables.</p>
-<pre><code class="language-matlab">model_ids = INIT_output.id;
-models = INIT_output.model;
-</code></pre>
-<p>For convenience, the model ID for each GEM was extracted and saved as a cell array in the <code>id</code> field of the <code>INIT_output</code> structure. However, this can be regenerated from the model array:</p>
-<pre><code class="language-matlab">model_ids = arrayfun(@(i) models{i}.id, (1:numel(models))', 'UniformOutput', false);
-</code></pre>
 <h2 id="compare-gem-structures">Compare GEM structures</h2>
 <p>The RAVEN <code>compareMultipleModels</code> function can be used to compare some basic features of different models such as reaction content and subsystem coverage.</p>
-<p>Call the comparison function with the model array <code>models</code> as input.</p>
-<pre><code class="language-matlab">res = compareMultipleModels(models);
+<p>Call the comparison function with the model array <code>models</code> as input.
+<div class="highlight"><pre><span></span><code><span class="n">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">compareMultipleModels</span><span class="p">(</span><span class="n">models</span><span class="p">);</span>
 
-%  Getting model IDs 
-% *** Done 
-% 
-% 
-%  Comparing subsystem utilization 
-% *** Done 
-% 
-% 
-%  Comparing model reaction correlations 
-% *** Done 
-% 
-% 
-%  Comparing model reaction structures 
-% *** Done
-</code></pre>
-<p>Take a look at the contents of the results structure <code>res</code>.</p>
-<pre><code class="language-matlab">res
+<span class="c">%  Getting model IDs </span>
+<span class="c">% *** Done </span>
+<span class="c">% </span>
+<span class="c">%  Comparing subsystem utilization </span>
+<span class="c">% *** Done </span>
+<span class="c">% </span>
+<span class="c">%  Comparing model reaction correlations </span>
+<span class="c">% *** Done </span>
+<span class="c">% </span>
+<span class="c">%  Comparing model reaction structures </span>
+<span class="c">% *** Done</span>
+</code></pre></div></p>
+<p>Take a look at the contents of the results structure <code>res</code>.
+<div class="highlight"><pre><span></span><code><span class="n">res</span>
 
-% res = 
-% 
-%   struct with fields:
-% 
-%          modelIDs: {30×1 cell}
-%        subsystems: [1×1 struct]
-%         reactions: [1×1 struct]
-%        structComp: [30×30 double]
-%     structCompMap: [30×3 double]
-</code></pre>
+<span class="s">%</span><span class="w"> </span><span class="s">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>
+<span class="c">% </span>
+<span class="c">%   struct with fields:</span>
+<span class="c">% </span>
+<span class="c">%          modelIDs: {12×1 cell}</span>
+<span class="c">%        subsystems: [1×1 struct]</span>
+<span class="c">%         reactions: [1×1 struct]</span>
+<span class="c">%        structComp: [12×12 double]</span>
+<span class="c">%     structCompMap: [12×3 double]</span>
+</code></pre></div></p>
 <p>Detail on the meaning of each output can be found in the <code>compareMultipleModels</code> function description (view using <code>help compareMultipleModels</code>), but a brief overview is provided here:</p>
 <table>
 <thead>
@@ -654,148 +789,120 @@ models = INIT_output.model;
 </table>
 <p><br/></p>
 <p>The <code>compareMultipleModels</code> function represents the reaction content of each GEM as a binary vector (missing reactions are 0, present reactions are 1) to enable the use of quantitative comparison metrics, such as Hamming distance. GEMs that share fewer reactions will be separated by a larger Hamming distance, whereas GEMs that contain many of the same reactions will exhibit a small Hamming distance.</p>
-<p>Visualize the reaction content Hamming similarity (1 - Hamming distance) among the GEMs using a clustergram.</p>
-<pre><code class="language-matlab">clustergram(res.structComp, 'Symmetric', false, 'Colormap', 'bone', 'RowLabels', res.modelIDs, 'ColumnLabels', res.modelIDs);
-</code></pre>
-<p><img alt="GEM Hamming distances" src="../img/hamming_dist_heatmap.png" style="width:95%" /></p>
+<p>Visualize the reaction content Hamming similarity (1 - Hamming distance) among the GEMs as a heatmap. The Human-GEM publication used the <code>clustergram</code> function, but that requires the MATLAB Bioinformatics Toolbox. The code below instead uses <code>imagesc</code> together with hierarchical clustering from the Statistics and Machine Learning Toolbox (<code>linkage</code>, <code>optimalleaforder</code>), so no Bioinformatics Toolbox is needed.
+<div class="highlight"><pre><span></span><code><span class="c">% order the models by clustering their reaction-content distances</span>
+<span class="n">D</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">structComp</span><span class="p">;</span><span class="w">             </span><span class="c">% Hamming distance</span>
+<span class="n">D</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">D</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">D</span><span class="o">'</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w">                     </span><span class="c">% enforce symmetry</span>
+<span class="n">D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">size</span><span class="p">(</span><span class="n">D</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">           </span><span class="c">% zero diagonal</span>
+<span class="n">order</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">optimalleaforder</span><span class="p">(</span><span class="n">linkage</span><span class="p">(</span><span class="n">squareform</span><span class="p">(</span><span class="n">D</span><span class="p">),</span><span class="w"> </span><span class="s">'average'</span><span class="p">),</span><span class="w"> </span><span class="n">squareform</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
+
+<span class="c">% plot the (reordered) similarity matrix</span>
+<span class="nb">figure</span><span class="p">;</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">structComp</span><span class="p">(</span><span class="n">order</span><span class="p">,</span><span class="w"> </span><span class="n">order</span><span class="p">));</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="nb">bone</span><span class="p">);</span><span class="w"> </span><span class="nb">colorbar</span><span class="p">;</span><span class="w"> </span><span class="n">axis</span><span class="w"> </span><span class="s">square</span><span class="p">;</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="w"> </span><span class="s">'XTick'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">),</span><span class="w"> </span><span class="s">'XTickLabel'</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">(</span><span class="n">order</span><span class="p">),</span><span class="w"> </span><span class="s">'XTickLabelRotation'</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">         </span><span class="s">'YTick'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">),</span><span class="w"> </span><span class="s">'YTickLabel'</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">(</span><span class="n">order</span><span class="p">),</span><span class="w"> </span><span class="s">'TickLabelInterpreter'</span><span class="p">,</span><span class="w"> </span><span class="s">'none'</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Reaction-content Hamming similarity'</span><span class="p">);</span>
+</code></pre></div>
+<img alt="GEM Hamming distances" src="../img/hamming_dist_heatmap.png" style="width:80%" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Given the generally poor plotting capabilities and limited color palette options in MATLAB, an option is to export the <code>res.structComp</code> matrix and/or other results to a csv or text file and import them into R, python, or some other package with more plotting flexibility.</p>
+<p>Given the generally limited plotting flexibility in MATLAB, another option is to export the <code>res.structComp</code> matrix and/or other results to a csv or text file and import them into R, python, or another package with more plotting flexibility.</p>
 </div>
-<p>The <code>structCompMap</code> field of the model comparison results structure contains a mapping of the GEMs' binary reaction vectors in reduced (3) dimensions using tSNE. Since 3D plots can be difficult to interpret, we can regenerate the mapping in 2 dimensions.</p>
-<pre><code class="language-matlab">rxn2Dmap = tsne(res.reactions.matrix', 'Distance', 'hamming', 'NumDimensions', 2, 'Perplexity', 5);
+<p>The <code>structCompMap</code> field of the model comparison results structure contains a mapping of the GEMs' binary reaction vectors in reduced (3) dimensions using tSNE. Since 3D plots can be difficult to interpret, we can regenerate the mapping in 2 dimensions.
+<div class="highlight"><pre><span></span><code><span class="nb">rng</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span><span class="c">% set random seed to make reproducible</span>
+<span class="n">rxn2Dmap</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tsne</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">reactions</span><span class="p">.</span><span class="n">matrix</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="s">'Distance'</span><span class="p">,</span><span class="w"> </span><span class="s">'hamming'</span><span class="p">,</span><span class="w"> </span><span class="s">'NumDimensions'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">'Perplexity'</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 
-% plot and label the GEMs in tSNE space
-scatter(rxn2Dmap(:,1), rxn2Dmap(:,2));
-hold on
-text(rxn2Dmap(:,1), rxn2Dmap(:,2), res.modelIDs);
-</code></pre>
-<p><img alt="GEM tSNE mapping" src="../img/hamming_dist_tsne.png" style="width:85%" /></p>
-<p>The Hamming distance heatmap and tSNE projection give an overall picture of how similar or different models are from one another, but it does not resolve the cause or biological meaning of those differences. A convenient source of biological context is the <code>subSystems</code> field in the model, which describes the metabolic subsystem or pathway to which reactions belong. We can therefore look at differences in reaction content in each of these subsystems to see which parts of metabolism differ most among the GEMs.</p>
-<p>To simplify the interpretation of results, select a subset of GEMs to analyze further.</p>
-<pre><code class="language-matlab">useModels = {'adipose tissue', 'blood', 'kidney', 'liver', 'muscle'};
-keep = ismember(res.modelIDs, useModels);
-subMat = res.subsystems.matrix(:, keep);
-</code></pre>
-<p>Calculate the percent difference of GEM subsystem coverage (number of reactions in the subsystem) from the mean coverage.</p>
-<pre><code class="language-matlab">subCoverage = (subMat - mean(subMat, 2)) ./ mean(subMat, 2) * 100;
-</code></pre>
-<p>Visualize the difference in subsystem coverage with a clustergram, including only subsystems with at least a 25% difference in one or more GEMs.</p>
-<pre><code class="language-matlab">% select subsystems to include in plot
-inclSub = any(abs(subCoverage) &gt; 25, 2);
-subNames = res.subsystems.ID(inclSub);
+<span class="c">% plot and label the GEMs in tSNE space</span>
+<span class="nb">figure</span><span class="p">;</span>
+<span class="nb">scatter</span><span class="p">(</span><span class="n">rxn2Dmap</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rxn2Dmap</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s">'filled'</span><span class="p">);</span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span>
+<span class="nb">text</span><span class="p">(</span><span class="n">rxn2Dmap</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">rxn2Dmap</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">,</span><span class="w"> </span><span class="s">'Interpreter'</span><span class="p">,</span><span class="w"> </span><span class="s">'none'</span><span class="p">);</span>
+</code></pre></div>
+<img alt="GEM tSNE mapping" src="../img/hamming_dist_tsne.png" style="width:80%" /></p>
+<p>The Hamming distance heatmap and tSNE projection give an overall picture of how similar or different models are from one another, but they do not resolve the cause or biological meaning of those differences. A convenient source of biological context is the <code>subSystems</code> field in the model, which describes the metabolic subsystem or pathway to which reactions belong. We can therefore look at differences in reaction content in each of these subsystems to see which parts of metabolism differ most among the GEMs.</p>
+<p>To simplify the interpretation of results, select a subset of GEMs to analyze further.
+<div class="highlight"><pre><span></span><code><span class="n">useModels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">'Liver'</span><span class="p">,</span><span class="w"> </span><span class="s">'Lung'</span><span class="p">,</span><span class="w"> </span><span class="s">'Muscle - Skeletal'</span><span class="p">,</span><span class="w"> </span><span class="s">'Spleen'</span><span class="p">,</span><span class="w"> </span><span class="s">'Whole Blood'</span><span class="p">};</span>
+<span class="n">keep</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ismember</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">,</span><span class="w"> </span><span class="n">useModels</span><span class="p">);</span>
+<span class="n">subMat</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">subsystems</span><span class="p">.</span><span class="n">matrix</span><span class="p">(:,</span><span class="w"> </span><span class="n">keep</span><span class="p">);</span>
+</code></pre></div></p>
+<p>Calculate the percent difference of GEM subsystem coverage (number of reactions in the subsystem) from the mean coverage.
+<div class="highlight"><pre><span></span><code><span class="n">subCoverage</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">subMat</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">subMat</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">./</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">subMat</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Visualize the difference in subsystem coverage as a heatmap, including only subsystems with at least a 25% difference in one or more GEMs. Again we avoid <code>clustergram</code>, clustering the rows with <code>linkage</code>/<code>optimalleaforder</code> and building a blue-white-red diverging colormap by hand.
+<div class="highlight"><pre><span></span><code><span class="c">% select subsystems to include in the plot</span>
+<span class="n">inclSub</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">subCoverage</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">M</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="n">subCoverage</span><span class="p">(</span><span class="n">inclSub</span><span class="p">,</span><span class="w"> </span><span class="p">:);</span>
+<span class="n">subNames</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">subsystems</span><span class="p">.</span><span class="n">ID</span><span class="p">(</span><span class="n">inclSub</span><span class="p">);</span>
 
-% generate clustergram
-cg = clustergram(subCoverage(inclSub,:), 'Colormap', redbluecmap, 'DisplayRange', 100, 'rowLabels', subNames, 'columnLabels', useModels, 'ShowDendrogram', 'OFF');
-</code></pre>
-<p><img alt="GEM subsystem comparison" src="../img/subsys_coverage_heatmap.png" style="width:60%" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>The <code>clustergram</code> function is very limited in how the produced heatmap can be modified. After running the <code>cg = clustergram(...)</code> command, close the figure and use <code>plot(cg)</code> to render a new version of the heatmap that has more editing options.</p>
-</div>
+<span class="c">% blue-white-red diverging colormap (no Bioinformatics Toolbox required)</span>
+<span class="n">half</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<span class="n">rwb</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">[</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">half</span><span class="p">)</span><span class="w"> </span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">half</span><span class="p">)]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">        </span><span class="p">[</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">half</span><span class="p">)</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">half</span><span class="p">)]</span><span class="o">'</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">        </span><span class="p">[</span><span class="nb">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">half</span><span class="p">)</span><span class="w"> </span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">half</span><span class="p">)]</span><span class="o">'</span><span class="w"> </span><span class="p">];</span>
+
+<span class="c">% cluster the rows (subsystems) and plot</span>
+<span class="n">rowOrder</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">optimalleaforder</span><span class="p">(</span><span class="n">linkage</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="s">'average'</span><span class="p">,</span><span class="w"> </span><span class="s">'euclidean'</span><span class="p">),</span><span class="w"> </span><span class="n">pdist</span><span class="p">(</span><span class="n">M</span><span class="p">));</span>
+<span class="nb">figure</span><span class="p">;</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="n">M</span><span class="p">(</span><span class="n">rowOrder</span><span class="p">,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="w"> </span><span class="mi">100</span><span class="p">]);</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="n">rwb</span><span class="p">);</span><span class="w"> </span><span class="nb">colorbar</span><span class="p">;</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="w"> </span><span class="s">'XTick'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">sum</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span><span class="w"> </span><span class="s">'XTickLabel'</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span><span class="w"> </span><span class="s">'XTickLabelRotation'</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">         </span><span class="s">'YTick'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">subNames</span><span class="p">),</span><span class="w"> </span><span class="s">'YTickLabel'</span><span class="p">,</span><span class="w"> </span><span class="n">subNames</span><span class="p">(</span><span class="n">rowOrder</span><span class="p">),</span><span class="w"> </span><span class="s">'TickLabelInterpreter'</span><span class="p">,</span><span class="w"> </span><span class="s">'none'</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'Subsystem coverage difference from mean (%)'</span><span class="p">);</span>
+</code></pre></div>
+<img alt="GEM subsystem comparison" src="../img/subsys_coverage_heatmap.png" style="width:60%" /></p>
 <h2 id="compare-gem-functions">Compare GEM functions</h2>
 <p>In addition to GEM structure, the functionality of GEMs can be compared to provide insight into differences in their metabolic activity. One way in which the function of a GEM can be assessed is by evaluating its ability to perform different metabolic tasks.</p>
-<p>The GTEx tissue GEMs used in this example were generated using tINIT with a list of 57 essential tasks (see the <a href="../gem_extraction/">GEM extraction</a> section of this guide for details). Therefore, comparing the GEMs' ability to complete these 57 tasks would be highly uninteresting because they were all generated with the requirement that these tasks are functional. For a more interesting comparison, we will instead use a different list of 256 metabolic tasks.</p>
-<p>To speed up the calculation and to narrow the focus, we will include only a few of the GEMs in this comparison.</p>
-<pre><code class="language-matlab">useModels = {'adipose tissue', 'blood', 'kidney', 'liver', 'muscle'};
-keep = ismember(res.modelIDs, useModels);
-</code></pre>
-<p>The larger metabolic task file <code>metabolicTasks_Full.xlsx</code> can be found in the <code>/data/metabolicTasks/</code> subdirectory of the Human-GEM repository.</p>
-<pre><code class="language-matlab">% replace '/my/path/' with the actual path on your machine
-taskFileName = '/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Full.xlsx';
-</code></pre>
-<p>Re-run the <code>compareMultipleModels</code> function, now including the location of the metabolic task file.</p>
-<pre><code class="language-matlab">res_func = compareMultipleModels(models(keep), false, false, [], true, taskFile);
-
-%  Getting model IDs 
-% *** Done 
-% 
-% 
-%  Comparing subsystem utilization 
-% *** Done 
-% 
-% 
-%  Comparing model reaction correlations 
-% *** Done 
-% 
-% 
-%  Comparing model reaction structures 
-% *** Done 
-% 
-% 
-%  Checking model performance on specified tasks. 
-% 
-%  Checking model # 1 
-% ERROR: Could not find all inputs in &quot;[71] Cystine de novo synthesis (minimal substrates, minimal excretion)&quot;
-% 
-%  Checking model # 2 
-% ERROR: Could not find all inputs in &quot;[71] Cystine de novo synthesis (minimal substrates, minimal excretion)&quot;
-% ERROR: Could not find all outputs in &quot;[103] Heme de novo synthesis (minimal substrates, physiological excretion)&quot;
-% ERROR: Could not find all inputs in &quot;[249] Bilirubin conjugation (minimal substrates, physiological excretion)&quot;
-% 
-%  Checking model # 3 
-% ERROR: Could not find all inputs in &quot;[71] Cystine de novo synthesis (minimal substrates, minimal excretion)&quot;
-% 
-%  Checking model # 4 
-% ERROR: Could not find all inputs in &quot;[71] Cystine de novo synthesis (minimal substrates, minimal excretion)&quot;
-% 
-%  Checking model # 5 
-% ERROR: Could not find all inputs in &quot;[71] Cystine de novo synthesis (minimal substrates, minimal excretion)&quot;
-% ERROR: Could not find all inputs in &quot;[249] Bilirubin conjugation (minimal substrates, physiological excretion)&quot;
-% *** Done 
-</code></pre>
+<p>The tissue GEMs used in this example were generated with the list of 57 essential tasks (see the <a href="../gem_extraction/">GEM extraction</a> section of this guide for details). Therefore, comparing the GEMs' ability to complete these 57 tasks would be highly uninteresting because they were all generated with the requirement that these tasks are functional. For a more interesting comparison, we will instead use the larger list of metabolic tasks.</p>
+<p>To speed up the calculation and to narrow the focus, we will include only a few of the GEMs in this comparison (the same subset as above).
+<div class="highlight"><pre><span></span><code><span class="n">useModels</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">'Liver'</span><span class="p">,</span><span class="w"> </span><span class="s">'Lung'</span><span class="p">,</span><span class="w"> </span><span class="s">'Muscle - Skeletal'</span><span class="p">,</span><span class="w"> </span><span class="s">'Spleen'</span><span class="p">,</span><span class="w"> </span><span class="s">'Whole Blood'</span><span class="p">};</span>
+<span class="n">keep</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ismember</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">,</span><span class="w"> </span><span class="n">useModels</span><span class="p">);</span>
+</code></pre></div></p>
+<p>The larger metabolic task file <code>metabolicTasks_Full.txt</code> can be found in the <code>/data/metabolicTasks/</code> subdirectory of the Human-GEM repository.
+<div class="highlight"><pre><span></span><code><span class="c">% replace '/my/path/' with the actual path on your machine</span>
+<span class="n">taskFile</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'/my/path/Human-GEM/data/metabolicTasks/metabolicTasks_Full.txt'</span><span class="p">;</span>
+</code></pre></div></p>
+<p>Re-run the <code>compareMultipleModels</code> function, now including the location of the metabolic task file.
+<div class="highlight"><pre><span></span><code><span class="n">res_func</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">compareMultipleModels</span><span class="p">(</span><span class="n">models</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="n">taskFile</span><span class="p">);</span>
+</code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The ERROR messages here are not actual errors, but indicate that a task was failed because the GEM was missing one or more metabolites involved in the test.</p>
+<p>During the task check, RAVEN prints <code>ERROR</code> messages for tasks that a GEM cannot complete (e.g., "Could not find all inputs ..."). These are not actual errors, but indicate that a task failed because the GEM was missing one or more metabolites involved in the test.</p>
 </div>
-<p>The results structure will now have an additional <code>funcComp</code> field.</p>
-<pre><code class="language-matlab">res_func.funcComp
+<p>The results structure will now have an additional <code>funcComp</code> field.
+<div class="highlight"><pre><span></span><code><span class="n">res_func</span><span class="p">.</span><span class="n">funcComp</span>
 
-% ans = 
-% 
-%   struct with fields:
-% 
-%     matrix: [256×5 double]
-%      tasks: {256×1 cell}
-</code></pre>
+<span class="c">% ans = </span>
+<span class="c">% </span>
+<span class="c">%   struct with fields:</span>
+<span class="c">% </span>
+<span class="c">%     matrix: [257×5 double]</span>
+<span class="c">%      tasks: {257×1 cell}</span>
+</code></pre></div></p>
 <p>The <code>matrix</code> subfield is a binary matrix indicating whether each task passed (1) or failed (0) in each GEM, and the <code>tasks</code> subfield contains the name of the evaluated tasks.</p>
-<p>Identify which tasks differed among the GEMs (i.e., not all passed or all failed).</p>
-<pre><code class="language-matlab">isDiff = ~all(res_func.funcComp.matrix == 0, 2) &amp; ~all(res_func.funcComp.matrix == 1, 2);
-diffTasks = res_func.funcComp.tasks(isDiff)
+<p>Identify which tasks differed among the GEMs (i.e., not all passed or all failed).
+<div class="highlight"><pre><span></span><code><span class="n">isDiff</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">~</span><span class="nb">all</span><span class="p">(</span><span class="n">res_func</span><span class="p">.</span><span class="n">funcComp</span><span class="p">.</span><span class="n">matrix</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">~</span><span class="nb">all</span><span class="p">(</span><span class="n">res_func</span><span class="p">.</span><span class="n">funcComp</span><span class="p">.</span><span class="n">matrix</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="n">diffTasks</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res_func</span><span class="p">.</span><span class="n">funcComp</span><span class="p">.</span><span class="n">tasks</span><span class="p">(</span><span class="n">isDiff</span><span class="p">)</span>
 
-% diffTasks =
-% 
-%   18×1 cell array
-% 
-%     {'ATP salvage from Hypoxanthine'                                                             }
-%     {'Gluconeogenesis from Alanine'                                                              }
-%     {'Arginine de novo synthesis (minimal substrates, minimal excretion)'                        }
-%     {'Glycine de novo synthesis (minimal substrates, minimal excretion)'                         }
-%     {'Proline de novo synthesis (minimal substrates, minimal excretion)'                         }
-%     {'Tyrosine de novo synthesis (minimal substrates with AA, minimal excretion)'                }
-%     {'Ornithine degradation'                                                                     }
-%     {'Urea from alanine'                                                                         }
-%     {'Urea from glutamine'                                                                       }
-%     {'Creatine de novo synthesis (minimal substrates, physiological excretion)'                  }
-%     {'Heme de novo synthesis (minimal substrates, physiological excretion)'                      }
-%     {'NAD de novo synthesis (minimal substrates, physiological excretion)'                       }
-%     {'NADP de novo synthesis (minimal substrates, physiological excretion)'                      }
-%     {'Acetoacetate de novo synthesis'                                                            }
-%     {'DHA de novo synthesis (minimal substrates, physiological excretion)'                       }
-%     {'Taurocholate de novo synthesis and excretion (minimal substrates, physiological excretion)'}
-%     {'Bilirubin conjugation (minimal substrates, physiological excretion)'                       }
-%     {'NH3 import and degradation'                                                                }
-</code></pre>
-<p>Generate a scatter plot to visualize GEM performance on the subset of tasks that differed.</p>
-<pre><code class="language-matlab">% visualize the matrix
-spy(res_func.funcComp.matrix(isDiff,:), 30);
+<span class="c">% diffTasks =</span>
+<span class="c">% </span>
+<span class="c">%   0×1 empty cell array</span>
+</code></pre></div></p>
+<p>In this example, none of the 257 tasks differed among the five tissue GEMs — each task was either performed by all of them or by none of them, so <code>diffTasks</code> is empty. This is a consequence of the <code>'1+0'</code> ftINIT setup used to generate the models, which retains most reactions that lack gene rules and therefore yields relatively complete models with shared task capabilities.</p>
+<p>To reveal finer functional differences between tissues, generate the models with a more stringent extraction — for example the <code>'1+1'</code> setup, which removes more reactions — or use the tINIT models from the Human-GEM <a href="https://doi.org/10.1126/scisignal.aaz1482">publication</a>. When tasks do differ, the difference can be visualized with a <code>spy</code> plot of the tasks that vary:
+<div class="highlight"><pre><span></span><code><span class="nb">figure</span><span class="p">;</span>
+<span class="nb">spy</span><span class="p">(</span><span class="n">res_func</span><span class="p">.</span><span class="n">funcComp</span><span class="p">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">isDiff</span><span class="p">,:),</span><span class="w"> </span><span class="mi">30</span><span class="p">);</span>
+<span class="nb">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="w"> </span><span class="s">'XTick'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">useModels</span><span class="p">),</span><span class="w"> </span><span class="s">'XTickLabel'</span><span class="p">,</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">modelIDs</span><span class="p">(</span><span class="n">keep</span><span class="p">),</span><span class="w"> </span><span class="s">'XTickLabelRotation'</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="k">...</span>
+<span class="w">    </span><span class="s">'YTick'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">diffTasks</span><span class="p">),</span><span class="w"> </span><span class="s">'YTickLabel'</span><span class="p">,</span><span class="w"> </span><span class="n">diffTasks</span><span class="p">,</span><span class="w"> </span><span class="s">'YAxisLocation'</span><span class="p">,</span><span class="w"> </span><span class="s">'right'</span><span class="p">,</span><span class="w"> </span><span class="s">'TickLabelInterpreter'</span><span class="p">,</span><span class="w"> </span><span class="s">'none'</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="w"> </span><span class="s">''</span><span class="p">);</span>
+</code></pre></div></p>
 
-% apply some formatting changes
-set(gca, 'XTick', 1:numel(useModels), 'XTickLabel', useModels, 'XTickLabelRotation', 90, ...
-    'YTick', 1:numel(diffTasks), 'YTickLabel', diffTasks, 'YAxisLocation', 'right');
-xlabel(gca, '');
-</code></pre>
-<p><img alt="GEM task comparison" src="../img/met_task_compare.png" style="width:90%" /></p>
+
+
+
+
+
+
 
 
 
@@ -806,6 +913,7 @@ xlabel(gca, '');
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
@@ -834,10 +942,13 @@ xlabel(gca, '');
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
